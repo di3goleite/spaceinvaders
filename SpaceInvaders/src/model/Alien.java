@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package tests;
+package model;
 
 /**
  *
- * @author Dracul
+ * @author Lucas
  */
-public class Test {
+public class Alien {
+    
     
 }
