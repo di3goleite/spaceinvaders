@@ -12,5 +12,5 @@ package model;
  */
 public class Alien {
     
-    
+    private int x,y;
 }
