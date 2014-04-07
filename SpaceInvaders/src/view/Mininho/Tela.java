@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.Mininho;
 
 import java.awt.*;
 import javax.swing.*;
