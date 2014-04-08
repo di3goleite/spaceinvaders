@@ -5,13 +5,11 @@
  */
 package view.Oto;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.CardLayout;
 import java.awt.Component;
-import java.awt.Transparency;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,16 +20,27 @@ public class GameBoy extends javax.swing.JFrame {
     private Component history;
     private Component beforeGame;
     private Component inGame;
+    
+    private CardLayout layout;
 
     /**
      * Creates new form GameBoy
      */
     public GameBoy() {
         initComponents();
-
-        this.beforeGame = new BeforeGame(this);
+        this.setTitle("Space INVADERS - KAIZOKU ONI, ORE WA NARU");
         
-        panelCamada1_GameBoy.setLayout(new BorderLayout());
+        layout = new CardLayout();
+        panelCamada1_GameBoy.setLayout(layout);
+        //
+        this.beforeGame = new BeforeGame(this);
+        panelCamada1_GameBoy.add(beforeGame, "fi");
+        //
+        this.history = new History(this);
+        panelCamada1_GameBoy.add(history, "tw");
+        //
+        this.inGame = new InGame(20, 20, 400, 300);
+        panelCamada1_GameBoy.add(inGame, "th");
         
     }
 
@@ -118,28 +127,22 @@ public class GameBoy extends javax.swing.JFrame {
     private javax.swing.JPanel panelCamada1_GameBoy;
     // End of variables declaration//GEN-END:variables
 
+   public JPanel get() {
+       return panelCamada1_GameBoy;
+   }
+    
     void Screen() {
-        
-       panelCamada1_GameBoy.add(beforeGame, BorderLayout.CENTER);
+    
+        layout.show(panelCamada1_GameBoy, "fi");
     }
 
     void startHistory() {
-
-        this.history = new History();
-        panelCamada1_GameBoy.add(history, BorderLayout.CENTER);
         
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            JOptionPane.showInputDialog(ex.getMessage());
-        }
-
-        startGame();
+        layout.show(panelCamada1_GameBoy, "tw");
     }
 
     void startGame() {
         
-        this.inGame = new InGame();
-        panelCamada1_GameBoy.add(inGame, BorderLayout.CENTER);
+        layout.show(panelCamada1_GameBoy, "th");        
     }
 }
