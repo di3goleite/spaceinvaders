@@ -6,6 +6,8 @@
 
 package view.Oto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marc
@@ -61,7 +63,14 @@ public class BeforeGame extends javax.swing.JPanel {
 
         ButtonHelp.setText("HELP");
 
+        ButtonAbout.setBackground(new java.awt.Color(0, 0, 0));
+        ButtonAbout.setForeground(new java.awt.Color(255, 255, 255));
         ButtonAbout.setText("ABOUT");
+        ButtonAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAboutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCamada1_BeforeGameLayout = new javax.swing.GroupLayout(panelCamada1_BeforeGame);
         panelCamada1_BeforeGame.setLayout(panelCamada1_BeforeGameLayout);
@@ -105,7 +114,13 @@ public class BeforeGame extends javax.swing.JPanel {
     private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
         
         gameBoy.startHistory();
+        
     }//GEN-LAST:event_buttonPlayActionPerformed
+
+    private void ButtonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAboutActionPerformed
+        
+        JOptionPane.showConfirmDialog(this, "Developed for us --> [DiegoBoy], [Eu], [Nininho] and [Stealth] ... ", "Informations", JOptionPane.CLOSED_OPTION);
+    }//GEN-LAST:event_ButtonAboutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,17 +6,26 @@
 
 package view.Oto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marc
  */
 public class History extends javax.swing.JPanel {
 
+    GameBoy gameBoy;
+    
     /**
      * Creates new form History
      */
     public History() {
         initComponents();
+    }
+    
+    public History(GameBoy gameBoy) {
+        this();
+        this.gameBoy = gameBoy;
     }
 
     /**
@@ -30,18 +39,28 @@ public class History extends javax.swing.JPanel {
 
         PanelCamada1_History = new javax.swing.JPanel();
         InitialImage = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        InitialImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tl1.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tl1.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelCamada1_HistoryLayout = new javax.swing.GroupLayout(PanelCamada1_History);
         PanelCamada1_History.setLayout(PanelCamada1_HistoryLayout);
         PanelCamada1_HistoryLayout.setHorizontalGroup(
             PanelCamada1_HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(InitialImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelCamada1_HistoryLayout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InitialImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelCamada1_HistoryLayout.setVerticalGroup(
             PanelCamada1_HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(InitialImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -56,9 +75,15 @@ public class History extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       gameBoy.startGame(); 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel InitialImage;
     private javax.swing.JPanel PanelCamada1_History;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
