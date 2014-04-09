@@ -29,7 +29,7 @@ public class GameBoy extends javax.swing.JFrame {
     public GameBoy() {
         initComponents();
         this.setTitle("Space INVADERS - KAIZOKU ONI, ORE WA NARU");
-        
+        this.setResizable(false);
         layout = new CardLayout();
         panelCamada1_GameBoy.setLayout(layout);
         //
