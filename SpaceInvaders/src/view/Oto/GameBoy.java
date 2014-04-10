@@ -7,6 +7,9 @@ package view.Oto;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -38,9 +41,26 @@ public class GameBoy extends javax.swing.JFrame {
         //
         this.history = new History(this);
         panelCamada1_GameBoy.add(history, "tw");
+        
         //
-        this.inGame = new InGame(20, 20, 400, 300);
+        this.inGame = new InGame(20, 20, 400, 550);
         panelCamada1_GameBoy.add(inGame, "th");
+        
+        inGame.addKeyListener(new KeyAdapter (){
+
+            @Override
+            public void keyPressed(KeyEvent evt) {
+               System.out.println("Acola.");
+        if(evt.getKeyCode() == KeyEvent.VK_A) { // Esquerda (A)  65
+            ((InGame)inGame).setXY(10,10);
+        } else if(evt.getKeyCode() == KeyEvent.VK_D) { // (D) 68
+            ((InGame)inGame).setXY(10,10);
+        }
+        
+        ((InGame)inGame).sideSide(10, 10);
+            }
+
+        });
         
     }
 

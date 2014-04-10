@@ -8,6 +8,7 @@ package view.Oto;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Array;
 import java.util.Scanner;
@@ -59,9 +60,9 @@ public class InGame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
             }
         });
 
@@ -77,16 +78,12 @@ public class InGame extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-                
-        if(evt.getKeyCode() == KeyEvent.VK_A) { // Esquerda (A)  65
-            x-= 10;
-        } else if(evt.getKeyCode() == KeyEvent.VK_D) { // (D) 68
-            x+= 10;
-        }
-        
-        sideSide(x, y);
-    }//GEN-LAST:event_formKeyPressed
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+      System.out.println("Aqui");
+       x-= 10;
+       sideSide(x, y);
+    }//GEN-LAST:event_formMouseClicked
+
     
     public void sideSide(int x, int y) {
       
