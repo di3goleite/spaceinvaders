@@ -4,3 +4,5 @@
 *.jar
 *.war
 *.ear
+/SpaceInvaders/nbproject/private/
+/SpaceInvaders/build/
