@@ -131,6 +131,7 @@ public class GameBoy extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
 
                 GameBoy GB = new GameBoy();
@@ -162,7 +163,7 @@ public class GameBoy extends javax.swing.JFrame {
     }
 
     void startGame() {
-        
+    
         layout.show(panelCamada1_GameBoy, "th");      
     }
 }
