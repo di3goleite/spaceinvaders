@@ -143,6 +143,6 @@ public class GameBoy extends javax.swing.JFrame {
 
     void startGame() {
         
-        layout.show(panelCamada1_GameBoy, "th");        
+        layout.show(panelCamada1_GameBoy, "th");      
     }
 }

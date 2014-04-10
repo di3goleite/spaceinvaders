@@ -6,8 +6,12 @@
 
 package view.Oto;
 
-import java.awt.BorderLayout;
 import java.awt.Graphics;
+import java.lang.reflect.Array;
+import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 
 /**
  *
@@ -15,31 +19,9 @@ import java.awt.Graphics;
  */
 public class InGame extends javax.swing.JPanel {
     
-    
-     private int x, y;
+    private int x, y;
     private int side, height;
-
-    @Override
-    protected void paintComponent(Graphics g) {
-
-        g.drawRect(side, height, x, y);
-    }
-
-    public void setXY(int x, int y) {
-
-        this.x = x;
-        this.y = y;
-    }
     
-    public int getX() {
-        return x;
-    }
-    
-    public int getY() {
-        return y;
-    }
-    
-            
     /**
      * Creates new form InGame
      */
@@ -51,6 +33,17 @@ public class InGame extends javax.swing.JPanel {
 
         this.x = x;
         this.y = y;
+        
+        this.repaint();
+        
+       // PanelCamada1_InGame.repaint();
+    }
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+
+        g.drawRect(side, height, x, y);
+        g.fillRect(side, height, x, y);
     }
        
     /**
@@ -62,58 +55,67 @@ public class InGame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelCamada1_InGame = new javax.swing.JPanel();
-
-        PanelCamada1_InGame.addKeyListener(new java.awt.event.KeyAdapter() {
+        addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PanelCamada1_InGameKeyPressed(evt);
+                formKeyPressed(evt);
             }
         });
-
-        javax.swing.GroupLayout PanelCamada1_InGameLayout = new javax.swing.GroupLayout(PanelCamada1_InGame);
-        PanelCamada1_InGame.setLayout(PanelCamada1_InGameLayout);
-        PanelCamada1_InGameLayout.setHorizontalGroup(
-            PanelCamada1_InGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        PanelCamada1_InGameLayout.setVerticalGroup(
-            PanelCamada1_InGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelCamada1_InGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelCamada1_InGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PanelCamada1_InGameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelCamada1_InGameKeyPressed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         
-        int x = this.getX(), 
-            y = this.getY();
-        if(evt.getKeyCode() == 37) { //Esquerda
-            x -= 10;                
-        } else if(evt.getKeyCode() == 39) {
-            x += 10;
-        }    
-        this.sideSide(x, y);
-    }//GEN-LAST:event_PanelCamada1_InGameKeyPressed
+        if(evt.getKeyCode() == 65) { // Esquerda (A) 
+            x-= 10;
+        } else if(evt.getKeyCode() == 68) { // (D)
+            x+= 10;
+        }
+        sideSide(x, y);
+            
+    }//GEN-LAST:event_formKeyPressed
 
     public void sideSide(int x, int y) {
       
         this.setXY(x, y);
         this.repaint();
-    }
         
+       // PanelCamada1_InGame.repaint();
+    }
+     
+    public void setXY(int x, int y) {
+
+        this.x = x;
+        this.y = y;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelCamada1_InGame;
     // End of variables declaration//GEN-END:variables
 
+      public static void main(String[] args) {
+          
+        JFrame oi = new JFrame("killllakiu");
+        oi.setVisible(true);
+        InGame kill = new InGame(20, 20, 400, 300);
+        kill.setVisible(true);
+        oi.setSize(800, 640);  //tamanho da tela
+        oi.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  //metodo como a aplicação é fechada
+        oi.setResizable(false);
+        oi.setContentPane(kill);
+        kill.repaint();
+
+          Scanner li = new Scanner(System.in);
+         while(li.hasNext()) {
+             System.out.println("Akie: "+li.nextLine());
+         }
+    }
 }
