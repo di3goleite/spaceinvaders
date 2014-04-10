@@ -7,6 +7,7 @@
 package view.Oto;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.lang.reflect.Array;
 import java.util.Scanner;
 import javax.swing.JFrame;
@@ -42,8 +43,8 @@ public class InGame extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
 
-        g.drawRect(side, height, x, y);
-        g.fillRect(side, height, x, y);
+        g.drawRect(x, y, side, height);
+        g.fillRect(x, y, side, height);
     }
        
     /**
@@ -75,11 +76,12 @@ public class InGame extends javax.swing.JPanel {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         
-        if(evt.getKeyCode() == 65) { // Esquerda (A) 
+        if(evt.getKeyCode() == KeyEvent.VK_A) { // Esquerda (A)  65
             x-= 10;
-        } else if(evt.getKeyCode() == 68) { // (D)
+        } else if(evt.getKeyCode() == KeyEvent.VK_D) { // (D) 68
             x+= 10;
         }
+        
         sideSide(x, y);
             
     }//GEN-LAST:event_formKeyPressed
@@ -105,7 +107,7 @@ public class InGame extends javax.swing.JPanel {
           
         JFrame oi = new JFrame("killllakiu");
         oi.setVisible(true);
-        InGame kill = new InGame(20, 20, 400, 300);
+        InGame kill = new InGame(30, 20, 400, 300);
         kill.setVisible(true);
         oi.setSize(800, 640);  //tamanho da tela
         oi.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  //metodo como a aplicação é fechada
@@ -113,9 +115,5 @@ public class InGame extends javax.swing.JPanel {
         oi.setContentPane(kill);
         kill.repaint();
 
-          Scanner li = new Scanner(System.in);
-         while(li.hasNext()) {
-             System.out.println("Akie: "+li.nextLine());
-         }
     }
 }
