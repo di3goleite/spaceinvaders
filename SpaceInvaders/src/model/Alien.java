@@ -10,13 +10,7 @@ package model;
  *
  * @author Lucas
  */
-public class SpaceInvaders {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Alien {
     
+    private int x,y;
 }

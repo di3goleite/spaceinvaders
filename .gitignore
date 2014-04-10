@@ -5,4 +5,9 @@
 *.war
 *.ear
 /SpaceInvaders/nbproject/private/
+<<<<<<< HEAD
 /SpaceInvaders/build/
+=======
+/SpaceInvaders/build/
+/SpaceInvaders/dist/
+>>>>>>> a9c1d15f4fe780ccaeb0c0eef5e59b53c6ecf02b
