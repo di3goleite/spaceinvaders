@@ -75,7 +75,7 @@ public class InGame extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        
+                
         if(evt.getKeyCode() == KeyEvent.VK_A) { // Esquerda (A)  65
             x-= 10;
         } else if(evt.getKeyCode() == KeyEvent.VK_D) { // (D) 68
@@ -83,9 +83,8 @@ public class InGame extends javax.swing.JPanel {
         }
         
         sideSide(x, y);
-            
     }//GEN-LAST:event_formKeyPressed
-
+    
     public void sideSide(int x, int y) {
       
         this.setXY(x, y);
