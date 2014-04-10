@@ -6,6 +6,7 @@
 
 package view.Oto;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Array;
@@ -42,7 +43,9 @@ public class InGame extends javax.swing.JPanel {
     
     @Override
     protected void paintComponent(Graphics g) {
-
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, 800, 600);
+            g.setColor(Color.BLACK);
         g.drawRect(x, y, side, height);
         g.fillRect(x, y, side, height);
     }
