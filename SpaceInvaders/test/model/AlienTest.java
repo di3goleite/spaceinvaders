@@ -50,6 +50,14 @@ public class AlienTest {
         assertFalse(x==a.getPositionX());
         assertEquals(x+10, a.getPositionX());
         assertEquals(y, a.getPositionY());
+        
+        x=a.getPositionX();
+        y=a.getPositionY();
+        a.mover(a.getPositionX(), a.getPositionY()+10);
+        assertFalse(y==a.getPositionY());
+        assertEquals(x, a.getPositionX());
+        assertEquals(y+10, a.getPositionY());
+        
     }
     
 }
