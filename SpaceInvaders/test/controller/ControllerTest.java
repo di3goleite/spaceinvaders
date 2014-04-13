@@ -6,6 +6,7 @@
 
 package controller;
 
+import model.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,6 +20,7 @@ import static org.junit.Assert.*;
  */
 public class ControllerTest {
     
+    Player p=new Player(0,0);
     public ControllerTest() {
     }
     
@@ -39,9 +41,15 @@ public class ControllerTest {
     }
 
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void moverPlayertest() {
+    
+        int x=p.getPositionX();
+        int y=p.getPositionY();
+        p.mover(p.getPositionX()+10, p.getPositionY());
+        assertFalse(x==p.getPositionX());
+        assertEquals(x+10, p.getPositionX());
+        assertEquals(y, p.getPositionY());
+        
     }
     
 }
