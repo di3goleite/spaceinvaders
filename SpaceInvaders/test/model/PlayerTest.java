@@ -20,25 +20,44 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
     Player p=new Player(0,0);
+
+    /**
+     *
+     */
     public PlayerTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
     
+    /**
+     *
+     */
     @Test
     public void moverTest(){
      
@@ -51,10 +70,13 @@ public class PlayerTest {
        
     }
     
+    /**
+     *
+     */
     @Test
     public void atiraTest(){
         
-        p.aTira();
+        p.atira();
     }
     
 }

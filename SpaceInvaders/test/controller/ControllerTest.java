@@ -21,33 +21,52 @@ import static org.junit.Assert.*;
 public class ControllerTest {
     
     Player p=new Player(0,0);
+
+    /**
+     *
+     */
     public ControllerTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
-
+    
+    /**
+     *Teste de movimentação do player
+     */
     @Test
     public void moverPlayertest() {
     
-        int x=p.getPositionX();
+        int x=p.getPositionX();  
         int y=p.getPositionY();
-        p.mover(p.getPositionX()+10, p.getPositionY());
-        assertFalse(x==p.getPositionX());
-        assertEquals(x+10, p.getPositionX());
+        p.mover(p.getPositionX()+10, p.getPositionY());  //movimenta o player 
+        assertFalse(x==p.getPositionX()); //verifica se ocorreram as mudanças esperadas
+        assertEquals(x+10, p.getPositionX()); //
         assertEquals(y, p.getPositionY());
         
     }

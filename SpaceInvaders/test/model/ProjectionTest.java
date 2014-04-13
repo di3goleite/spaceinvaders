@@ -19,25 +19,43 @@ import static org.junit.Assert.*;
  */
 public class ProjectionTest {
     
+    /**
+     *
+     */
     public ProjectionTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
     
+    /**
+     *
+     */
     @Test
     public void colisionTest(){
     Player p=new Player(0,0);

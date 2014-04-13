@@ -20,28 +20,49 @@ import static org.junit.Assert.*;
 public class AlienTest {
     
     Alien a=new Alien(0,0);
+    Player p=new Player(0,0);
+    Projection P;
     
+    
+    /**
+     *
+     */
     public AlienTest() {
     
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
         a=new Alien(0,0);
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
 
+    /**
+     *
+     */
     @Test
     public void moverTest(){
         
@@ -61,13 +82,21 @@ public class AlienTest {
         
     }
     
+    /**
+     *
+     */
     @Test
     public void foiAtingidoTeste(){
-    Player p=new Player(0,0);
+    p=new Player(0,0);
     assertEquals(p.getPositionX(),a.getPositionX());
-    Projection P=p.atira();
+    P=p.atira();
     assertEquals(p.getPositionX(),P.getPositionX());
     assertEquals(P.getPositionX(),a.getPositionX());
     assertNull(a);
+    }
+    
+    @Test
+    public void atirarTeste(){
+    P=a.atira();
     }
 }

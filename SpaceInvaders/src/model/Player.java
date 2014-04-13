@@ -21,6 +21,10 @@ public class Player {
         this.y = y;
     }
 
+    public Player(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getVidas() {
         return vidas;
     }
@@ -43,6 +47,22 @@ public class Player {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getPositionX() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getPositionY() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void mover(int i, int positionY) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Projection atira() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
