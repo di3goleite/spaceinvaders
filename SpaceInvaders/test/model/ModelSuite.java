@@ -15,7 +15,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author Lucas
+ * @author Lucps
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({model.AlienTest.class, model.PlayerTest.class})

@@ -35,6 +35,7 @@ public class AlienTest {
     
     @Before
     public void setUp() {
+        a=new Alien(0,0);
     }
     
     @After
@@ -42,7 +43,7 @@ public class AlienTest {
     }
 
     @Test
-    public void mover(){
+    public void moverTest(){
         
         int x=a.getPositionX();
         int y=a.getPositionY();
@@ -60,4 +61,13 @@ public class AlienTest {
         
     }
     
+    @Test
+    public void foiAtingidoTeste(){
+    Player p=new Player(0,0);
+    assertEquals(p.getPositionX(),a.getPositionX());
+    Projection P=p.atira();
+    assertEquals(p.getPositionX(),P.getPositionX());
+    assertEquals(P.getPositionX(),a.getPositionX());
+    assertNull(a);
+    }
 }
