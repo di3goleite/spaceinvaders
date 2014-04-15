@@ -12,10 +12,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.experimental.categories.Categories;
+import org.junit.rules.ExpectedException;
 
 /**
  *
- * @author Lucps
+ * @author Lucas
  */
 public class PlayerTest {
 
@@ -67,7 +69,17 @@ public class PlayerTest {
         assertFalse(x==p.getPositionX());
         assertEquals(x+10, p.getPositionX());
         assertEquals(y, p.getPositionY());
-       
+    }
+    
+    /**
+     *
+     */ 
+    @Test
+    public void moverForaTest(){
+     
+        int x=p.getPositionX();
+        int y=p.getPositionY();
+        p.mover(p.getPositionX()-10, p.getPositionY()); //lançar exceção
     }
     
     /**

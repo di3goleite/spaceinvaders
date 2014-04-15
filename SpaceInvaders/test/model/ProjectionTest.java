@@ -75,6 +75,12 @@ public class ProjectionTest {
     assertNotNull(p);
     assertFalse(p.getVidas()==x);
     assertEquals(x, p.getVidas()-1);
-    
+    P=a.atira();
+    assertEquals(a.getPositionX(),P.getPositionX());
+    assertEquals(P.getPositionX(),p.getPositionX());
+    P=a.atira();
+    assertEquals(a.getPositionX(),P.getPositionX());
+    assertEquals(P.getPositionX(),p.getPositionX());
+    assertEquals(0, p.getVidas());
     }
 }
