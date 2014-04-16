@@ -10,16 +10,10 @@ package model;
  *
  * @author lucas
  */
-public class Projection {
-    int x,y;
+public interface IAlien {
 
-    Projection(int positionX, int positionY) {
-    this.x=positionX;
-    this.y=positionY;
-    }
-    
-    int getPositionX() {
-    return x;
-    }
-    
+    public int getPositionX();
+    public int getPositionY();
+    public void mover(int i, int positionY);
+    public Projection atira();
 }

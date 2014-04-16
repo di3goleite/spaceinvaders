@@ -10,27 +10,32 @@ package model;
  *
  * @author Lucas
  */
-public class Alien {
-    
+public class Alien implements IAlien{
     private int x,y;
 
-    Alien(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Alien (int x, int y) {
+    this.x=x;
+    this.y=y;
     }
 
-    int getPositionX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public int getPositionX() {
+    return x;
     }
 
-    int getPositionY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public int getPositionY() {
+    return y;
     }
 
-    void mover(int i, int positionY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public void mover(int x, int y) {
+    this.x=x;
+    this.y=y;
     }
 
-    Projection atira() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public Projection atira() {
+    return new Projection(this.getPositionX(), this.getPositionY());
     }
 }

@@ -10,16 +10,7 @@ package model;
  *
  * @author lucas
  */
-public class Projection {
-    int x,y;
-
-    Projection(int positionX, int positionY) {
-    this.x=positionX;
-    this.y=positionY;
-    }
+public class Jogo {
     
-    int getPositionX() {
-    return x;
-    }
     
 }
