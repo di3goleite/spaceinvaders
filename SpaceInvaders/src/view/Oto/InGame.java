@@ -27,6 +27,10 @@ public class InGame extends javax.swing.JPanel {
     
     /**
      * Creates new form InGame
+     * @param side
+     * @param height
+     * @param x
+     * @param y
      */
     public InGame(int side, int height, int x, int y) {
         initComponents();
@@ -84,7 +88,11 @@ public class InGame extends javax.swing.JPanel {
        sideSide(x, y);
     }//GEN-LAST:event_formMouseClicked
 
-    
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void sideSide(int x, int y) {
       
         this.setXY(x, y);
@@ -93,6 +101,11 @@ public class InGame extends javax.swing.JPanel {
        // PanelCamada1_InGame.repaint();
     }
      
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void setXY(int x, int y) {
 
         this.x = x;
@@ -102,6 +115,11 @@ public class InGame extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param args
+     */
+    
       public static void main(String[] args) {
           
         JFrame oi = new JFrame("killllakiu");

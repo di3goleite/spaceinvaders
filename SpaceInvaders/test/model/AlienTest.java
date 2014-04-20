@@ -97,6 +97,61 @@ public class AlienTest {
     
     @Test
     public void atirarTeste(){
-    P=a.atira();
+    
+        a.atira();
+    }
+
+    /**
+     * Test of getPositionX method, of class Alien.
+     */
+    @Test
+    public void testGetPositionX() {
+        System.out.println("getPositionX");
+        Alien instance = null;
+        int expResult = 0;
+        int result = instance.getPositionX();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getPositionY method, of class Alien.
+     */
+    @Test
+    public void testGetPositionY() {
+        System.out.println("getPositionY");
+        Alien instance = null;
+        int expResult = 0;
+        int result = instance.getPositionY();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of mover method, of class Alien.
+     */
+    @Test
+    public void testMover() {
+        System.out.println("mover");
+        int x = 0;
+        int y = 0;
+        Alien instance = null;
+        instance.mover(x, y);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of atira method, of class Alien.
+     */
+    @Test
+    public void testAtira() {
+        System.out.println("atira");
+        Alien instance = null;
+        Projection expResult = null;
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 }

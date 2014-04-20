@@ -61,26 +61,45 @@ public class ProjectionTest {
     Player p=new Player(0,0);
     Alien a=new Alien(0,0);
     assertEquals(p.getPositionX(),a.getPositionX());
-    Projection P=p.atira();
-    assertEquals(p.getPositionX(),P.getPositionX());
-    assertEquals(P.getPositionX(),a.getPositionX());
+    p.atira();
     assertNull(a);
     
     int x = p.getVidas();
     
     a=new Alien(0,0);
-    P=a.atira();
-    assertEquals(a.getPositionX(),P.getPositionX());
-    assertEquals(P.getPositionX(),p.getPositionX());
+    a.atira();
     assertNotNull(p);
     assertFalse(p.getVidas()==x);
     assertEquals(x, p.getVidas()-1);
-    P=a.atira();
-    assertEquals(a.getPositionX(),P.getPositionX());
-    assertEquals(P.getPositionX(),p.getPositionX());
-    P=a.atira();
-    assertEquals(a.getPositionX(),P.getPositionX());
-    assertEquals(P.getPositionX(),p.getPositionX());
+    a.atira();
+    a.atira();
     assertEquals(0, p.getVidas());
+    }
+
+    /**
+     * Test of getPositionX method, of class Projection.
+     */
+    @Test
+    public void testGetPositionX() {
+        System.out.println("getPositionX");
+        Projection instance = null;
+        int expResult = 0;
+        int result = instance.getPositionX();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of move method, of class Projection.
+     */
+    @Test
+    public void testMove() {
+        System.out.println("move");
+        int orientação = 0;
+        Projection instance = null;
+        instance.move(orientação);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 }

@@ -148,7 +148,11 @@ public class GameBoy extends javax.swing.JFrame {
     private javax.swing.JPanel panelCamada1_GameBoy;
     // End of variables declaration//GEN-END:variables
 
-   public JPanel get() {
+    /**
+     *
+     * @return
+     */
+    public JPanel get() {
        return panelCamada1_GameBoy;
    }
     

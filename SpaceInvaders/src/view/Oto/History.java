@@ -23,6 +23,10 @@ public class History extends javax.swing.JPanel {
         initComponents();
     }
     
+    /**
+     *
+     * @param gameBoy
+     */
     public History(GameBoy gameBoy) {
         this();
         this.gameBoy = gameBoy;

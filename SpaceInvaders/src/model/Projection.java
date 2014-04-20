@@ -21,5 +21,12 @@ public class Projection {
     int getPositionX() {
     return x;
     }
+
+    void move(int orientacao) {
+    if(orientacao==0){
+        this.y--;
+    }
+    else this.y++;
+    }
     
 }

@@ -10,10 +10,31 @@ package model;
  *
  * @author lucas
  */
-public interface IAlien {
 
+public interface IAlien {
+    
+    /**
+     *
+     * @return
+     */
     public int getPositionX();
+
+    /**
+     *
+     * @return
+     */
     public int getPositionY();
+
+    /**
+     *
+     * @param i
+     * @param positionY
+     */
     public void mover(int i, int positionY);
-    public Projection atira();
+
+    /**
+     *
+     */
+    public void atira();
+    
 }
