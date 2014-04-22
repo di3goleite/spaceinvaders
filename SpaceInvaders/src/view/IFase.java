@@ -11,6 +11,8 @@ package view;
  * @author Vinícius Assis
  */
 public interface IFase {
-    public void addPersonagem();
-    
+    public void criaInimigos(int posicaoX, int posicaoY);
+    //public void mudaPosicaoInimigos(int posicaoX, int posicaoY);
+    public void setBackImage(String URL);
+    public void atualizar();
 }

@@ -6,7 +6,9 @@
 
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.util.Timer;
 import javax.swing.JFrame;
 
 /**
@@ -15,16 +17,21 @@ import javax.swing.JFrame;
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JanelaPrincipal
-     */
-    public JanelaPrincipal() {
-        initComponents();
-    }
+  
     /**
      * Indica qual parte da historinha sera exibida no momento
      */
     private int contaHistorinha;
+    private Fase fase;
+    private Thread moverInimigos;
+      /**
+     * Creates new form JanelaPrincipal
+     */
+    public JanelaPrincipal(Fase f) {
+        initComponents();
+        this.fase = f;
+        this.painelJogo.add(fase, BorderLayout.CENTER);
+    }
     /**
      * Metodo responsavel por mostrar o painel desejado no momento. 
      * No parametro nome, deve ser especificado qual painel sera exibido
@@ -54,20 +61,26 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         switch(this.contaHistorinha){
                 case 0:
                     this.mostraTelas("cena1", "historinha");
+                    this.labelIndicaCena.setText("Planeta Thousand Sunny");
                     break;
                 case 1:
                     this.mostraTelas("cena2", "historinha");
+                    this.labelIndicaCena.setText("Temperatura: 200 °C");
                     break;
                 case 2:
                     this.mostraTelas("cena3", "historinha");
+                    this.labelIndicaCena.setText("#PartiuTerra");
                     break;
                 case 3:
                     this.mostraTelas("cena4", "historinha");
+                    this.labelIndicaCena.setText("SOCOOORRO!!!");
                     break;
                 case 4:
                     this.mostraTelas("cena5", "historinha");
+                    this.labelIndicaCena.setText("Ataquem os Aliens");
                     break;
             }
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,6 +99,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         botaoAbout = new javax.swing.JToggleButton();
         labelMenuP = new javax.swing.JLabel();
         painelInferiorHistorinha = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        labelIndicaCena = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         botaoEsquerda = new javax.swing.JButton();
         botaoDireita = new javax.swing.JButton();
         botaoSkip = new javax.swing.JButton();
@@ -107,13 +123,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("space INVADERS");
+        setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(800, 690));
         setResizable(false);
 
         painelInferior.setLayout(new java.awt.CardLayout());
 
         painelInferiorMenuP.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         botaoPlay.setBackground(new java.awt.Color(250, 250, 250));
         botaoPlay.setText("PLAY");
@@ -152,8 +169,18 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelInferior.add(painelInferiorMenuP, "painel1");
 
         painelInferiorHistorinha.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
-        painelInferiorHistorinha.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.TRAILING));
+        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        painelInferiorHistorinha.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        labelIndicaCena.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelIndicaCena.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(labelIndicaCena);
+
+        painelInferiorHistorinha.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         botaoEsquerda.setBackground(new java.awt.Color(250, 250, 250));
         botaoEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interface1/multimidia/imagens/esquerda.jpg"))); // NOI18N
@@ -162,7 +189,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 botaoEsquerdaActionPerformed(evt);
             }
         });
-        painelInferiorHistorinha.add(botaoEsquerda);
+        jPanel2.add(botaoEsquerda);
 
         botaoDireita.setBackground(new java.awt.Color(250, 250, 250));
         botaoDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interface1/multimidia/imagens/direita.jpg"))); // NOI18N
@@ -171,7 +198,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 botaoDireitaActionPerformed(evt);
             }
         });
-        painelInferiorHistorinha.add(botaoDireita);
+        jPanel2.add(botaoDireita);
 
         botaoSkip.setBackground(new java.awt.Color(250, 250, 250));
         botaoSkip.setText("SKIP");
@@ -180,7 +207,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 botaoSkipActionPerformed(evt);
             }
         });
-        painelInferiorHistorinha.add(botaoSkip);
+        jPanel2.add(botaoSkip);
+
+        painelInferiorHistorinha.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
         painelInferior.add(painelInferiorHistorinha, "painel2");
 
@@ -240,17 +269,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         painelSuperior.add(painelHistorinha, "painel2");
 
-        javax.swing.GroupLayout painelJogoLayout = new javax.swing.GroupLayout(painelJogo);
-        painelJogo.setLayout(painelJogoLayout);
-        painelJogoLayout.setHorizontalGroup(
-            painelJogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 804, Short.MAX_VALUE)
-        );
-        painelJogoLayout.setVerticalGroup(
-            painelJogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
-        );
-
+        painelJogo.setLayout(new java.awt.BorderLayout());
         painelSuperior.add(painelJogo, "painel3");
 
         getContentPane().add(painelSuperior, java.awt.BorderLayout.CENTER);
@@ -270,7 +289,10 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoHelpActionPerformed
 
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
-        // TODO add your handling code here:
+
+        this.mostraTelas("painel3", "superior");
+        this.moverInimigos = new Thread(this.fase.new MoveInimigos());
+        this.moverInimigos.start();
     }//GEN-LAST:event_botaoSkipActionPerformed
 
     private void botaoPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPlayActionPerformed
@@ -278,6 +300,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         this.mostraTelas("painel2", "superior");
         this.botaoEsquerda.setEnabled(false);
         this.contaHistorinha = 0;
+        this.labelIndicaCena.setText("Planeta Thousand Sunny");
     }//GEN-LAST:event_botaoPlayActionPerformed
 
     private void botaoEsquerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEsquerdaActionPerformed
@@ -330,12 +353,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                JanelaPrincipal ini = new JanelaPrincipal();
+                Fase f = new Fase();
+                JanelaPrincipal ini = new JanelaPrincipal(f);
                 ini.setVisible(true);
                 ini.setTitle("space Invaders");
                 ini.setLocationRelativeTo(null);
-                ini.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 690);
             }
         });
@@ -359,6 +382,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelIndicaCena;
     private javax.swing.JLabel labelLogo;
     private javax.swing.JLabel labelMenuP;
     private javax.swing.JPanel painelHistorinha;
