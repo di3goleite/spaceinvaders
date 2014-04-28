@@ -11,18 +11,20 @@ package model;
  * @author lucas
  */
 
-public interface IAlien {
+public interface IAlien extends INave{
     
     /**
      *
      * @return
      */
+    @Override
     public int getPositionX();
 
     /**
      *
      * @return
      */
+    @Override
     public int getPositionY();
 
     /**
@@ -30,11 +32,13 @@ public interface IAlien {
      * @param i
      * @param positionY
      */
+    @Override
     public void mover(int i, int positionY);
 
     /**
      *
      */
+    @Override
     public void atira();
     
 }

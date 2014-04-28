@@ -10,7 +10,7 @@ package model;
  *
  * @author Lucas
  */
-public class Player {
+public class Player implements INave{
     
     private int vidas;
     private int x, y;
@@ -111,8 +111,9 @@ public class Player {
     this.y=y;
     }
 
-    Projection atira() {
-    return new Projection(this.getPositionX(),this.getPositionY());
+    @Override
+    public void atira() {
+    new Projection(this.getPositionX(),this.getPositionY());
     }
     
     

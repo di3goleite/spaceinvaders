@@ -17,97 +17,34 @@ import static org.junit.Assert.*;
  *
  * @author Lucas
  */
-public class AlienTest {
+public class IAlienTest {
     
-    IAlien a=new Alien(0,0);
-    Player p=new Player(0,0);
-    Projection P;
-    
-    
-    /**
-     *
-     */
-    public AlienTest() {
-    
+    public IAlienTest() {
     }
     
-    /**
-     *
-     */
     @BeforeClass
     public static void setUpClass() {
     }
     
-    /**
-     *
-     */
     @AfterClass
     public static void tearDownClass() {
     }
     
-    /**
-     *
-     */
     @Before
     public void setUp() {
-        a=new Alien(0,0);
     }
     
-    /**
-     *
-     */
     @After
     public void tearDown() {
     }
 
     /**
-     *
-     */
-    @Test
-    public void moverTest(){
-        
-        int x=a.getPositionX();
-        int y=a.getPositionY();
-        a.mover(a.getPositionX()+10, a.getPositionY());
-        assertFalse(x==a.getPositionX());
-        assertEquals(x+10, a.getPositionX());
-        assertEquals(y, a.getPositionY());
-        
-        x=a.getPositionX();
-        y=a.getPositionY();
-        a.mover(a.getPositionX(), a.getPositionY()+10);
-        assertFalse(y==a.getPositionY());
-        assertEquals(x, a.getPositionX());
-        assertEquals(y+10, a.getPositionY());
-        
-    }
-    
-    /**
-     *
-     */
-    @Test
-    public void foiAtingidoTeste(){
-    p=new Player(0,0);
-    assertEquals(p.getPositionX(),a.getPositionX());
-    p.atira();
-    assertEquals(p.getPositionX(),P.getPositionX());
-    assertEquals(P.getPositionX(),a.getPositionX());
-    assertNull(a);
-    }
-    
-    @Test
-    public void atirarTeste(){
-    
-        a.atira();
-    }
-
-    /**
-     * Test of getPositionX method, of class Alien.
+     * Test of getPositionX method, of class IAlien.
      */
     @Test
     public void testGetPositionX() {
         System.out.println("getPositionX");
-        Alien instance = null;
+        IAlien instance = new IAlienImpl();
         int expResult = 0;
         int result = instance.getPositionX();
         assertEquals(expResult, result);
@@ -116,12 +53,12 @@ public class AlienTest {
     }
 
     /**
-     * Test of getPositionY method, of class Alien.
+     * Test of getPositionY method, of class IAlien.
      */
     @Test
     public void testGetPositionY() {
         System.out.println("getPositionY");
-        Alien instance = null;
+        IAlien instance = new IAlienImpl();
         int expResult = 0;
         int result = instance.getPositionY();
         assertEquals(expResult, result);
@@ -130,28 +67,46 @@ public class AlienTest {
     }
 
     /**
-     * Test of mover method, of class Alien.
+     * Test of mover method, of class IAlien.
      */
     @Test
     public void testMover() {
         System.out.println("mover");
-        int x = 0;
-        int y = 0;
-        Alien instance = null;
-        instance.mover(x, y);
+        int i = 0;
+        int positionY = 0;
+        IAlien instance = new IAlienImpl();
+        instance.mover(i, positionY);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of atira method, of class Alien.
+     * Test of atira method, of class IAlien.
      */
     @Test
     public void testAtira() {
         System.out.println("atira");
-        Alien instance = null;
-        Projection expResult = null;
+        IAlien instance = new IAlienImpl();
+        instance.atira();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    public class IAlienImpl implements IAlien {
+
+        public int getPositionX() {
+            return 0;
+        }
+
+        public int getPositionY() {
+            return 0;
+        }
+
+        public void mover(int i, int positionY) {
+        }
+
+        public void atira() {
+        }
+    }
+    
 }

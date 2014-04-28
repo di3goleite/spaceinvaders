@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  * @author Lucas
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({CampoDeBatalhaTest.class, ProjectionTest.class, JogoTest.class, AlienTest.class, PlayerTest.class})
+@Suite.SuiteClasses({CampoDeBatalhaTest.class, ProjectionTest.class, JogoTest.class, AlienTest.class, FuiAtingindoEventTest.class, IAlienTest.class, INaveTest.class, PlayerTest.class})
 public class ModelSuite {
 
     /**

@@ -20,6 +20,22 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
     Player p=new Player(0,0);
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
     /**
      *
      */
@@ -185,8 +201,8 @@ public class PlayerTest {
         System.out.println("atira");
         Player instance = null;
         Projection expResult = null;
-        Projection result = instance.atira();
-        assertEquals(expResult, result);
+        instance.atira();
+        assertEquals(expResult, 1);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

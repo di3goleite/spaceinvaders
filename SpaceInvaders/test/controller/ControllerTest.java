@@ -57,6 +57,13 @@ public class ControllerTest {
     public void tearDown() {
     }
     
+    
+    @Test
+    public void criarJogoTest(){
+    
+    }
+    
+    
     /**
      *Teste de movimentação do player
      */

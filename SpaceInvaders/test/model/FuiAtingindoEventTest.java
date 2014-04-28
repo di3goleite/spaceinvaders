@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Lucas
  */
-public class JogoTest {
+public class FuiAtingindoEventTest {
     
-    public JogoTest() {
+    public FuiAtingindoEventTest() {
     }
     
     @BeforeClass
@@ -38,31 +38,10 @@ public class JogoTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of run method, of class Jogo.
-     */
     @Test
-    public void testRun() {
-        System.out.println("run");
-        Jogo instance = new Jogo(800,600);
-        assertEquals(0, instance.cb.paredeX0);
-        assertEquals(0, instance.cb.paredeY0);
-        assertEquals(600, instance.cb.paredeX);
-        assertEquals(800, instance.cb.paredeY);
-        instance.run();
-        assertNotNull(instance.cb.aliens);
-        assertEquals(instance.cb.aliens.size(), 55);
-    } 
-
-    /**
-     * Test of main method, of class Jogo.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        Jogo.main(args);
+    public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    
 }
