@@ -19,6 +19,9 @@ import static org.junit.Assert.*;
  */
 public class INaveTest {
     
+        INave alien = new Alien(0,0);
+        INave player = new Alien(100,100);
+        
     public INaveTest() {
     }
     
@@ -36,34 +39,8 @@ public class INaveTest {
     
     @After
     public void tearDown() {
-    }
-
-    /**
-     * Test of getPositionX method, of class INave.
-     */
-    @Test
-    public void testGetPositionX() {
-        System.out.println("getPositionX");
-        INave instance = new INaveImpl();
-        int expResult = 0;
-        int result = instance.getPositionX();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPositionY method, of class INave.
-     */
-    @Test
-    public void testGetPositionY() {
-        System.out.println("getPositionY");
-        INave instance = new INaveImpl();
-        int expResult = 0;
-        int result = instance.getPositionY();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        alien = new Alien(0,0);
+        player = new Alien(100,100);
     }
 
     /**
@@ -71,13 +48,33 @@ public class INaveTest {
      */
     @Test
     public void testMover() {
-        System.out.println("mover");
-        int i = 0;
-        int positionY = 0;
-        INave instance = new INaveImpl();
-        instance.mover(i, positionY);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        int y = 0;
+        int x = 0;
+        int w = 100;
+        int z = 100;
+        assertEquals(x, alien.getPositionX());
+        assertEquals(y, alien.getPositionY());
+        assertEquals(z, player.getPositionX());
+        assertEquals(w, player.getPositionY());
+
+        this.alien.mover();
+        this.player.mover();
+        
+        assertFalse(x==alien.getPositionX());
+        assertTrue(y==alien.getPositionY());
+        assertFalse(z==player.getPositionX());
+        assertTrue(w==player.getPositionY());
+        
+        y=0;
+        x=10;
+        z=110;
+        
+        assertEquals(x, alien.getPositionX());
+        assertEquals(y, alien.getPositionY());
+        assertEquals(z, player.getPositionX());
+        assertEquals(w, player.getPositionY());
+        
     }
 
     /**
@@ -85,28 +82,15 @@ public class INaveTest {
      */
     @Test
     public void testAtira() {
-        System.out.println("atira");
-        INave instance = new INaveImpl();
-        instance.atira();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    public class INaveImpl implements INave {
-
-        public int getPositionX() {
-            return 0;
-        }
-
-        public int getPositionY() {
-            return 0;
-        }
-
-        public void mover(int i, int positionY) {
-        }
-
-        public void atira() {
-        }
+        for(int i=0; i<10;i++) alien.mover();
+        assertEquals(alien.getPositionX(), player.getPositionX());
+        
+        assertEquals(3, ((Player)player).getVidas());
+        alien.atira();
+        assertNotNull(player);
+        assertEquals(2, ((Player)player).getVidas());
+        player.atira();
+        assertNull(alien);
     }
     
 }

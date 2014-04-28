@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Lucas
  */
-public class CampoDeBatalhaTest {
+public class FaseTest {
     
-    public CampoDeBatalhaTest() {
+    public FaseTest() {
     }
     
     @BeforeClass
@@ -43,10 +43,9 @@ public class CampoDeBatalhaTest {
      */
     @Test
     public void testCriarCampo() {
-        System.out.println("criarCampo");
         int altura = 500;
         int largura = 500;
-        CampoDeBatalha instance = new CampoDeBatalha();
+        Fase instance = new Fase();
         instance.criarCampo(altura, largura);
         assertNotNull(instance.aliens);
         assertEquals(instance.aliens.size(), 55);

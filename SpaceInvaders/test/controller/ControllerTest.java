@@ -71,10 +71,12 @@ public class ControllerTest {
     public void moverPlayertest() {
         int x=p.getPositionX();  
         int y=p.getPositionY();
-        p.mover(p.getPositionX()+10, p.getPositionY());  //movimenta o player 
+        p.mover();  //movimenta o player 
         assertFalse(x==p.getPositionX()); //verifica se ocorreram as mudanças esperadas
         assertEquals(x+10, p.getPositionX()); //
         assertEquals(y, p.getPositionY());
     }
+    
+    
     
 }

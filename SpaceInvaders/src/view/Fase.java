@@ -7,11 +7,7 @@ package view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Label;
 import java.awt.image.BufferedImage;
-import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 

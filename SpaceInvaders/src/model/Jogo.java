@@ -30,15 +30,5 @@ public class Jogo {
     cb.move();
     cb.atira();
     }
-    
-    /**
-     *
-     * @param args
-     */
-    public static void main(String args[]) {
-    
-    Jogo j=new Jogo(800,600);
-    j.cb.criarCampo(800, 600);
-    j.run();
-    }
+
 }

@@ -33,7 +33,7 @@ public interface IAlien extends INave{
      * @param positionY
      */
     @Override
-    public void mover(int i, int positionY);
+    public void mover();
 
     /**
      *

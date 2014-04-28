@@ -47,7 +47,7 @@ public class Alien implements IAlien{
      * @param y
      */
     @Override
-    public void mover(int x, int y) {
+    public void mover() {
     this.x=x;
     this.y=y;
     }

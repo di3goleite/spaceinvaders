@@ -30,7 +30,7 @@ public interface INave {
      * @param i
      * @param positionY
      */
-    public void mover(int i, int positionY);
+    public void mover();
 
     /**
      *
