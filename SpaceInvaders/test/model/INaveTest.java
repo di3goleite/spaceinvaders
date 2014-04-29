@@ -19,8 +19,8 @@ import static org.junit.Assert.*;
  */
 public class INaveTest {
     
-        INave alien = new Alien(0,0);
-        INave player = new Alien(100,100);
+        Nave alien = new Alien(0,0);
+        Nave player = new Alien(100,100);
         
     public INaveTest() {
     }

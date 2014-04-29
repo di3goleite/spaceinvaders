@@ -6,12 +6,15 @@
 
 package model;
 
+import java.awt.Image;
+
 /**
  * Classe de navens alieniginas comum.
  * @author Lucas
  */
-public class Alien implements IAlien{
-    private int x,y;
+public class Alien extends Nave implements IAlien{
+    
+    //private int x,y;
 
     /**
      *
@@ -47,9 +50,16 @@ public class Alien implements IAlien{
      * @param y
      */
     @Override
+    public void mover(int x, int y) {
+        this.x=x;
+        this.y=y;
+    }
+    
+    /**
+     * 
+     */
     public void mover() {
-    this.x=x;
-    this.y=y;
+     //
     }
 
     /**
@@ -59,5 +69,11 @@ public class Alien implements IAlien{
     public void atira() {
     Projection p =new Projection(this.getPositionX(), this.getPositionY());
     p.move(0);
+    }
+
+    @Override
+    public void myImage(Image iconImage) {
+        // setar sua imagem;
+        myIcon = iconImage;
     }
 }

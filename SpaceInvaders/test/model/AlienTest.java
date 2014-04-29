@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class AlienTest {
     
-    IAlien a=new Alien(0,0);
+    Nave a=new Alien(0,0);
     Player p=new Player(0,0);
     Projection P;
     

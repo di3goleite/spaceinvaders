@@ -8,11 +8,8 @@ package model;
 
 /**
  *
- * @author lucas
+ * @author marc
  */
-
-public interface IAlien {
-    
-    /** Vão ter outras coisas relacionados ao geral de um alien e não a nave */
+public interface IFase {
     
 }

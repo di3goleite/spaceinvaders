@@ -46,7 +46,7 @@ public class IAlienTest {
         System.out.println("mover");
         int i = 0;
         int positionY = 0;
-        IAlien instance = new Alien(0,0);
+        Nave instance = new Alien(0,0);
         instance.mover();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -58,7 +58,7 @@ public class IAlienTest {
     @Test
     public void testAtira() {
         System.out.println("atira");
-        IAlien instance = new Alien(0,0);
+        Nave instance = new Alien(0,0);
         instance.atira();
     }
 

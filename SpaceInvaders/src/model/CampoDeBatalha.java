@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Lucas
  */
 public class CampoDeBatalha {
-    ArrayList <IAlien> aliens=new ArrayList<>();
+    ArrayList <Nave> aliens=new ArrayList<>();
     int paredeX0 =0;
     int paredeY0=0;
     int paredeX;
@@ -47,14 +47,14 @@ public class CampoDeBatalha {
     }
 
     void move() {
-        for (IAlien a : aliens) {
+        for (Nave a : aliens) {
         a.mover(a.getPositionX()+10, a.getPositionY());
         }
         
     }
 
     void atira() {
-    for (IAlien a : aliens) {
+    for (Nave a : aliens) {
         a.atira();
         }
     }

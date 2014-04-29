@@ -6,14 +6,16 @@
 
 package model;
 
+import java.awt.Image;
+
 /**
  *
  * @author Lucas
  */
-public class Player implements INave{
+public class Player extends Nave{
     
     private int vidas;
-    private int x, y;
+ //   private int x, y;
 
     /**
      *
@@ -107,14 +109,24 @@ public class Player implements INave{
      * @param y
      */
     public void mover() {
-    this.x=x;
-    this.y=y;
+     //
     }
 
     @Override
+    public void mover(int x, int y) {
+        this.x=x;
+        this.y=y;
+    }
+   
+    @Override
     public void atira() {
     new Projection(this.getPositionX(),this.getPositionY());
+    }    
+
+    @Override
+    public void myImage(Image iconImage) {
+        // setar sua imagem;
+        myIcon = iconImage;
     }
-    
     
 }
