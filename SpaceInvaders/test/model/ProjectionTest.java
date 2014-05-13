@@ -77,12 +77,12 @@ public class ProjectionTest {
     }
 
     /**
-     * Test of getPositionX method, of class Projection.
+     * Test of getPositionX method, of class Tiro.
      */
     @Test
     public void testGetPositionX() {
         System.out.println("getPositionX");
-        Projection instance = null;
+        ProjecTironce = null;
         int expResult = 0;
         int result = instance.getPositionX();
         assertEquals(expResult, result);
@@ -92,13 +92,11 @@ public class ProjectionTest {
 
     /**
      * Test of move method, of class Projection.
-     */
-    @Test
+Tiro  @Test
     public void testMove() {
         System.out.println("move");
         int orientação = 0;
-        Projection instance = null;
-        instance.move(orientação);
+        Projection instancTiro        instance.move(orientação);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

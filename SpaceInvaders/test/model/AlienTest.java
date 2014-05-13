@@ -21,7 +21,7 @@ public class AlienTest {
     
     Nave a=new Alien(0,0);
     Player p=new Player(0,0);
-    Projection P;
+    Tiro P;
     
     
     /**
@@ -150,7 +150,7 @@ public class AlienTest {
     public void testAtira() {
         System.out.println("atira");
         Alien instance = null;
-        Projection expResult = null;
+        Tiro expResult = null;
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

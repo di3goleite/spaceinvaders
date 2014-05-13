@@ -200,7 +200,7 @@ public class PlayerTest {
     public void testAtira() {
         System.out.println("atira");
         Player instance = null;
-        Projection expResult = null;
+        Tiro expResult = null;
         instance.atira();
         assertEquals(expResult, 1);
         // TODO review the generated test code and remove the default call to fail.

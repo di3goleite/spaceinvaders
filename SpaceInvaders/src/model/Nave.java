@@ -7,12 +7,17 @@
 package model;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Collection;
+import model.observer.TiroListener;
 
 /**
  *
  * @author Lucas
  */
 public abstract class Nave {
+    
+    protected Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
     
    /*protected*/ int x;
     int y;
@@ -53,5 +58,11 @@ public abstract class Nave {
      */
     public abstract void atira();
     
-    
+    void addTiroListerner(TiroListener tl){
+    tiroListeners.add(tl);
+    }
+    void removeTiroListerner(TiroListener tl){
+    tiroListeners.remove(tl);
+    }
+
 }

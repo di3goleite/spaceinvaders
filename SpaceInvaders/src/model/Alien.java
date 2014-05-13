@@ -7,6 +7,10 @@
 package model;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Collection;
+import model.observer.TiroEvent;
+import model.observer.TiroListener;
 
 /**
  * Classe de navens alieniginas comum.
@@ -14,7 +18,7 @@ import java.awt.Image;
  */
 public class Alien extends Nave implements IAlien{
     
-    //private int x,y;
+    private Collection <TiroListener> telefoneListeners = new ArrayList<TiroListener>();
 
     /**
      *
@@ -58,6 +62,7 @@ public class Alien extends Nave implements IAlien{
     /**
      * 
      */
+    @Override
     public void mover() {
      //
     }
@@ -67,8 +72,8 @@ public class Alien extends Nave implements IAlien{
      */
     @Override
     public void atira() {
-    Projection p =new Projection(this.getPositionX(), this.getPositionY());
-    p.move(0);
+    Tiro p =new Tiro(this.getPositionX(), this.getPositionY(),0);
+    disparaAlienDisparou();
     }
 
     @Override
@@ -76,4 +81,13 @@ public class Alien extends Nave implements IAlien{
         // setar sua imagem;
         myIcon = iconImage;
     }
+    
+    private void disparaAlienDisparou(){
+        TiroEvent evento = new TiroEvent(this);               
+        for (TiroListener t : tiroListeners) {
+            t.alienDisparou(evento);
+        }
+    
+    }
+   
 }

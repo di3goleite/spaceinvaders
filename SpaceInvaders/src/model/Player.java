@@ -7,15 +7,18 @@
 package model;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import model.observer.TiroEvent;
+import model.observer.TiroListener;
 
 /**
  *
  * @author Lucas
  */
 public class Player extends Nave{
-    
     private int vidas;
- //   private int x, y;
 
     /**
      *
@@ -120,7 +123,8 @@ public class Player extends Nave{
    
     @Override
     public void atira() {
-    new Projection(this.getPositionX(),this.getPositionY());
+    new Tiro(this.getPositionX(),this.getPositionY(), 1);
+    disparaPlayerDisparou();
     }    
 
     @Override
@@ -128,5 +132,15 @@ public class Player extends Nave{
         // setar sua imagem;
         myIcon = iconImage;
     }
+  
+    
+    private void disparaPlayerDisparou(){
+        TiroEvent evento = new TiroEvent(this);               
+        for (TiroListener t : tiroListeners) {
+            t.playerdisparou(evento);
+        }
+    
+    }
+   
     
 }
