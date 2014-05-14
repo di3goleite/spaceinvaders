@@ -34,16 +34,6 @@ public class Player extends Nave{
 
     /**
      *
-     * @param x
-     * @param y
-     */
-    public Player(int x, int y) {
-    this.x=x;
-    this.y=y;
-    }
-
-    /**
-     *
      * @return
      */
     public int getVidas() {
@@ -123,7 +113,7 @@ public class Player extends Nave{
    
     @Override
     public void atira() {
-    new Tiro(this.getPositionX(),this.getPositionY(), 1);
+    new Tiro(this.getPositionX(),this.getPositionY(), Tiro.tiroPlayer);
     disparaPlayerDisparou();
     }    
 
