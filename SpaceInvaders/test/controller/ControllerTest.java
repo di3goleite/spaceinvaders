@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class ControllerTest {
     
-    Player p=new Player(0,0);
+    Player p=new Player(0,0,0);
 
     /**
      *

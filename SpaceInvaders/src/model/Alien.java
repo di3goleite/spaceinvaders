@@ -9,6 +9,8 @@ package model;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
+import model.observer.PlayerEvent;
+import model.observer.PlayerListener;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
@@ -16,7 +18,7 @@ import model.observer.TiroListener;
  * Classe de navens alieniginas comum.
  * @author Lucas
  */
-public class Alien extends Nave implements IAlien{
+public class Alien extends Nave implements PlayerListener{
     
     private Collection <TiroListener> telefoneListeners = new ArrayList<TiroListener>();
 
@@ -47,24 +49,13 @@ public class Alien extends Nave implements IAlien{
     public int getPositionY() {
     return y;
     }
-
-    /**
-     *
-     * @param x
-     * @param y
-     */
-    @Override
-    public void mover(int x, int y) {
-        this.x=x;
-        this.y=y;
-    }
     
     /**
      * 
      */
     @Override
     public void mover() {
-     //
+    
     }
 
     /**
@@ -88,6 +79,21 @@ public class Alien extends Nave implements IAlien{
             t.alienDisparou(evento);
         }
     
+    }
+
+    @Override
+    public void moveu(PlayerEvent pe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atirou(PlayerEvent pe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void foiAtingido(PlayerEvent pe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
 }

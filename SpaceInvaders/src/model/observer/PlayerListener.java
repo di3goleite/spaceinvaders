@@ -6,22 +6,16 @@
 
 package model.observer;
 
+import java.util.EventListener;
+
 /**
  *
  * @author lucas
  */
-public class TiroAdapter implements TiroListener{
-
-    @Override
-    public void playerdisparou(TiroEvent e) {
-    }
-
-    @Override
-    public void alienDisparou(TiroEvent e) {
-    }
-
-    @Override
-    public void moveu(TiroEvent e) {
-    }
+public interface PlayerListener extends EventListener{
+    
+    void moveu(PlayerEvent pe);
+    void atirou(PlayerEvent pe);
+    void foiAtingido(PlayerEvent pe);
     
 }

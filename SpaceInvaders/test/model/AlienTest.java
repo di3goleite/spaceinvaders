@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class AlienTest {
     
     Nave a=new Alien(0,0);
-    Player p=new Player(0,0);
+    Player p=new Player(0,0,0);
     Tiro P;
     
     
@@ -68,14 +68,14 @@ public class AlienTest {
         
         int x=a.getPositionX();
         int y=a.getPositionY();
-        a.mover(a.getPositionX()+10, a.getPositionY());
+        //a.mover(a.getPositionX()+10, a.getPositionY());
         assertFalse(x==a.getPositionX());
         assertEquals(x+10, a.getPositionX());
         assertEquals(y, a.getPositionY());
         
         x=a.getPositionX();
         y=a.getPositionY();
-        a.mover(a.getPositionX(), a.getPositionY()+10);
+       // a.mover(a.getPositionX(), a.getPositionY()+10);
         assertFalse(y==a.getPositionY());
         assertEquals(x, a.getPositionX());
         assertEquals(y+10, a.getPositionY());
@@ -87,7 +87,7 @@ public class AlienTest {
      */
     @Test
     public void foiAtingidoTeste(){
-    p=new Player(0,0);
+    p=new Player(0,0,0);
     assertEquals(p.getPositionX(),a.getPositionX());
     p.atira();
     assertEquals(p.getPositionX(),P.getPositionX());
@@ -138,7 +138,7 @@ public class AlienTest {
         int x = 0;
         int y = 0;
         Alien instance = null;
-        instance.mover(x, y);
+        //instance.mover(x, y);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

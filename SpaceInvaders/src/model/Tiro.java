@@ -16,11 +16,13 @@ import model.observer.TiroListener;
  *
  * @author lucas
  */
-public class Tiro {
+public class Tiro implements TiroListener{
     private Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
     int x,y;
+    int orientacao;
 
     Tiro(int positionX, int positionY, int orientacao) {
+        this.orientacao=orientacao;
     move(orientacao);
     this.x=positionX;
     this.y=positionY;
@@ -35,7 +37,7 @@ public class Tiro {
 
         @Override
         public void run() {
-            
+        disparaMoveu();
         if(orientacao==0){
         y=y-10;
         }
@@ -44,25 +46,41 @@ public class Tiro {
         };
     }
     
-    private void disparaPlayerAtingido(){
+    private void disparaMoveu(){
     TiroEvent evento = new TiroEvent(this);               
         for (TiroListener t : tiroListeners) {
-            t.playerAtingido(evento);
+            t.moveu(evento);
         }
     
     }
     
-    private void disparaAlienAtingido(){
-    TiroEvent evento = new TiroEvent(this);               
-        for (TiroListener t : tiroListeners) {
-            t.alienAtingido(evento);
-        }
-    
-    }
     void addTiroListerner(TiroListener tl){
     tiroListeners.add(tl);
     }
     void removeTiroListerner(TiroListener tl){
     tiroListeners.remove(tl);
     }
+
+    @Override
+    public void playerdisparou(TiroEvent e) {
+    
+        if(orientacao==1){
+           
+        }
+    }
+
+    @Override
+    public void alienDisparou(TiroEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void moveu(TiroEvent e) {
+    if(orientacao!=((Tiro)e.getSource()).orientacao){
+    if(x==((Tiro)e.getSource()).x){
+    //this.acertei();
+    }       
+    }
+    }
+
 }

@@ -6,11 +6,25 @@
 
 package controller;
 
+import model.Player;
+
 /**
  *
  * @author Dracul
  */
 public class Controller {
 
+    Player p;
+    Controller(int x,int y){
+    p=new Player(3,x,y);
+    }
+    
+    public void atirarPlayer(){
+    p.atira();
+    }
+    
+    public void moverPlayer(int direcao){
+    p.mover(direcao);
+    }
     
 }

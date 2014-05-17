@@ -7,9 +7,8 @@
 package model;
 
 import java.awt.Image;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import model.observer.AlienEvent;
+import model.observer.AlienListener;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
@@ -17,7 +16,7 @@ import model.observer.TiroListener;
  *
  * @author Lucas
  */
-public class Player extends Nave{
+public class Player extends Nave implements TiroListener, AlienListener{
     private int vidas;
 
     /**
@@ -84,6 +83,7 @@ public class Player extends Nave{
      *
      * @return
      */
+    @Override
     public int getPositionX() {
     return x;
     }
@@ -92,28 +92,27 @@ public class Player extends Nave{
      *
      * @return
      */
+    @Override
     public int getPositionY() {
     return y;
     }
 
-    /**
-     *
-     * @param x
-     * @param y
-     */
-    public void mover() {
-     //
+    public void mover(int direcao) {
+    if(direcao==1){
+    this.x+=10;
+    }
+    else this.x-=10;
     }
 
+    
     @Override
-    public void mover(int x, int y) {
-        this.x=x;
-        this.y=y;
+    public void mover() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     @Override
     public void atira() {
-    new Tiro(this.getPositionX(),this.getPositionY(), Tiro.tiroPlayer);
+    Tiro tiro = new Tiro(this.getPositionX(),this.getPositionY(), 0);
     disparaPlayerDisparou();
     }    
 
@@ -130,6 +129,36 @@ public class Player extends Nave{
             t.playerdisparou(evento);
         }
     
+    }
+
+    @Override
+    public void playerdisparou(TiroEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void alienDisparou(TiroEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void moveu(TiroEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void moveu(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atirou(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void foiAtingido(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     

@@ -42,13 +42,6 @@ public abstract class Nave {
     public abstract int getPositionY();
 
     /**
-     *
-     * @param i
-     * @param positionY
-     */
-    public abstract void mover(int x, int y);
-    
-    /**
      * 
      */
     public abstract void mover();

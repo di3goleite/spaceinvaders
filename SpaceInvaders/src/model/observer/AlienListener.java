@@ -12,10 +12,8 @@ import java.util.EventListener;
  *
  * @author lucas
  */
-public interface TiroListener extends EventListener{
-    
-    void playerdisparou(TiroEvent e);
-    void alienDisparou(TiroEvent e);
-    void moveu(TiroEvent e);
-    
+public interface AlienListener extends EventListener{
+    void moveu(AlienEvent ae);
+    void atirou(AlienEvent ae);
+    void foiAtingido(AlienEvent ae);
 }

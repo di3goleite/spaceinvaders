@@ -48,7 +48,7 @@ public class CampoDeBatalha {
 
     void move() {
         for (Nave a : aliens) {
-        a.mover(a.getPositionX()+10, a.getPositionY());
+        a.mover();
         }
         
     }
