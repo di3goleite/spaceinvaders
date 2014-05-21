@@ -18,7 +18,7 @@ import model.observer.TiroListener;
  * Classe de navens alieniginas comum.
  * @author Lucas
  */
-public class Alien extends Nave implements PlayerListener{
+public class Alien extends Nave implements PlayerListener,TiroListener{
     
     private Collection <TiroListener> telefoneListeners = new ArrayList<TiroListener>();
 
@@ -64,21 +64,13 @@ public class Alien extends Nave implements PlayerListener{
     @Override
     public void atira() {
     Tiro p =new Tiro(this.getPositionX(), this.getPositionY(),0);
-    disparaAlienDisparou();
+    
     }
 
     @Override
     public void myImage(Image iconImage) {
         // setar sua imagem;
         myIcon = iconImage;
-    }
-    
-    private void disparaAlienDisparou(){
-        TiroEvent evento = new TiroEvent(this);               
-        for (TiroListener t : tiroListeners) {
-            t.alienDisparou(evento);
-        }
-    
     }
 
     @Override
@@ -93,6 +85,11 @@ public class Alien extends Nave implements PlayerListener{
 
     @Override
     public void foiAtingido(PlayerEvent pe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    

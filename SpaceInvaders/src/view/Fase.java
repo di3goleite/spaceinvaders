@@ -7,6 +7,9 @@ package view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -28,6 +31,14 @@ public class Fase extends JPanel implements IFase {
     public Fase() {
         this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
         backBuffer = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println("Pressed");
+            }
+
+        });
+        this.setFocusable(true);
     }
 
     @Override
@@ -54,7 +65,8 @@ public class Fase extends JPanel implements IFase {
             }
         }   
     }
-
+    
+    
     @Override
     public void setBackImage(String URL) {
         this.fundo = new ImageIcon(URL);
@@ -105,7 +117,7 @@ public class Fase extends JPanel implements IFase {
             private int fpsInimigos = 1;
             private boolean indo = true;
 		public MoveInimigos() {
-			
+  
 		}
 
 		@Override
@@ -137,6 +149,7 @@ public class Fase extends JPanel implements IFase {
                         } catch (InterruptedException ex) {
                             System.out.println("Thread MoveInimigo falhou");
                         }
+                        
                        repaint();
                     }
 		

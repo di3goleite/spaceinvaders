@@ -6,6 +6,8 @@
 
 package model;
 
+import java.awt.Image;
+import model.observer.PlayerEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -151,6 +153,58 @@ public class AlienTest {
         System.out.println("atira");
         Alien instance = null;
         Tiro expResult = null;
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of myImage method, of class Alien.
+     */
+    @Test
+    public void testMyImage() {
+        System.out.println("myImage");
+        Image iconImage = null;
+        Alien instance = null;
+        instance.myImage(iconImage);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of moveu method, of class Alien.
+     */
+    @Test
+    public void testMoveu() {
+        System.out.println("moveu");
+        PlayerEvent pe = null;
+        Alien instance = null;
+        instance.moveu(pe);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of atirou method, of class Alien.
+     */
+    @Test
+    public void testAtirou() {
+        System.out.println("atirou");
+        PlayerEvent pe = null;
+        Alien instance = null;
+        instance.atirou(pe);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of foiAtingido method, of class Alien.
+     */
+    @Test
+    public void testFoiAtingido() {
+        System.out.println("foiAtingido");
+        PlayerEvent pe = null;
+        Alien instance = null;
+        instance.foiAtingido(pe);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

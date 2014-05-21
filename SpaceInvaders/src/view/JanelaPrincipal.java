@@ -8,6 +8,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Timer;
 import javax.swing.JFrame;
 
@@ -31,6 +33,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.fase = f;
         this.painelJogo.add(fase, BorderLayout.CENTER);
+        painelJogo.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println("Pressed");
+            }
+
+        });
+        painelJogo.setFocusable(true);
     }
     /**
      * Metodo responsavel por mostrar o painel desejado no momento. 
@@ -220,7 +230,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelLogo.setLayout(new java.awt.BorderLayout());
 
         labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interface1/multimidia/imagens/LOGO.png"))); // NOI18N
-        painelLogo.add(labelLogo, java.awt.BorderLayout.CENTER);
+        painelLogo.add(labelLogo, java.awt.BorderLayout.PAGE_END);
 
         painelSuperior.add(painelLogo, "painel1");
 
@@ -291,6 +301,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
 
         this.mostraTelas("painel3", "superior");
+        
         this.moverInimigos = new Thread(this.fase.new MoveInimigos());
         this.moverInimigos.start();
     }//GEN-LAST:event_botaoSkipActionPerformed
@@ -361,6 +372,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 690);
+                ini.setFocusable(true);
             }
         });
     }

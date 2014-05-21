@@ -6,6 +6,9 @@
 
 package model;
 
+import java.awt.Image;
+import model.observer.AlienEvent;
+import model.observer.TiroEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,33 +23,24 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
     Player p=new Player(0,0,0);
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
+    
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
+    p=new Player(0,0,0);
     }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-    /**
-     *
-     */
+    
     @Test
     public void moverTest(){
      
         int x=p.getPositionX();
         int y=p.getPositionY();
-      //  p.mover(p.getPositionX()+10, p.getPositionY());
+        p.mover(1);
         assertFalse(x==p.getPositionX());
         assertEquals(x+10, p.getPositionX());
+        assertEquals(y, p.getPositionY());
+        p.mover(0);
+        assertFalse(x+10==p.getPositionX());
+        assertEquals(x, p.getPositionX());
         assertEquals(y, p.getPositionY());
     }
     
@@ -58,7 +52,11 @@ public class PlayerTest {
      
         int x=p.getPositionX();
         int y=p.getPositionY();
-//        p.mover(p.getPositionX()-10, p.getPositionY()); //lançar exceção
+        p.mover(0);
+        assertFalse(x-10==p.getPositionX());
+        assertEquals(x, p.getPositionX());
+        assertEquals(y, p.getPositionY());
+    
     }
     
     /**
@@ -66,125 +64,19 @@ public class PlayerTest {
      */
     @Test
     public void atiraTest(){
-        
+        Alien a=new Alien(0, 20);
         p.atira();
+        p.addTiroListerner(a);
+        p.atirou(new AlienEvent(p));
+        assertNull(a);
+        
     }
-
-    /**
-     * Test of getVidas method, of class Player.
-     */
-    @Test
-    public void testGetVidas() {
-        System.out.println("getVidas");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getVidas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setVidas method, of class Player.
-     */
-    @Test
-    public void testSetVidas() {
-        System.out.println("setVidas");
-        int vidas = 0;
-        Player instance = null;
-        instance.setVidas(vidas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getX method, of class Player.
-     */
-    @Test
-    public void testGetX() {
-        System.out.println("getX");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getX();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setX method, of class Player.
-     */
-    @Test
-    public void testSetX() {
-        System.out.println("setX");
-        int x = 0;
-        Player instance = null;
-        instance.setX(x);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getY method, of class Player.
-     */
-    @Test
-    public void testGetY() {
-        System.out.println("getY");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getY();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setY method, of class Player.
-     */
-    @Test
-    public void testSetY() {
-        System.out.println("setY");
-        int y = 0;
-        Player instance = null;
-        instance.setY(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPositionX method, of class Player.
-     */
-    @Test
-    public void testGetPositionX() {
-        System.out.println("getPositionX");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getPositionX();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPositionY method, of class Player.
-     */
-    @Test
-    public void testGetPositionY() {
-        System.out.println("getPositionY");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getPositionY();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of mover method, of class Player.
      */
     @Test
     public void testMover() {
-        System.out.println("mover");
         int x = 0;
         int y = 0;
         Player instance = null;
@@ -198,11 +90,93 @@ public class PlayerTest {
      */
     @Test
     public void testAtira() {
-        System.out.println("atira");
         Player instance = null;
         Tiro expResult = null;
         instance.atira();
         assertEquals(expResult, 1);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of mover method, of class Player.
+     */
+    @Test
+    public void testMover_int() {
+        int direcao = 0;
+        Player instance = null;
+        instance.mover(direcao);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of mover method, of class Player.
+     */
+    @Test
+    public void testMover_0args() {
+        Player instance = null;
+        instance.mover();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of myImage method, of class Player.
+     */
+    @Test
+    public void testMyImage() {
+        Image iconImage = null;
+        Player instance = null;
+        instance.myImage(iconImage);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of moveu method, of class Player.
+     */
+    @Test
+    public void testMoveu_TiroEvent() {
+        TiroEvent e = null;
+        Player instance = null;
+        instance.moveu(e);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of moveu method, of class Player.
+     */
+    @Test
+    public void testMoveu_AlienEvent() {
+        AlienEvent ae = null;
+        Player instance = null;
+        instance.moveu(ae);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of atirou method, of class Player.
+     */
+    @Test
+    public void testAtirou() {
+        AlienEvent ae = null;
+        Player instance = null;
+        instance.atirou(ae);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of foiAtingido method, of class Player.
+     */
+    @Test
+    public void testFoiAtingido() {
+        AlienEvent ae = null;
+        Player instance = null;
+        instance.foiAtingido(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

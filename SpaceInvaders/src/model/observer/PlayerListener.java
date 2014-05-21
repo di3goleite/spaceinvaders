@@ -16,6 +16,5 @@ public interface PlayerListener extends EventListener{
     
     void moveu(PlayerEvent pe);
     void atirou(PlayerEvent pe);
-    void foiAtingido(PlayerEvent pe);
-    
+    void foiAtingido(PlayerEvent pe);   
 }

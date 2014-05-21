@@ -18,16 +18,6 @@ public class Barreira implements TiroListener, AlienListener{
     ArrayList barreira=new ArrayList();
 
     @Override
-    public void playerdisparou(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void alienDisparou(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

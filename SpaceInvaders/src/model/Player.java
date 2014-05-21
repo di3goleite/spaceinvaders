@@ -18,7 +18,8 @@ import model.observer.TiroListener;
  */
 public class Player extends Nave implements TiroListener, AlienListener{
     private int vidas;
-
+    public static final int direita=1;
+    public static final int esquerda=0;
     /**
      *
      * @param vidas
@@ -98,10 +99,12 @@ public class Player extends Nave implements TiroListener, AlienListener{
     }
 
     public void mover(int direcao) {
-    if(direcao==1){
+    if(direcao==direita){
+    if(this.x+10!=640){
     this.x+=10;
     }
-    else this.x-=10;
+    }
+    else if(this.x-10!=0){ this.x-=10; }
     }
 
     
@@ -113,7 +116,6 @@ public class Player extends Nave implements TiroListener, AlienListener{
     @Override
     public void atira() {
     Tiro tiro = new Tiro(this.getPositionX(),this.getPositionY(), 0);
-    disparaPlayerDisparou();
     }    
 
     @Override
@@ -123,24 +125,6 @@ public class Player extends Nave implements TiroListener, AlienListener{
     }
   
     
-    private void disparaPlayerDisparou(){
-        TiroEvent evento = new TiroEvent(this);               
-        for (TiroListener t : tiroListeners) {
-            t.playerdisparou(evento);
-        }
-    
-    }
-
-    @Override
-    public void playerdisparou(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void alienDisparou(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

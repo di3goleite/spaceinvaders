@@ -62,19 +62,6 @@ public class Tiro implements TiroListener{
     }
 
     @Override
-    public void playerdisparou(TiroEvent e) {
-    
-        if(orientacao==1){
-           
-        }
-    }
-
-    @Override
-    public void alienDisparou(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void moveu(TiroEvent e) {
     if(orientacao!=((Tiro)e.getSource()).orientacao){
     if(x==((Tiro)e.getSource()).x){
