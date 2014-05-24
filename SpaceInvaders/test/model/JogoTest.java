@@ -49,8 +49,6 @@ public class JogoTest {
         assertEquals(0, instance.cb.paredeY0);
         assertEquals(600, instance.cb.paredeX);
         assertEquals(800, instance.cb.paredeY);
-        instance.run();
-        assertNotNull(instance.cb.aliens);
-        assertEquals(instance.cb.aliens.size(), 55);
+        
     } 
 }

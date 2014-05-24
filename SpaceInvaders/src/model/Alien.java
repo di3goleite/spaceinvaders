@@ -50,10 +50,7 @@ public class Alien extends Nave implements PlayerListener,TiroListener{
     return y;
     }
     
-    /**
-     * 
-     */
-    @Override
+   
     public void mover() {
     
     }

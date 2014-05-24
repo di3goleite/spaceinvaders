@@ -17,34 +17,46 @@ import model.observer.TiroListener;
  */
 public abstract class Nave {
     
-    protected Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
+    private Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
     
-   /*protected*/ int x;
-    int y;
-    Image myIcon;
+    protected int x;
+    protected int y;
+    protected Image myIcon;
     
     /**
      * 
      * @param iconImage 
      */
     public abstract void myImage(Image iconImage);
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setMyIcon(Image myIcon) {
+        this.myIcon = myIcon;
+    }
     
     /**
      *
      * @return
      */
-    public abstract int getPositionX();
+    public int getPositionX(){
+    return x;
+    }
 
     /**
      *
      * @return
      */
-    public abstract int getPositionY();
+    public int getPositionY(){
+    return y;
+    }
 
-    /**
-     * 
-     */
-    public abstract void mover();
     
     /**
      *

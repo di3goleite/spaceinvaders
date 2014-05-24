@@ -99,65 +99,6 @@ public class PlayerTest {
     }
 
     /**
-     * Test of mover method, of class Player.
-     */
-    @Test
-    public void testMover_int() {
-        int direcao = 0;
-        Player instance = null;
-        instance.mover(direcao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of mover method, of class Player.
-     */
-    @Test
-    public void testMover_0args() {
-        Player instance = null;
-        instance.mover();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of myImage method, of class Player.
-     */
-    @Test
-    public void testMyImage() {
-        Image iconImage = null;
-        Player instance = null;
-        instance.myImage(iconImage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of moveu method, of class Player.
-     */
-    @Test
-    public void testMoveu_TiroEvent() {
-        TiroEvent e = null;
-        Player instance = null;
-        instance.moveu(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of moveu method, of class Player.
-     */
-    @Test
-    public void testMoveu_AlienEvent() {
-        AlienEvent ae = null;
-        Player instance = null;
-        instance.moveu(ae);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of atirou method, of class Player.
      */
     @Test

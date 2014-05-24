@@ -117,14 +117,12 @@ public class Fase extends JPanel implements IFase {
             private int fpsInimigos = 1;
             private boolean indo = true;
 		public MoveInimigos() {
-  
 		}
 
 		@Override
 		public void run() {
                     posicaoNInimigaX = 15;
                     while(true){
-                        
                         if(posicaoNInimigaX > 10 && posicaoNInimigaX < 150){
                             if(indo){
                                 posicaoNInimigaX+=10;

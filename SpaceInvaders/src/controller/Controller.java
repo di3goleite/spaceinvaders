@@ -6,6 +6,7 @@
 
 package controller;
 
+import model.Jogo;
 import model.Player;
 
 /**
@@ -14,9 +15,12 @@ import model.Player;
  */
 public class Controller {
 
-    Player p;
+    Player p=new Player(3, 700, 320);
     Controller(int x,int y){
     p=new Player(3,x,y);
+    }
+
+   public Controller() {
     }
     
     public void atirarPlayer(){
@@ -25,6 +29,30 @@ public class Controller {
     
     public void moverPlayer(int direcao){
     p.mover(direcao);
+    }
+
+    void criarJogo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Jogo getJogo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Object getAliens() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Player getPlayer() {
+        return p;
+    }
+
+    Object getBarreira() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void mover() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -10,6 +10,10 @@ package model;
  *
  * @author marc
  */
-public class Fase1 {
+public class Fase {
+    int paredeX0 =0;
+    int paredeY0=0;
+    int paredeX;
+    int paredeY;
     
 }

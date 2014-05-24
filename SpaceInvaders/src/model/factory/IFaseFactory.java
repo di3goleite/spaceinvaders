@@ -4,24 +4,13 @@
  * and open the template in the editor.
  */
 
-package model;
+package model.factory;
 
 /**
  *
  * @author lucas
  */
-public class Jogo {
-    Fase cb;
-
-    /**
-     *
-     * @param altura
-     * @param largura
-     */
-    public Jogo(int altura, int largura){
-    cb=new Fase();
-    }
-
+public interface IFaseFactory {  //cria os componentes que formam o jogo. player, alien e barreiras.
     
-
+    public void criaJogo();
 }

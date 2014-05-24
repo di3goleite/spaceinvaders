@@ -6,6 +6,7 @@
 
 package controller;
 
+import model.Fase;
 import model.Player;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,34 +20,17 @@ import static org.junit.Assert.*;
  * @author Lucas
  */
 public class ControllerTest {
-    
-    Player p=new Player(0,0,0);
-
+    Controller c=new Controller();
     /**
      *
      */
     public ControllerTest() {
      
     }
-    
     /**
      *
      */
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    /**
-     *
-     */
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    /**
-     *
-     */
-    @Before
+    @Before()
     public void setUp() {
     }
     
@@ -60,7 +44,13 @@ public class ControllerTest {
     
     @Test
     public void criarJogoTest(){
-    
+        c.criarJogo();
+        assertNotNull(c.getJogo());
+        assertNotNull(c.getPlayer());
+        assertNotNull(c.getAliens());
+        assertNotNull(c.getBarreira());
+        
+        assertEquals(3, c.getPlayer().getVidas());
     }
     
     
@@ -69,14 +59,20 @@ public class ControllerTest {
      */
     @Test
     public void moverPlayertest() {
-        int x=p.getPositionX();  
-        int y=p.getPositionY();
-        p.mover();  //movimenta o player 
-        assertFalse(x==p.getPositionX()); //verifica se ocorreram as mudanças esperadas
-        assertEquals(x+10, p.getPositionX()); //
-        assertEquals(y, p.getPositionY());
+        int x=c.getPlayer().getPositionX();
+        int y=c.getPlayer().getPositionY();
+        c.mover();  //movimenta o player
+        assertEquals(x+10, c.getPlayer().getPositionX());
+        assertEquals(y, c.getPlayer().getPositionY());
+        assertFalse(x==c.getPlayer().getPositionX()); //verifica se ocorreram as mudanças esperadas
+        assertEquals(x+10, c.getPlayer().getPositionX()); //
+        assertEquals(y, c.getPlayer().getPositionY());
     }
     
+    @Test
+    public void atirarPlayertest(){
+    c.atirarPlayer();
     
+    }
     
 }

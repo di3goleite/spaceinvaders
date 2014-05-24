@@ -28,8 +28,8 @@ public class Player extends Nave implements TiroListener, AlienListener{
      */
     public Player(int vidas, int x, int y) {
         this.vidas = vidas;
-        this.x = x;
-        this.y = y;
+        this.setX(x);
+        this.setY(y);
     }
 
     /**
@@ -48,70 +48,17 @@ public class Player extends Nave implements TiroListener, AlienListener{
         this.vidas = vidas;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getX() {
-        return x;
-    }
-
-    /**
-     *
-     * @param x
-     */
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getY() {
-        return y;
-    }
-
-    /**
-     *
-     * @param y
-     */
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public int getPositionX() {
-    return x;
-    }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public int getPositionY() {
-    return y;
-    }
-
     public void mover(int direcao) {
     if(direcao==direita){
-    if(this.x+10!=640){
-    this.x+=10;
+    if(this.getPositionX()+10!=640){
+    this.setX(this.getPositionX()+10);
     }
     }
     else if(this.x-10!=0){ this.x-=10; }
     }
 
     
-    @Override
-    public void mover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
    
     @Override
     public void atira() {

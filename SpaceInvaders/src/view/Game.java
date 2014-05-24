@@ -1,6 +1,9 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -74,6 +77,16 @@ public class Game extends JFrame {
 	}
 	public static void main(String[] args) {
 		Game game = new Game();
+                game.setFocusable(true);
+                game.addKeyListener(new KeyAdapter() {
+
+
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        System.out.println("Pressionei.");
+                    }
+
+                });
 		game.run();
 	}
 }
