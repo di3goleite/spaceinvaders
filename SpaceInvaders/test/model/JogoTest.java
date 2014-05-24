@@ -45,10 +45,10 @@ public class JogoTest {
     public void testRun() {
         System.out.println("run");
         Jogo instance = new Jogo(800,600);
-        assertEquals(0, instance.cb.paredeX0);
-        assertEquals(0, instance.cb.paredeY0);
-        assertEquals(600, instance.cb.paredeX);
-        assertEquals(800, instance.cb.paredeY);
+        assertEquals(0, instance.paredeX0);
+        assertEquals(0, instance.paredeY0);
+        assertEquals(600, instance.paredeX);
+        assertEquals(800, instance.paredeY);
         
     } 
 }

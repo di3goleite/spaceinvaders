@@ -6,12 +6,23 @@
 
 package model;
 
+import java.util.ArrayList;
+import model.composite.INaveInimiga;
+import model.factory.IFaseFactory;
+
 /**
  *
  * @author lucas
  */
 public class Jogo {
-    Fase cb;
+    IPlayer p;
+    INaveInimiga inimigos;
+    ArrayList <IBarreiras>barreiras;
+    
+    int paredeX0 =0;
+    int paredeY0=0;
+    int paredeX;
+    int paredeY;
 
     /**
      *
@@ -19,9 +30,18 @@ public class Jogo {
      * @param largura
      */
     public Jogo(int altura, int largura){
-    cb=new Fase();
+        paredeX=largura;
+        paredeY=altura;
+    }
+    
+    public void montaFase(IFaseFactory iff){
+    p=iff.criaPalyer();
+    inimigos=iff.criaInimigos();
+    barreiras=iff.criaBarreiras();
     }
 
-    
+    public IPlayer getPlayer() {
+    return p;
+    }
 
 }

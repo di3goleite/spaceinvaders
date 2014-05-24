@@ -5,12 +5,19 @@
  */
 
 package model.factory;
+import java.util.ArrayList;
+import model.*;
+import model.composite.INaveInimiga;
 
 /**
  *
  * @author lucas
  */
 public interface IFaseFactory {  //cria os componentes que formam o jogo. player, alien e barreiras.
-    
-    public void criaJogo();
+
+    public IPlayer criaPalyer();
+
+    public INaveInimiga criaInimigos();
+
+    public ArrayList criaBarreiras();
 }

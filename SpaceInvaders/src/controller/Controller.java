@@ -6,6 +6,7 @@
 
 package controller;
 
+import model.IPlayer;
 import model.Jogo;
 import model.Player;
 
@@ -14,21 +15,22 @@ import model.Player;
  * @author Dracul
  */
 public class Controller {
-
-    Player p=new Player(3, 700, 320);
+    
+    Jogo j;
+    
     Controller(int x,int y){
-    p=new Player(3,x,y);
+    j=new Jogo(x, y);
     }
 
    public Controller() {
     }
     
     public void atirarPlayer(){
-    p.atira();
+    j.getPlayer().atira();
     }
     
     public void moverPlayer(int direcao){
-    p.mover(direcao);
+    j.getPlayer().mover(direcao);
     }
 
     void criarJogo() {
@@ -43,8 +45,8 @@ public class Controller {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Player getPlayer() {
-        return p;
+    public IPlayer getPlayer() {
+        return j.getPlayer();
     }
 
     Object getBarreira() {

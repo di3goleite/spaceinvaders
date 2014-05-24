@@ -9,6 +9,8 @@ package model;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
+import model.composite.INaveInimiga;
+import model.flyweight.MyImagem;
 import model.observer.PlayerEvent;
 import model.observer.PlayerListener;
 import model.observer.TiroEvent;
@@ -18,9 +20,12 @@ import model.observer.TiroListener;
  * Classe de navens alieniginas comum.
  * @author Lucas
  */
-public class Alien extends Nave implements PlayerListener,TiroListener{
+public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
     
-    private Collection <TiroListener> telefoneListeners = new ArrayList<TiroListener>();
+    private Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
+    protected int x;
+    protected int y;
+    protected MyImagem myIcon;
 
     /**
      *
@@ -36,7 +41,6 @@ public class Alien extends Nave implements PlayerListener,TiroListener{
      *
      * @return
      */
-    @Override
     public int getPositionX() {
     return x;
     }
@@ -45,7 +49,6 @@ public class Alien extends Nave implements PlayerListener,TiroListener{
      *
      * @return
      */
-    @Override
     public int getPositionY() {
     return y;
     }
@@ -58,16 +61,14 @@ public class Alien extends Nave implements PlayerListener,TiroListener{
     /**
      *
      */
-    @Override
     public void atira() {
     Tiro p =new Tiro(this.getPositionX(), this.getPositionY(),0);
     
     }
 
-    @Override
     public void myImage(Image iconImage) {
         // setar sua imagem;
-        myIcon = iconImage;
+    myIcon.myImage(iconImage);
     }
 
     @Override
@@ -89,5 +90,6 @@ public class Alien extends Nave implements PlayerListener,TiroListener{
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
    
 }

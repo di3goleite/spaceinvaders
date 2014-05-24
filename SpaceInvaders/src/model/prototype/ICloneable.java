@@ -4,16 +4,12 @@
  * and open the template in the editor.
  */
 
-package model.interfaces;
-
-import model.Alien;
-import model.Player;
+package model.prototype;
 
 /**
  *
- * @author Lucas Vinicius
+ * @author lucas
  */
-public interface IFabricaDeNaves {
-    Alien criaNavesInimigas();
-    Player criaNavesAmigas();
+public interface ICloneable {
+    public void clone();
 }
