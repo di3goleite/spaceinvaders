@@ -43,12 +43,11 @@ public class JogoTest {
      */
     @Test
     public void testRun() {
-        System.out.println("run");
         Jogo instance = new Jogo(800,600);
         assertEquals(0, instance.paredeX0);
         assertEquals(0, instance.paredeY0);
-        assertEquals(600, instance.paredeX);
-        assertEquals(800, instance.paredeY);
+        assertEquals(800, instance.paredeX);
+        assertEquals(600, instance.paredeY);
         
     } 
 }

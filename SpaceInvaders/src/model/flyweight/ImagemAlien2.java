@@ -14,9 +14,10 @@ import java.awt.Image;
  */
 public class ImagemAlien2 implements MyImagem{
 
+ Image iconImage;
+    
     @Override
     public void myImage(Image iconImage) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        this.iconImage=iconImage;
+    } 
 }

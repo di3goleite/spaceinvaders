@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
 import model.composite.INaveInimiga;
+import model.flyweight.ImagemAlien1;
 import model.flyweight.MyImagem;
 import model.observer.PlayerEvent;
 import model.observer.PlayerListener;
@@ -25,8 +26,8 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
     private Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
     protected int x;
     protected int y;
-    protected MyImagem myIcon;
-
+    protected MyImagem myIcon= new ImagemAlien1();
+    private int orientacao=0;
     /**
      *
      * @param x
@@ -58,7 +59,9 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
    
     @Override
     public void mover() {
-    
+    if(orientacao==0){
+    this.x--;
+    }
     }
 
     /**

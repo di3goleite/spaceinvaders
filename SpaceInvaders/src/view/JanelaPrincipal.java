@@ -20,7 +20,7 @@ import javax.swing.JFrame;
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
 
-    Controller c = new Controller();
+    Controller c = new Controller(840, 600);
   
     /**
      * Indica qual parte da historinha sera exibida no momento

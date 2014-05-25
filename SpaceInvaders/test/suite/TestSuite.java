@@ -15,8 +15,7 @@ import model.*;
  * @author lucas
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ControllerTest.class, PlayerTest.class, AlienTest.class,
-BarreiraTest.class})
+@Suite.SuiteClasses({ControllerTest.class, PlayerTest.class, AlienTest.class, JogoTest.class})
 public class TestSuite {
     
 }

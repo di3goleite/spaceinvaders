@@ -35,7 +35,7 @@ public class Jogo {
     }
     
     public void montaFase(IFaseFactory iff){
-    p=iff.criaPalyer();
+    p=iff.criaPlayer();
     inimigos=iff.criaInimigos();
     barreiras=iff.criaBarreiras();
     }

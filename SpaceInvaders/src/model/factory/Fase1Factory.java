@@ -3,6 +3,7 @@ package model.factory;
 
 import java.util.ArrayList;
 import model.Alien;
+import model.Barreira;
 import model.IPlayer;
 import model.Player;
 import model.composite.INaveInimiga;
@@ -38,13 +39,6 @@ public class Fase1Factory implements IFaseFactory{
     @Override
     public IPlayer criaPlayer() {
     return Player.getInstance();
-    }
-
-    @Override
-    public INaveInimiga criaInimigos() {
-    Alien a=new Alien(10, 10);
-    inimigos.addNaveInimiga(a);
-    return inimigos;
     }
 
     @Override

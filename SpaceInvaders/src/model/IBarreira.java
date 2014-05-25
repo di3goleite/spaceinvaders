@@ -6,23 +6,10 @@
 
 package model;
 
-import java.awt.Image;
-
 /**
  *
  * @author lucas
  */
-public interface IAlien {
-
-    public int getPositionX();
-
-    public int getPositionY();
-
-    public void atira();
-
- 
-    public void myImage(Image iconImage);
-    
-   public void mover();
+class IBarreira {
     
 }

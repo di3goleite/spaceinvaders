@@ -45,13 +45,10 @@ public class TiroTest {
      */
     @Test
     public void testGetPositionX() {
-        System.out.println("getPositionX");
         Tiro instance = null;
         int expResult = 0;
         int result = instance.getPositionX();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,12 +56,9 @@ public class TiroTest {
      */
     @Test
     public void testAddTiroListerner() {
-        System.out.println("addTiroListerner");
         TiroListener tl = null;
         Tiro instance = null;
         instance.addTiroListerner(tl);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,24 +66,18 @@ public class TiroTest {
      */
     @Test
     public void testRemoveTiroListerner() {
-        System.out.println("removeTiroListerner");
         TiroListener tl = null;
         Tiro instance = null;
         instance.removeTiroListerner(tl);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     /**
      * Test of moveu method, of class Tiro.
      */
     @Test
     public void testMoveu() {
-        System.out.println("moveu");
         TiroEvent e = null;
         Tiro instance = null;
         instance.moveu(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

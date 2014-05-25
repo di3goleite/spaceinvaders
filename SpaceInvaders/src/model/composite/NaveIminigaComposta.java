@@ -7,7 +7,6 @@
 package model.composite;
 
 import java.util.ArrayList;
-import model.IAlien;
 
 /**
  *
@@ -21,7 +20,9 @@ public class NaveIminigaComposta implements INaveInimiga{
      */
     @Override
     public void mover() {
-      
+        for(INaveInimiga alien: aliens){
+        alien.mover();
+        }
     }
     
     public void addNaveInimiga(INaveInimiga in){

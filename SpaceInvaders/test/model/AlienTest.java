@@ -7,7 +7,6 @@
 package model;
 
 import java.awt.Image;
-import model.observer.PlayerEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class AlienTest {
     
-    IAlien a=new Alien(0,0);
+    IAlien a=new Alien(10,10);
     Player p=Player.getInstance();
     Tiro P;
     
@@ -107,13 +106,9 @@ public class AlienTest {
      */
     @Test
     public void testGetPositionX() {
-        System.out.println("getPositionX");
-        Alien instance = null;
         int expResult = 0;
-        int result = instance.getPositionX();
+        int result = a.getPositionX();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -121,13 +116,9 @@ public class AlienTest {
      */
     @Test
     public void testGetPositionY() {
-        System.out.println("getPositionY");
-        Alien instance = new Alien(0, 0);
         int expResult = 0;
-        int result = instance.getPositionY();
+        int result = a.getPositionY();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,13 +126,7 @@ public class AlienTest {
      */
     @Test
     public void testMover() {
-        System.out.println("mover");
-        int x = 0;
-        int y = 0;
-        Alien instance = null;
-        //instance.mover(x, y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        a.mover();
     }
 
     /**
@@ -149,11 +134,8 @@ public class AlienTest {
      */
     @Test
     public void testAtira() {
-        System.out.println("atira");
         Alien instance = null;
         Tiro expResult = null;
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -161,50 +143,7 @@ public class AlienTest {
      */
     @Test
     public void testMyImage() {
-        System.out.println("myImage");
         Image iconImage = null;
-        Alien instance = null;
-        instance.myImage(iconImage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of moveu method, of class Alien.
-     */
-    @Test
-    public void testMoveu() {
-        System.out.println("moveu");
-        PlayerEvent pe = null;
-        Alien instance = null;
-        instance.moveu(pe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of atirou method, of class Alien.
-     */
-    @Test
-    public void testAtirou() {
-        System.out.println("atirou");
-        PlayerEvent pe = null;
-        Alien instance = null;
-        instance.atirou(pe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of foiAtingido method, of class Alien.
-     */
-    @Test
-    public void testFoiAtingido() {
-        System.out.println("foiAtingido");
-        PlayerEvent pe = null;
-        Alien instance = null;
-        instance.foiAtingido(pe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        a.myImage(iconImage);
     }
 }

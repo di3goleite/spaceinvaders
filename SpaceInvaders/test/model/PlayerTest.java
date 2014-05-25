@@ -6,7 +6,6 @@
 
 package model;
 
-import model.observer.AlienEvent;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -64,9 +63,8 @@ public class PlayerTest {
     @Test
     public void atiraTest(){
         Alien a=new Alien(0, 20);
-        p.atira();
         p.addTiroListerner(a);
-        p.atirou(new AlienEvent(p));
+        p.atira();
         assertNull(a);
         
     }
@@ -89,32 +87,6 @@ public class PlayerTest {
         Tiro expResult = null;
         instance.atira();
         assertEquals(expResult, 1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of atirou method, of class Player.
-     */
-    @Test
-    public void testAtirou() {
-        AlienEvent ae = null;
-        Player instance = Player.getInstance();
-        instance.atirou(ae);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of foiAtingido method, of class Player.
-     */
-    @Test
-    public void testFoiAtingido() {
-        AlienEvent ae = null;
-        Player instance = Player.getInstance();
-        instance.foiAtingido(ae);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

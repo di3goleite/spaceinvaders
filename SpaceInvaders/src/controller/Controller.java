@@ -24,8 +24,8 @@ public class Controller {
     IPlayer p;
     IFaseFactory qualFase;
     
-   public Controller() {
-
+   public Controller(int largura, int altura) {
+       j=new Jogo(largura, altura);
    }
     
     public void atirarPlayer(){
@@ -49,8 +49,8 @@ public class Controller {
     
     public Jogo getJogo() {
         return j;
-=======
-    void criarJogo(int x, int y) {
+    }
+        void criarJogo(int x, int y) {
         j=new Jogo(x, y);
     }
 
@@ -62,12 +62,6 @@ public class Controller {
            
        }
     }
-    
-    Jogo getJogo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> ff9dc6e0f713ef95828407fb1185eb3bf409534c
-    }
-
     public INaveInimiga getAliens() {
     return j.getInimigos();
     }
