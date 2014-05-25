@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
 public class AlienTest {
     
     IAlien a=new Alien(0,0);
-    Player p=new Player(0,0,0);
+    Player p=Player.getInstance();
     Tiro P;
     
     
@@ -70,7 +70,7 @@ public class AlienTest {
         
         int x=a.getPositionX();
         int y=a.getPositionY();
-        //a.mover(a.getPositionX()+10, a.getPositionY());
+        a.mover();
         assertFalse(x==a.getPositionX());
         assertEquals(x+10, a.getPositionX());
         assertEquals(y, a.getPositionY());
@@ -89,10 +89,9 @@ public class AlienTest {
      */
     @Test
     public void foiAtingidoTeste(){
-    p=new Player(0,0,0);
-    assertEquals(p.getPositionX(),a.getPositionX());
+    assertEquals(p.getX(),a.getPositionX());
     p.atira();
-    assertEquals(p.getPositionX(),P.getPositionX());
+    assertEquals(p.getX(),P.getPositionX());
     assertEquals(P.getPositionX(),a.getPositionX());
     assertNull(a);
     }
@@ -123,7 +122,7 @@ public class AlienTest {
     @Test
     public void testGetPositionY() {
         System.out.println("getPositionY");
-        Alien instance = null;
+        Alien instance = new Alien(0, 0);
         int expResult = 0;
         int result = instance.getPositionY();
         assertEquals(expResult, result);

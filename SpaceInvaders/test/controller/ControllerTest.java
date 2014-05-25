@@ -6,6 +6,9 @@
 
 package controller;
 
+import java.util.ArrayList;
+import model.IPlayer;
+import model.Jogo;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,18 +19,14 @@ import static org.junit.Assert.*;
  * @author Lucas
  */
 public class ControllerTest {
-    Controller c=new Controller();
-    /**
-     *
-     */
-    public ControllerTest() {
-     
-    }
+    Controller c=new Controller(800,640);
+    
     /**
      *
      */
     @Before()
     public void setUp() {
+        c.criarJogo();
     }
     
     /**
@@ -42,11 +41,22 @@ public class ControllerTest {
     public void criarJogoTest(){
         c.criarJogo();
         assertNotNull(c.getJogo());
+        
+        assertEquals(c.j.getParedeX(), 800);
+        assertEquals(c.j.getParedeY(), 640);
+        
+        assertEquals(c.j.getParedeX0(), 0);
+        assertEquals(c.j.getParedeY0(), 0);
+        
         assertNotNull(c.getPlayer());
         assertNotNull(c.getAliens());
         assertNotNull(c.getBarreira());
         
+        assertEquals(4,c.j.getBarreiras().size());
         assertEquals(3, c.getPlayer().getVidas());
+        
+        assertFalse(c.j.getBarreiras().isEmpty());
+        
     }
     
     
@@ -55,20 +65,100 @@ public class ControllerTest {
      */
     @Test
     public void moverPlayertest() {
-        int x=c.getPlayer().getPositionX();
-        int y=c.getPlayer().getPositionY();
-        c.mover();  //movimenta o player
-        assertEquals(x+10, c.getPlayer().getPositionX());
-        assertEquals(y, c.getPlayer().getPositionY());
-        assertFalse(x==c.getPlayer().getPositionX()); //verifica se ocorreram as mudanças esperadas
-        assertEquals(x+10, c.getPlayer().getPositionX()); //
-        assertEquals(y, c.getPlayer().getPositionY());
+        int x=c.getPlayer().getX();
+        int y=c.getPlayer().getY();
+        c.mover(1);  //movimenta o player
+        assertEquals(x+10, c.getPlayer().getX());
+        assertEquals(y, c.getPlayer().getY());
+        assertFalse(x==c.getPlayer().getX()); //verifica se ocorreram as mudanças esperadas
+        assertEquals(x+10, c.getPlayer().getX()); //
+        assertEquals(y, c.getPlayer().getY());
     }
     
     @Test
     public void atirarPlayertest(){
     c.atirarPlayer();
     
+    }
+
+    /**
+     * Test of atirarPlayer method, of class Controller.
+     */
+    @Test
+    public void testAtirarPlayer() {
+        c.atirarPlayer();
+    }
+
+    /**
+     * Test of moverPlayer method, of class Controller.
+     */
+    @Test
+    public void testMoverPlayer() {
+        int direcao = 0;
+        c.criarJogo();
+        c.moverPlayer(direcao);
+    }
+
+    /**
+     * Test of criarJogo method, of class Controller.
+     */
+    @Test
+    public void testCriarJogo() {
+        c.criarJogo();
+    }
+
+    /**
+     * Test of mudarFase method, of class Controller.
+     */
+    @Test
+    public void testMudarFase() {
+        int fase = 0;
+        c.mudarFase(fase);
+    }
+
+    /**
+     * Test of getJogo method, of class Controller.
+     */
+    @Test
+    public void testGetJogo() {
+        Jogo result = c.getJogo();
+        assertNotNull(result);
+    }
+
+    /**
+     * Test of getAliens method, of class Controller.
+     */
+    @Test
+    public void testGetAliens() {
+        Object result = c.getAliens();
+        assertNotNull(result);
+    }
+
+    /**
+     * Test of getPlayer method, of class Controller.
+     */
+    @Test
+    public void testGetPlayer() {
+        IPlayer result = c.getPlayer();
+        assertNotNull(result);
+    }
+
+    /**
+     * Test of getBarreira method, of class Controller.
+     */
+    @Test
+    public void testGetBarreira() {
+        ArrayList result = c.getBarreira();
+        assertNotNull(result);
+        assertEquals(4, result.size());
+    }
+
+    /**
+     * Test of mover method, of class Controller.
+     */
+    @Test
+    public void testMover() {
+        c.mover(0);
     }
     
 }

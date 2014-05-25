@@ -8,7 +8,9 @@ package model.factory;
 
 import java.util.ArrayList;
 import model.Alien;
+import model.Barreira;
 import model.IPlayer;
+import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
 
@@ -20,7 +22,7 @@ public class Fase1Factory implements IFaseFactory{
 
     @Override
     public IPlayer criaPalyer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return Player.getInstance();
     }
 
     @Override
@@ -33,7 +35,12 @@ public class Fase1Factory implements IFaseFactory{
 
     @Override
     public ArrayList criaBarreiras() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ArrayList<Barreira> barreiras=new ArrayList<>();
+    barreiras.add(new Barreira());
+    barreiras.add(new Barreira());
+    barreiras.add(new Barreira());
+    barreiras.add(new Barreira());
+    return barreiras; 
     }
     
 }

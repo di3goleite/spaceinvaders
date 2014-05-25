@@ -6,9 +6,13 @@
 
 package controller;
 
+import java.util.ArrayList;
+import model.Barreira;
+import model.IBarreiras;
 import model.IPlayer;
 import model.Jogo;
-import model.Player;
+import model.composite.INaveInimiga;
+import model.factory.Fase1Factory;
 
 /**
  *
@@ -33,28 +37,34 @@ public class Controller {
     j.getPlayer().mover(direcao);
     }
 
-    void criarJogo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void criarJogo() {
+    j.montaFase(new Fase1Factory());
+    }
+    
+    public void mudarFase(int fase){
+    if(fase==1){
+    j.montaFase(new Fase1Factory());
+    }
+    }
+    
+    public Jogo getJogo() {
+        return j;
     }
 
-    Jogo getJogo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    Object getAliens() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public INaveInimiga getAliens() {
+    return j.getInimigos();
     }
 
     public IPlayer getPlayer() {
         return j.getPlayer();
     }
 
-    Object getBarreira() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<IBarreiras> getBarreira() {
+    return j.getBarreiras();
     }
 
-    void mover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mover(int direcao) {
+    j.getPlayer().mover(direcao);
     }
     
 }

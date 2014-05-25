@@ -7,6 +7,8 @@
 package model;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Collection;
 import model.flyweight.ImagemPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
@@ -24,18 +26,28 @@ public class Player implements TiroListener, IPlayer, AlienListener{
     protected int x;
     protected int y;
     protected ImagemPlayer myIcon;
+    private static Player INSTANCE;
+    private Collection <TiroListener> tiroListeners = new ArrayList<>();
+    
     /**
      *
      * @param vidas
      * @param x
      * @param y
      */
-    public Player(int vidas, int x, int y) {
+    private Player(int vidas, int x, int y) {
         this.vidas = vidas;
         this.setX(x);
         this.setY(y);
     }
-
+        
+    public static Player getInstance() {
+        if(INSTANCE==null){
+        INSTANCE=new Player(3, 320, 750);
+        }
+        return Player.INSTANCE;
+    }
+    
     /**
      *
      * @return
@@ -53,13 +65,16 @@ public class Player implements TiroListener, IPlayer, AlienListener{
         this.vidas = vidas;
     }
 
+    @Override
     public void mover(int direcao) {
     if(direcao==direita){
-    if(this.getPositionX()+10!=640){
-    this.setX(this.getPositionX()+10);
+    if(this.getX()+10!=640){
+    this.setX(this.getX()+10);
     }
     }
-    else if(this.x-10!=0){ this.x-=10; }
+    else if(this.x-10!=0){ 
+        this.x-=10; 
+    }
     }
 
     
@@ -67,7 +82,7 @@ public class Player implements TiroListener, IPlayer, AlienListener{
    
     @Override
     public void atira() {
-    Tiro tiro = new Tiro(this.getPositionX(),this.getPositionY(), 0);
+    Tiro tiro = new Tiro(this.getX(),this.getY(), 0);
     }    
 
     public void myImage(Image iconImage) {
@@ -97,25 +112,25 @@ public class Player implements TiroListener, IPlayer, AlienListener{
     }
 
     private void setX(int x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    this.x=x;
     }
 
     private void setY(int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getPositionX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getPositionY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    this.y=y;
     }
 
     void addTiroListerner(Alien a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    tiroListeners.add(a);
+    }
+
+    @Override
+    public int getX() {
+    return x;
+    }
+
+    @Override
+    public int getY() {
+    return y;
     }
    
     

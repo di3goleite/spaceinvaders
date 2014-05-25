@@ -6,13 +6,8 @@
 
 package model;
 
-import java.awt.Image;
 import model.observer.AlienEvent;
-import model.observer.TiroEvent;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,26 +17,26 @@ import static org.junit.Assert.*;
  */
 public class PlayerTest {
 
-    Player p=new Player(0,0,0);
+    Player p=Player.getInstance();
     
     @Before
     public void setUp() {
-    p=new Player(0,0,0);
+    p=Player.getInstance();
     }
     
     @Test
     public void moverTest(){
      
-        int x=p.getPositionX();
-        int y=p.getPositionY();
+        int x=p.getX();
+        int y=p.getY();
         p.mover(1);
-        assertFalse(x==p.getPositionX());
-        assertEquals(x+10, p.getPositionX());
-        assertEquals(y, p.getPositionY());
+        assertFalse(x==p.getX());
+        assertEquals(x+10, p.getX());
+        assertEquals(y, p.getY());
         p.mover(0);
-        assertFalse(x+10==p.getPositionX());
-        assertEquals(x, p.getPositionX());
-        assertEquals(y, p.getPositionY());
+        assertFalse(x+10==p.getX());
+        assertEquals(x, p.getX());
+        assertEquals(y, p.getY());
     }
     
     /**
@@ -50,12 +45,16 @@ public class PlayerTest {
     @Test
     public void moverForaTest(){
      
-        int x=p.getPositionX();
-        int y=p.getPositionY();
+        for(int i=0; i<100; i++){
         p.mover(0);
-        assertFalse(x-10==p.getPositionX());
-        assertEquals(x, p.getPositionX());
-        assertEquals(y, p.getPositionY());
+        }
+        int x=p.getX();
+        int y=p.getY();
+        p.mover(0);
+        
+        assertFalse(x-10==p.getX());
+        assertEquals(x, p.getX());
+        assertEquals(y, p.getY());
     
     }
     
@@ -77,12 +76,8 @@ public class PlayerTest {
      */
     @Test
     public void testMover() {
-        int x = 0;
-        int y = 0;
-        Player instance = null;
-     //   instance.mover(x, y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Player instance = Player.getInstance();
+       instance.mover(0);
     }
 
     /**
@@ -90,7 +85,7 @@ public class PlayerTest {
      */
     @Test
     public void testAtira() {
-        Player instance = null;
+        Player instance = Player.getInstance();
         Tiro expResult = null;
         instance.atira();
         assertEquals(expResult, 1);
@@ -104,7 +99,7 @@ public class PlayerTest {
     @Test
     public void testAtirou() {
         AlienEvent ae = null;
-        Player instance = null;
+        Player instance = Player.getInstance();
         instance.atirou(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -116,7 +111,7 @@ public class PlayerTest {
     @Test
     public void testFoiAtingido() {
         AlienEvent ae = null;
-        Player instance = null;
+        Player instance = Player.getInstance();
         instance.foiAtingido(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

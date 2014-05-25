@@ -8,16 +8,34 @@ package model;
 
 /**
  *
- * @author lucas
+ * @author Lucas
  */
-public interface IAlien {
-
+public interface INave {
+    
+    
+    /**
+     *
+     * @return
+     */
     public int getPositionX();
 
+    /**
+     *
+     * @return
+     */
     public int getPositionY();
 
-    public void atira();
+    /**
+     *
+     * @param i
+     * @param positionY
+     */
+    public void mover(int i, int positionY);
 
-    public void mover();
+    /**
+     *
+     */
+    public void atira();
+    
     
 }

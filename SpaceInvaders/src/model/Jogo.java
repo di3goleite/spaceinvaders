@@ -29,7 +29,7 @@ public class Jogo {
      * @param altura
      * @param largura
      */
-    public Jogo(int altura, int largura){
+    public Jogo(int largura, int altura){
         paredeX=largura;
         paredeY=altura;
     }
@@ -42,6 +42,30 @@ public class Jogo {
 
     public IPlayer getPlayer() {
     return p;
+    }
+
+    public INaveInimiga getInimigos() {
+    return inimigos;
+            }
+
+    public ArrayList<IBarreiras> getBarreiras() {
+    return barreiras;
+    }
+
+    public int getParedeX() {
+    return paredeX;
+    }
+
+    public int getParedeY() {
+    return paredeY; 
+    }
+
+    public int getParedeX0() {
+    return paredeX0;
+    }
+
+    public int getParedeY0() {
+    return paredeY0;
     }
 
 }

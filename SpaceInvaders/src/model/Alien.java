@@ -41,6 +41,7 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
      *
      * @return
      */
+    @Override
     public int getPositionX() {
     return x;
     }
@@ -49,11 +50,13 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
      *
      * @return
      */
+    @Override
     public int getPositionY() {
     return y;
     }
     
    
+    @Override
     public void mover() {
     
     }

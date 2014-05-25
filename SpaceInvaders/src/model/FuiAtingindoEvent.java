@@ -8,18 +8,8 @@ package model;
 
 /**
  *
- * @author lucas
+ * @author Lucas
  */
-public interface IPlayer{
-
-    public void atira();
-
-    public void mover(int direcao);
-    
-    public int getVidas();
-
-    public int getX();
-
-    public int getY();
+public class FuiAtingindoEvent {
     
 }
