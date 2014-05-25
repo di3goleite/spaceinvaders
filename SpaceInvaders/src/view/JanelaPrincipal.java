@@ -6,6 +6,7 @@
 
 package view;
 
+import controller.Controller;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.KeyAdapter;
@@ -19,6 +20,7 @@ import javax.swing.JFrame;
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
 
+    Controller c = new Controller();
   
     /**
      * Indica qual parte da historinha sera exibida no momento
@@ -91,7 +93,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                     this.labelIndicaCena.setText("Ataquem os Aliens");
                     break;
             }
+        
+        //
+        this.painelInferiorMenuP.setFocusCycleRoot(false);
+        this.painelInferiorMenuP.setFocusable(false);
         this.fase.setFocusable(true);
+        this.fase.setFocusCycleRoot(true);
+        //
         
     }
     /**
@@ -232,6 +240,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelLogo.setLayout(new java.awt.BorderLayout());
 
         labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interface1/multimidia/imagens/LOGO.png"))); // NOI18N
+        labelLogo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                labelLogoKeyPressed(evt);
+            }
+        });
         painelLogo.add(labelLogo, java.awt.BorderLayout.PAGE_END);
 
         painelSuperior.add(painelLogo, "painel1");
@@ -336,6 +349,21 @@ public class JanelaPrincipal extends javax.swing.JFrame {
          
          this.mudaHistorinha();
     }//GEN-LAST:event_botaoDireitaActionPerformed
+
+    //Tentando mexer a nave aliada
+    private void labelLogoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelLogoKeyPressed
+        if( fase.isFocusOwner() ) {
+            switch (evt.getKeyCode()) {
+                case KeyEvent.VK_RIGHT: System.out.println("ANDEI >");
+                     break;
+                case KeyEvent.VK_LEFT: System.out.println("ATIREI <");
+                     break;
+                case KeyEvent.VK_SPACE: System.out.println("ATIREI");
+                     break;
+
+            }
+       }
+    }//GEN-LAST:event_labelLogoKeyPressed
 
     /**
      * @param args the command line arguments

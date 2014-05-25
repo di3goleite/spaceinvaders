@@ -15,12 +15,12 @@ import model.factory.IFaseFactory;
  * @author lucas
  */
 public class Jogo {
-    IPlayer p;
+    IPlayer p; 
     INaveInimiga inimigos;
-    ArrayList <IBarreiras>barreiras;
+    ArrayList <IBarreiras> barreiras;
     
-    int paredeX0 =0;
-    int paredeY0=0;
+    int paredeX0 = 0;
+    int paredeY0 = 0;
     int paredeX;
     int paredeY;
 
@@ -35,13 +35,13 @@ public class Jogo {
     }
     
     public void montaFase(IFaseFactory iff){
-    p=iff.criaPalyer();
-    inimigos=iff.criaInimigos();
-    barreiras=iff.criaBarreiras();
+        p=iff.criaPalyer();
+        inimigos=iff.criaInimigos();
+        barreiras=iff.criaBarreiras();
     }
 
     public IPlayer getPlayer() {
-    return p;
+        return p;
     }
 
 }
