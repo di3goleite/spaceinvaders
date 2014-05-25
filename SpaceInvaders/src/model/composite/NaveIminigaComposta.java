@@ -25,10 +25,10 @@ public class NaveIminigaComposta implements INaveInimiga{
     }
     
     public void addNaveInimiga(INaveInimiga in){
-    aliens.add(in);
+        aliens.add(in);
     }
     public void removeNaveInimiga(INaveInimiga in){
-    aliens.remove(in);
+        aliens.remove(in);
     }
     
     

@@ -7,12 +7,12 @@
 package controller;
 
 import java.util.ArrayList;
-import model.Barreira;
 import model.IBarreiras;
 import model.IPlayer;
 import model.Jogo;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;
+import model.factory.IFaseFactory;
 
 /**
  *
@@ -21,21 +21,21 @@ import model.factory.Fase1Factory;
 public class Controller {
     
     Jogo j;
+    IPlayer p;
+    IFaseFactory qualFase;
     
-    Controller(int x,int y){
-    j=new Jogo(x, y);
-    }
-
    public Controller() {
-    }
+
+   }
     
     public void atirarPlayer(){
-    j.getPlayer().atira();
+        j.getPlayer().atira();
     }
     
     public void moverPlayer(int direcao){
-    j.getPlayer().mover(direcao);
+        j.getPlayer().mover(direcao);
     }
+
 
     public void criarJogo() {
     j.montaFase(new Fase1Factory());
@@ -49,6 +49,23 @@ public class Controller {
     
     public Jogo getJogo() {
         return j;
+=======
+    void criarJogo(int x, int y) {
+        j=new Jogo(x, y);
+    }
+
+    void criarFase(int i) {
+        if (i == 1) {
+           qualFase = new Fase1Factory();
+           j.montaFase(qualFase);
+       } else if(i == 2) {
+           
+       }
+    }
+    
+    Jogo getJogo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> ff9dc6e0f713ef95828407fb1185eb3bf409534c
     }
 
     public INaveInimiga getAliens() {
