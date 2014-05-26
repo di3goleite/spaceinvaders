@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import model.interfaces.IPlayer;
@@ -20,16 +19,17 @@ import model.observer.TiroListener;
  *
  * @author Lucas
  */
-public class Player implements TiroListener, IPlayer, AlienListener{
+public class Player implements TiroListener, IPlayer, AlienListener {
+
     private int vidas;
-    public static final int direita=1;
-    public static final int esquerda=0;
+    public static final int direita = 1;
+    public static final int esquerda = 0;
     protected int x;
     protected int y;
     protected ImagemPlayer myIcon;
     private static Player INSTANCE;
-    private Collection <TiroListener> tiroListeners = new ArrayList<>();
-    
+    private Collection<TiroListener> tiroListeners = new ArrayList<>();
+
     /**
      *
      * @param vidas
@@ -41,14 +41,14 @@ public class Player implements TiroListener, IPlayer, AlienListener{
         this.setX(x);
         this.setY(y);
     }
-        
+
     public static Player getInstance() {
-        if(INSTANCE==null){
-        INSTANCE=new Player(3, 320, 750);
+        if (INSTANCE == null) {
+            INSTANCE = new Player(3, 320, 750);
         }
         return Player.INSTANCE;
     }
-    
+
     /**
      *
      * @return
@@ -68,30 +68,25 @@ public class Player implements TiroListener, IPlayer, AlienListener{
 
     @Override
     public void mover(int direcao) {
-    if(direcao==direita){
-    if(this.getX()+10!=640){
-    this.setX(this.getX()+10);
-    }
-    }
-    else if(this.x-10!=0){ 
-        this.x-=10; 
-    }
+        if (direcao == direita) {
+            if (this.getX() + 10 != 640) {
+                this.setX(this.getX() + 10);
+            }
+        } else if (this.x - 10 != 0) {
+            this.x -= 10;
+        }
     }
 
-    
-    
-   
     @Override
     public void atira() {
-    Tiro tiro = new Tiro(this.getX(),this.getY(), 0);
-    }    
+        Tiro tiro = new Tiro(this.getX(), this.getY(), 0);
+    }
 
     public void myImage(Image iconImage) {
         // setar sua imagem;
         myIcon.myImage(iconImage);
     }
-  
-    
+
     @Override
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -113,26 +108,25 @@ public class Player implements TiroListener, IPlayer, AlienListener{
     }
 
     private void setX(int x) {
-    this.x=x;
+        this.x = x;
     }
 
     private void setY(int y) {
-    this.y=y;
+        this.y = y;
     }
 
     void addTiroListerner(Alien a) {
-    tiroListeners.add(a);
+        tiroListeners.add(a);
     }
 
     @Override
     public int getX() {
-    return x;
+        return x;
     }
 
     @Override
     public int getY() {
-    return y;
+        return y;
     }
-   
-    
+
 }

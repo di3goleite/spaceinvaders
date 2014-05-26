@@ -8,51 +8,60 @@ package model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TimerTask;
+import java.util.Timer;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
 /**
  *
- * @author lucas
+ * @author bililili
  */
 public class Tiro implements TiroListener {
 
     private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
     int x, y;
     int orientacao;
+    Timer timer;
+    TiroEvent evento;
 
     Tiro(int positionX, int positionY, int orientacao) {
+        
         this.orientacao = orientacao;
-        move();
         this.x = positionX;
         this.y = positionY;
+        
+        evento = new TiroEvent(this);
+        timer = new Timer();
+        timer.schedule(new Move(), 0);
     }
 
     public int getOrientacao() {
         return orientacao;
     }
-    
+
     public int getPositionX() {
         return x;
     }
+    
+    public int getPositionY() {
+        return y;
+    }
 
-    private void move() {
-        TimerTask runer = new TimerTask() {
+    private class Move extends TimerTask {
 
-            @Override
-            public void run() {
-                disparaMoveu();
-                if (getOrientacao() == 0) {
-                    y = y - 10;
-                } else {
-                    y = y + 10;
-                }
+        @Override
+        public void run() {
+            disparaMoveu();
+            if (getOrientacao() == 0) {
+                y = y - 10;
+            } else {
+                y = y + 10;
             }
-        };
+        }
     }
 
     private void disparaMoveu() {
-        TiroEvent evento = new TiroEvent(this);
+        
         for (TiroListener t : tiroListeners) {
             t.moveu(evento);
         }
@@ -69,10 +78,10 @@ public class Tiro implements TiroListener {
 
     @Override
     public void moveu(TiroEvent e) {
-        if (getOrientacao() != ((Tiro) e.getSource()).getOrientacao()) {
-            if (x == ((Tiro) e.getSource()).x) {
-                //this.acertei();
-            }
+        if (getPositionX() == ((Tiro) e.getSource()).getPositionX() && 
+            getPositionY() == ((Tiro) e.getSource()).getPositionY()) {
+            
+            
         }
     }
 
