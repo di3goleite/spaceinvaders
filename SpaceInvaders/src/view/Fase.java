@@ -23,7 +23,7 @@ public class Fase extends JPanel {
     private BufferedImage backBuffer;
     private ImageIcon fundo;
     private ImageIcon naveAmiga = new ImageIcon("src/interface1/multimidia/imagens/personagens/naveAmiga.png");
-    private Inimigos inimigos[][];
+  //  private Inimigos inimigos[][];
     private int FPS = 3;
     private int posicaoNAmigaX, posicaoNAmigaY = 520;
     private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
@@ -43,23 +43,23 @@ public class Fase extends JPanel {
 
   
     public void criaInimigos(int posicaoX, int posicaoY) {
-        this.inimigos = new Inimigos[5][16];
+     //   this.inimigos = new Inimigos[5][16];
         int x, y = posicaoY;
      for(int i = 0; i < 5; i++){
             x = posicaoX;
             y += 25;
             for(int j = 0; j < 16; j++){
                 if(i == 0 || i == 1){
-                    inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
-                            + "imagens/personagens/inimigo1-1.jpg", x, y);
+             //       inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
+              //              + "imagens/personagens/inimigo1-1.jpg", x, y);
                 }
                 else if (i == 2 || i == 3){
-                    inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
-                            + "imagens/personagens/inimigo2-1.jpg", x, y);
+           //         inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
+                      //      + "imagens/personagens/inimigo2-1.jpg", x, y);
                 }
                 else{
-                    inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
-                            + "imagens/personagens/inimigo3-1.jpg", x, y);
+             //       inimigos[i][j] = new Inimigos("src/interface1/multimidia/"
+              //              + "imagens/personagens/inimigo3-1.jpg", x, y);
                 }
                 x+=40;
             }
@@ -92,9 +92,9 @@ public class Fase extends JPanel {
         this.criaInimigos(this.posicaoNInimigaX, this.posicaoNInimigaY);
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 16; j++){
-                bbg2d.drawImage(inimigos[i][j].getImage(),
-                        this.inimigos[i][j].getPosicaoX(),
-                        this.inimigos[i][j].getPosicaoY(),this);   
+           //     bbg2d.drawImage(inimigos[i][j].getImage(),
+           //             this.inimigos[i][j].getPosicaoX(),
+            //            this.inimigos[i][j].getPosicaoY(),this);   
             }
         }
         

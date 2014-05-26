@@ -13,14 +13,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Timer;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Vinícius Assis
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
-
-    Controller c = new Controller(840, 600);
   
     /**
      * Indica qual parte da historinha sera exibida no momento
@@ -31,18 +30,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
       /**
      * Creates new form JanelaPrincipal
      */
-    public JanelaPrincipal(Fase f) {
+    public JanelaPrincipal() {
         initComponents();
-        this.fase = f;
-        this.painelJogo.add(fase, BorderLayout.CENTER);
-        f.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                System.out.println("Pressed");
-            }
-
-        });
-        f.setFocusable(true);
     }
     /**
      * Metodo responsavel por mostrar o painel desejado no momento. 
@@ -65,7 +54,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             card = (CardLayout)this.painelHistorinha.getLayout();
             card.show(this.painelHistorinha, nome);
         }
-        this.fase.setFocusable(true);
+        
     }
     /**
      * Responsavel por mudar os paineis na hora de mostrar a historia
@@ -93,13 +82,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                     this.labelIndicaCena.setText("Ataquem os Aliens");
                     break;
             }
-        
-        //
-        this.painelInferiorMenuP.setFocusCycleRoot(false);
-        this.painelInferiorMenuP.setFocusable(false);
-        this.fase.setFocusable(true);
-        this.fase.setFocusCycleRoot(true);
-        //
         
     }
     /**
@@ -139,18 +121,18 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cena5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        painelJogo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("space INVADERS");
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(800, 690));
         setResizable(false);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelInferior.setLayout(new java.awt.CardLayout());
 
         painelInferiorMenuP.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)), "D.L.O.L Entertainment", 0, 5, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(253, 251, 251))); // NOI18N
 
         botaoPlay.setBackground(new java.awt.Color(250, 250, 250));
         botaoPlay.setText("PLAY");
@@ -189,7 +171,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelInferior.add(painelInferiorMenuP, "painel1");
 
         painelInferiorHistorinha.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", 0, 5, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         painelInferiorHistorinha.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -294,9 +276,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         painelSuperior.add(painelHistorinha, "painel2");
 
-        painelJogo.setLayout(new java.awt.BorderLayout());
-        painelSuperior.add(painelJogo, "painel3");
-
         getContentPane().add(painelSuperior, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -314,11 +293,28 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoHelpActionPerformed
 
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
-
-        this.mostraTelas("painel3", "superior");
-        
-        this.moverInimigos = new Thread(this.fase.new MoveInimigos());
-        this.moverInimigos.start();
+        int i = JOptionPane.showConfirmDialog(this, "Iniciar em Tela Cheia (800 * 600)?");
+        if(i == 1){
+            Controller c = new Controller(320, 180);
+            TelaPequena ini = new TelaPequena(c);
+                ini.setVisible(true);
+                ini.setTitle("space Invaders - 320 * 180");
+                ini.setLocationRelativeTo(null);
+                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ini.setSize(320, 180);
+                 this.dispose();
+        }
+        else if(i == 0){
+            Controller c = new Controller(800, 600);
+            TelaGrande ini = new TelaGrande(c);
+                ini.setVisible(true);
+                ini.setTitle("space Invaders - 800 * 600");
+                ini.setLocationRelativeTo(null);
+                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ini.setSize(800, 600);
+                 this.dispose();
+        }
+       
     }//GEN-LAST:event_botaoSkipActionPerformed
 
     private void botaoPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPlayActionPerformed
@@ -396,14 +392,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Fase f = new Fase();
-                JanelaPrincipal ini = new JanelaPrincipal(f);
+            
+                JanelaPrincipal ini = new JanelaPrincipal();
                 ini.setVisible(true);
                 ini.setTitle("space Invaders");
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 690);
-                f.setFocusable(true);
+                
             }
         });
     }
@@ -435,7 +431,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel painelInferior;
     private javax.swing.JPanel painelInferiorHistorinha;
     private javax.swing.JPanel painelInferiorMenuP;
-    private javax.swing.JPanel painelJogo;
     private javax.swing.JPanel painelLogo;
     private javax.swing.JPanel painelSuperior;
     // End of variables declaration//GEN-END:variables
