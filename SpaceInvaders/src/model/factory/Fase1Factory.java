@@ -4,7 +4,7 @@ package model.factory;
 import java.util.ArrayList;
 import model.Alien;
 import model.Barreira;
-import model.IPlayer;
+import model.interfaces.IPlayer;
 import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;

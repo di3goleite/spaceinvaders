@@ -4,12 +4,22 @@
  * and open the template in the editor.
  */
 
-package model;
+package model.interfaces;
 
 /**
  *
  * @author lucas
  */
-public interface IBarreiras {
+public interface IPlayer{
+
+    public void atira();
+
+    public void mover(int direcao);
+    
+    public int getVidas();
+
+    public int getX();
+
+    public int getY();
     
 }

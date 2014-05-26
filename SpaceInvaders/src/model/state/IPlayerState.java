@@ -6,7 +6,7 @@
 
 package model.state;
 
-import model.IPlayer;
+import model.interfaces.IPlayer;
 
 /**
  *

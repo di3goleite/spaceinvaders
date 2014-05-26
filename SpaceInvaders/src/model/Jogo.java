@@ -6,6 +6,8 @@
 
 package model;
 
+import model.interfaces.IBarreiras;
+import model.interfaces.IPlayer;
 import java.util.ArrayList;
 import model.composite.INaveInimiga;
 import model.factory.IFaseFactory;
