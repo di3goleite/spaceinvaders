@@ -23,22 +23,26 @@ public class Tiro implements TiroListener {
 
     Tiro(int positionX, int positionY, int orientacao) {
         this.orientacao = orientacao;
-        move(orientacao);
+        move();
         this.x = positionX;
         this.y = positionY;
     }
 
-    int getPositionX() {
+    public int getOrientacao() {
+        return orientacao;
+    }
+    
+    public int getPositionX() {
         return x;
     }
 
-    private void move(final int orientacao) {
+    private void move() {
         TimerTask runer = new TimerTask() {
 
             @Override
             public void run() {
                 disparaMoveu();
-                if (orientacao == 0) {
+                if (getOrientacao() == 0) {
                     y = y - 10;
                 } else {
                     y = y + 10;
@@ -65,7 +69,7 @@ public class Tiro implements TiroListener {
 
     @Override
     public void moveu(TiroEvent e) {
-        if (orientacao != ((Tiro) e.getSource()).orientacao) {
+        if (getOrientacao() != ((Tiro) e.getSource()).getOrientacao()) {
             if (x == ((Tiro) e.getSource()).x) {
                 //this.acertei();
             }
