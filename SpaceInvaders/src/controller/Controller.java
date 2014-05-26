@@ -6,8 +6,8 @@
 package controller;
 
 import java.util.ArrayList;
-import model.IBarreiras;
-import model.IPlayer;
+import model.interfaces.IBarreiras;
+import model.interfaces.IPlayer;
 import model.Jogo;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;

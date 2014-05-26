@@ -5,6 +5,7 @@
  */
 
 package model.factory;
+import model.interfaces.IPlayer;
 import java.util.ArrayList;
 import model.*;
 import model.composite.INaveInimiga;

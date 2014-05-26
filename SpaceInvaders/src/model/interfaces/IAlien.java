@@ -6,13 +6,23 @@
 
 package model.interfaces;
 
+import java.awt.Image;
+
 /**
  *
  * @author lucas
  */
-
 public interface IAlien {
+
+    public int getPositionX();
+
+    public int getPositionY();
+
+    public void atira();
+
+ 
+    public void myImage(Image iconImage);
     
-    /** Vão ter outras coisas relacionados ao geral de um alien e não a nave */
+   public void mover();
     
 }

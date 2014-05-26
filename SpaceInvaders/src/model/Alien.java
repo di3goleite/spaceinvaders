@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
+import model.interfaces.IAlien;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,23 +19,25 @@ import model.observer.TiroListener;
 
 /**
  * Classe de navens alieniginas comum.
+ *
  * @author Lucas
  */
-public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
-    
-    private Collection <TiroListener> tiroListeners = new ArrayList<TiroListener>();
+public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga {
+
+    private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
     protected int x;
     protected int y;
-    protected MyImagem myIcon= new ImagemAlien1();
-    private int orientacao=0;
+    protected MyImagem myIcon = new ImagemAlien1();
+    private int orientacao = 0;
+
     /**
      *
      * @param x
      * @param y
      */
-    public Alien (int x, int y) {
-    this.x=x;
-    this.y=y;
+    public Alien(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -44,7 +46,7 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
      */
     @Override
     public int getPositionX() {
-    return x;
+        return x;
     }
 
     /**
@@ -53,28 +55,27 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
      */
     @Override
     public int getPositionY() {
-    return y;
+        return y;
     }
-    
-   
+
     @Override
     public void mover() {
-    if(orientacao==0){
-    this.x--;
-    }
+        if (orientacao == 0) {
+            this.x--;
+        }
     }
 
     /**
      *
      */
     public void atira() {
-    Tiro p =new Tiro(this.getPositionX(), this.getPositionY(),0);
-    
+        Tiro p = new Tiro(this.getPositionX(), this.getPositionY(), 0);
+
     }
 
     public void myImage(Image iconImage) {
         // setar sua imagem;
-    myIcon.myImage(iconImage);
+        myIcon.myImage(iconImage);
     }
 
     @Override
@@ -97,5 +98,4 @@ public class Alien implements PlayerListener,TiroListener, IAlien,INaveInimiga{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
 }
