@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author Vinícius Assis
  */
-public class Fase extends JPanel implements IFase {
+public class Fase extends JPanel {
 
     private BufferedImage backBuffer;
     private ImageIcon fundo;
@@ -41,7 +41,7 @@ public class Fase extends JPanel implements IFase {
         this.setFocusable(true);
     }
 
-    @Override
+  
     public void criaInimigos(int posicaoX, int posicaoY) {
         this.inimigos = new Inimigos[5][16];
         int x, y = posicaoY;
@@ -67,11 +67,9 @@ public class Fase extends JPanel implements IFase {
     }
     
     
-    @Override
     public void setBackImage(String URL) {
         this.fundo = new ImageIcon(URL);
     }
-    @Override
     public void atualizar() {
        
     }

@@ -150,7 +150,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelInferior.setLayout(new java.awt.CardLayout());
 
         painelInferiorMenuP.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, null, new java.awt.Color(255, 255, 255)));
+        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         botaoPlay.setBackground(new java.awt.Color(250, 250, 250));
         botaoPlay.setText("PLAY");
@@ -189,7 +189,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelInferior.add(painelInferiorMenuP, "painel1");
 
         painelInferiorHistorinha.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, null, new java.awt.Color(255, 255, 255)));
+        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         painelInferiorHistorinha.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
