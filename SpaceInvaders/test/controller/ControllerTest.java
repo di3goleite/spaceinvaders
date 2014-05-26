@@ -42,20 +42,20 @@ public class ControllerTest {
         c.criarJogo();
         assertNotNull(c.getJogo());
         
-        assertEquals(c.j.getParedeX(), 800);
-        assertEquals(c.j.getParedeY(), 640);
+        assertEquals(c.getJogo().getParedeX(), 800);
+        assertEquals(c.getJogo().getParedeY(), 640);
         
-        assertEquals(c.j.getParedeX0(), 0);
-        assertEquals(c.j.getParedeY0(), 0);
+        assertEquals(c.getJogo().getParedeX0(), 0);
+        assertEquals(c.getJogo().getParedeY0(), 0);
         
         assertNotNull(c.getPlayer());
         assertNotNull(c.getAliens());
         assertNotNull(c.getBarreira());
         
-        assertEquals(4,c.j.getBarreiras().size());
+        assertEquals(4,c.getJogo().getBarreiras().size());
         assertEquals(3, c.getPlayer().getVidas());
         
-        assertFalse(c.j.getBarreiras().isEmpty());
+        assertFalse(c.getJogo().getBarreiras().isEmpty());
         
     }
     
