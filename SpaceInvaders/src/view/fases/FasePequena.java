@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.fases;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author Vinícius Assis
  */
-public class Fase extends JPanel {
+public class FasePequena extends JPanel {
 
     private BufferedImage backBuffer;
     private ImageIcon fundo;
@@ -28,7 +28,7 @@ public class Fase extends JPanel {
     private int posicaoNAmigaX, posicaoNAmigaY = 520;
     private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
 
-    public Fase() {
+    public FasePequena() {
         this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
         backBuffer = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
         this.addKeyListener(new KeyAdapter() {

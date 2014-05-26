@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package view;
+package view.janela;
 
+import view.fases.FaseGrande;
 import controller.Controller;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -14,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.util.Timer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import view.fases.FaseGrande;
 
 /**
  *
@@ -25,7 +27,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
      * Indica qual parte da historinha sera exibida no momento
      */
     private int contaHistorinha;
-    private Fase fase;
+    private FaseGrande fase;
     private Thread moverInimigos;
       /**
      * Creates new form JanelaPrincipal
@@ -125,7 +127,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("space INVADERS");
         setBackground(new java.awt.Color(0, 0, 0));
-        setPreferredSize(new java.awt.Dimension(800, 690));
         setResizable(false);
         getContentPane().setLayout(new java.awt.BorderLayout());
 
@@ -296,23 +297,23 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(this, "Iniciar em Tela Cheia (800 * 600)?");
         if(i == 1){
             Controller c = new Controller(320, 180);
-            TelaPequena ini = new TelaPequena(c);
+            TelaJogo ini = new TelaJogo(c);
                 ini.setVisible(true);
                 ini.setTitle("space Invaders - 320 * 180");
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(320, 180);
-                 this.dispose();
+                this.dispose();
         }
         else if(i == 0){
             Controller c = new Controller(800, 600);
-            TelaGrande ini = new TelaGrande(c);
+            TelaJogo ini = new TelaJogo(c);
                 ini.setVisible(true);
                 ini.setTitle("space Invaders - 800 * 600");
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 600);
-                 this.dispose();
+                this.dispose();
         }
        
     }//GEN-LAST:event_botaoSkipActionPerformed
