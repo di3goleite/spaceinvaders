@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import model.observer.TiroEvent;
@@ -20,22 +19,22 @@ import static org.junit.Assert.*;
  * @author lucas
  */
 public class TiroTest {
-    
+
     public TiroTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -70,6 +69,7 @@ public class TiroTest {
         Tiro instance = null;
         instance.removeTiroListerner(tl);
     }
+
     /**
      * Test of moveu method, of class Tiro.
      */
@@ -79,5 +79,5 @@ public class TiroTest {
         Tiro instance = null;
         instance.moveu(e);
     }
-    
+
 }

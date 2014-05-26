@@ -6,6 +6,7 @@
 
 package model;
 
+import model.interfaces.IAlien;
 import java.awt.Image;
 import org.junit.After;
 import org.junit.AfterClass;

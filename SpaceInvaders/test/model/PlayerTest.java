@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import org.junit.Before;
@@ -16,66 +15,66 @@ import static org.junit.Assert.*;
  */
 public class PlayerTest {
 
-    Player p=Player.getInstance();
-    
+    Player p = Player.getInstance();
+
     @Before
     public void setUp() {
-    p=Player.getInstance();
+        p = Player.getInstance();
     }
-    
+
     @Test
-    public void moverTest(){
-     
-        int x=p.getX();
-        int y=p.getY();
+    public void moverTest() {
+
+        int x = p.getX();
+        int y = p.getY();
         p.mover(1);
-        assertFalse(x==p.getX());
-        assertEquals(x+10, p.getX());
+        assertFalse(x == p.getX());
+        assertEquals(x + 10, p.getX());
         assertEquals(y, p.getY());
         p.mover(0);
-        assertFalse(x+10==p.getX());
+        assertFalse(x + 10 == p.getX());
         assertEquals(x, p.getX());
         assertEquals(y, p.getY());
     }
-    
-    /**
-     *
-     */ 
-    @Test
-    public void moverForaTest(){
-     
-        for(int i=0; i<100; i++){
-        p.mover(0);
-        }
-        int x=p.getX();
-        int y=p.getY();
-        p.mover(0);
-        
-        assertFalse(x-10==p.getX());
-        assertEquals(x, p.getX());
-        assertEquals(y, p.getY());
-    
-    }
-    
+
     /**
      *
      */
     @Test
-    public void atiraTest(){
-        Alien a=new Alien(0, 20);
+    public void moverForaTest() {
+
+        for (int i = 0; i < 100; i++) {
+            p.mover(0);
+        }
+        int x = p.getX();
+        int y = p.getY();
+        p.mover(0);
+
+        assertFalse(x - 10 == p.getX());
+        assertEquals(x, p.getX());
+        assertEquals(y, p.getY());
+
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void atiraTest() {
+        Alien a = new Alien(0, 20);
         p.addTiroListerner(a);
         p.atira();
         assertNull(a);
-        
+
     }
-    
+
     /**
      * Test of mover method, of class Player.
      */
     @Test
     public void testMover() {
         Player instance = Player.getInstance();
-       instance.mover(0);
+        instance.mover(0);
     }
 
     /**
