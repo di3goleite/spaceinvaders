@@ -7,6 +7,7 @@
 package view.janela;
 
 import controller.Controller;
+import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
@@ -16,15 +17,12 @@ import javax.swing.JPanel;
  * @author lucasvinicius
  */
 public class TelaJogo extends javax.swing.JFrame {
-    private Controller c;
-    private JPanel fase;
 
     /**
      * Creates new form TelaGrande
      */
-    public TelaJogo(Controller c) {
+    public TelaJogo(JPanel fase) {
         initComponents();
-        this.c = c;
          this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -33,26 +31,28 @@ public class TelaJogo extends javax.swing.JFrame {
 
         });
         this.setFocusable(true);
-    }
-    private void criarJogo(){
-        this.c.criarJogo();
+        this.painelContemFases.add(fase, BorderLayout.CENTER);
     }
     
         
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        painelContemFases = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        painelContemFases.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(painelContemFases, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(painelContemFases, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -60,5 +60,6 @@ public class TelaJogo extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel painelContemFases;
     // End of variables declaration//GEN-END:variables
 }

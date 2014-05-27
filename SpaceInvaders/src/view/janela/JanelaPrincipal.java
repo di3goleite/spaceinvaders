@@ -6,7 +6,6 @@
 
 package view.janela;
 
-import view.fases.FaseGrande;
 import controller.Controller;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -16,6 +15,7 @@ import java.util.Timer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.fases.FaseGrande;
+import view.fases.FasePequena;
 
 /**
  *
@@ -296,23 +296,26 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
         int i = JOptionPane.showConfirmDialog(this, "Iniciar em Tela Cheia (800 * 600)?");
         if(i == 1){
-            Controller c = new Controller(320, 180);
-            TelaJogo ini = new TelaJogo(c);
-                ini.setVisible(true);
-                ini.setTitle("space Invaders - 320 * 180");
-                ini.setLocationRelativeTo(null);
-                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ini.setSize(320, 180);
-                this.dispose();
+         //   Controller c = new Controller(320, 180);
+          //  FasePequena faseP = new FasePequena(c);
+          //  TelaJogo ini = new TelaJogo(faseP);
+          //      ini.setVisible(true);
+          //      ini.setTitle("space Invaders - 320 * 180");
+          //      ini.setLocationRelativeTo(null);
+           //     ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           //     ini.setSize(320, 180);
+           //     this.dispose();
         }
         else if(i == 0){
             Controller c = new Controller(800, 600);
-            TelaJogo ini = new TelaJogo(c);
+            FaseGrande faseG = new FaseGrande(c);
+            TelaJogo ini = new TelaJogo(faseG);
                 ini.setVisible(true);
                 ini.setTitle("space Invaders - 800 * 600");
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 600);
+                ini.setResizable(false);
                 this.dispose();
         }
        

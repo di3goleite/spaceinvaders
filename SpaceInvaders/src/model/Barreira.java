@@ -15,7 +15,7 @@ import model.observer.*;
  */
 public class Barreira implements TiroListener, AlienListener{
     
-    ArrayList barreira=new ArrayList();
+    ArrayList barreira = new ArrayList();
 
     @Override
     public void moveu(TiroEvent e) {
