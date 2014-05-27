@@ -65,7 +65,7 @@ public class ControllerTest {
     public void moverPlayertest() {
         int x = c.getPlayer().getX();
         int y = c.getPlayer().getY();
-        c.mover(1);  //movimenta o player
+        c.moverPlayer(1);  //movimenta o player
         assertEquals(x + 10, c.getPlayer().getX());
         assertEquals(y, c.getPlayer().getY());
         assertFalse(x == c.getPlayer().getX()); //verifica se ocorreram as mudanças esperadas
@@ -151,12 +151,5 @@ public class ControllerTest {
         assertEquals(4, result.size());
     }
 
-    /**
-     * Test of mover method, of class Controller.
-     */
-    @Test
-    public void testMover() {
-        c.mover(0);
-    }
 
 }

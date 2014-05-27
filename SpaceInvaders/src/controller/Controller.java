@@ -109,12 +109,6 @@ public class Controller {
         return j.getBarreiras();
     }
 
-    /**
-     *
-     * @param direcao
-     */
-    public void mover(int direcao) {
-        j.getPlayer().mover(direcao);
-    }
+    
 
 }
