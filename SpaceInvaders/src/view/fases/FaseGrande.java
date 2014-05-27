@@ -114,12 +114,12 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
         for (Tiro elemento : controller.getTiros()) {
             bbg2d.fillRect(elemento.getPositionX() + 5, elemento.getPositionY(), 5, 10);
         }
-        while (((NaveIminigaComposta) controller.getAliens()).getAliens().iterator().hasNext()) {
-            INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().iterator().next();
+        for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
+            INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
             bbg2d.drawImage(((Alien)inimigo).getImageIcon().getImage(), inimigo.getX(),inimigo.getY(), this);
-            System.out.println("bbb");
+            
         }
-        System.out.println("aa");
+        
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
 

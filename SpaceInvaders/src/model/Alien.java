@@ -38,7 +38,7 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
     /**
      *
      */
-    protected MyImagem myIcon= new ImagemAlien1();
+    protected MyImagem myIcon = new ImagemAlien1();
     private int orientacao = 0;
 
     /**
@@ -137,8 +137,7 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      * @return
      */
     public ImageIcon getImageIcon() {
-    return myIcon.getImage();
+        return myIcon.getImage();
     }
-
 
 }

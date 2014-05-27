@@ -32,18 +32,19 @@ public class Fase1Factory implements IFaseFactory {
     @Override
     public INaveInimiga criaInimigos() {
 
-        int x = 10, y = 10;
+        int x, y = 10;
         Alien a;
         MyImagem ia1=new ImagemAlien1();
-        ia1.setImage(new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.png"));
+        ia1.setImage(new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.jpg"));
         for (int i = 0; i < 5; i++) { // disposição dos inimigos (ajeitar ainda)
-            
-            for (int j = 0; j < 16; j++) {
+            x = 10;
+            for (int j = 0; j < 11; j++) {
                 a = new Alien(x, y);
                 inimigos.addNaveInimiga(a);
                 a.setImage(ia1.getImage());
                 
-                x += 40;
+                x += 60;
+                System.out.println("inimigo"+x+" "+y);
             }
             y += 25;
         }
