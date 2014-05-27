@@ -47,7 +47,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     /**
      *
      */
-    protected ImagemPlayer myIcon= new ImagemPlayer();
+    protected ImagemPlayer myIcon = new ImagemPlayer();
     private static Player INSTANCE;
     private Collection<TiroListener> tiroListeners = new ArrayList<>();
 
@@ -69,7 +69,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     public static Player getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new Player(3, 320, 750);
+            INSTANCE = new Player(3, 320, 300);
         }
         return Player.INSTANCE;
     }
@@ -98,11 +98,13 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     @Override
     public void mover(int direcao) {
         if (direcao == direita) {
-            if (this.getX() + 10 != 640) {
+            if (this.getX() + 10 != 600) {
                 this.setX(this.getX() + 10);
             }
-        } else if (this.x - 10 != 0) {
-            this.x -= 10;
+        } else {
+            if (this.x - 10 != 0) {
+                this.x -= 10;
+            }
         }
     }
 

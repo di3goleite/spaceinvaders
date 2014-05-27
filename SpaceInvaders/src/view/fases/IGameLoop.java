@@ -6,6 +6,8 @@
 
 package view.fases;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author lucasvinicius

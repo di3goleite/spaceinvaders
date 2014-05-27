@@ -11,6 +11,8 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
+import view.fases.FaseGrande;
+import view.fases.IGameLoop;
 
 /**
  *
@@ -22,16 +24,10 @@ public class TelaJogo extends javax.swing.JFrame {
      * Creates new form TelaGrande
      * @param fase
      */
-    public TelaJogo(JPanel fase) {
+    public TelaJogo(final JPanel fase) {
         initComponents();
-         this.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                System.out.println("Pressed");
-            }
-
-        });
-        this.setFocusable(true);
+        fase.setFocusable(true);
+        fase.addKeyListener((FaseGrande)fase);
         this.painelContemFases.add(fase, BorderLayout.CENTER);
         this.setResizable(false);
         this.setLocationRelativeTo(null);

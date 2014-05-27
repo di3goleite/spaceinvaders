@@ -52,8 +52,9 @@ public class Fase1Factory implements IFaseFactory {
     @Override
     public IPlayer criaPlayer() {
         Player p = Player.getInstance();
-        p.setX(this.largura/2);
-        p.setY(this.altura-10);
+        System.out.println(altura +" "+ largura);
+        Player.getInstance().setX(largura/2);
+       Player.getInstance().setY(altura - altura/6);
         p.setImage(
                 new ImageIcon("src/interface1/multimidia/imagens/personagens/naveAmiga.png"));
         return p;
