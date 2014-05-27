@@ -6,12 +6,13 @@
 package controller;
 
 import java.util.ArrayList;
-import model.interfaces.IBarreiras;
-import model.interfaces.IPlayer;
 import model.Jogo;
+import model.Tiro;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;
 import model.factory.IFaseFactory;
+import model.interfaces.IBarreiras;
+import model.interfaces.IPlayer;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Controller {
     private Jogo j;
     private IPlayer p;
     private IFaseFactory qualFase;
+    private ArrayList<Tiro> tiros= new ArrayList<>();
 
     /**
      *
@@ -36,7 +38,7 @@ public class Controller {
      *
      */
     public void atirarPlayer() {
-        j.getPlayer().atira();
+        tiros.add(j.getPlayer().atira());
     }
 
     /**

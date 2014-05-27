@@ -5,12 +5,12 @@
  */
 package model;
 
-import model.interfaces.IPlayer;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.ImageIcon;
 import model.flyweight.ImagemPlayer;
+import model.interfaces.IPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
 import model.observer.TiroEvent;
@@ -112,8 +112,8 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      *
      */
     @Override
-    public void atira() {
-        Tiro tiro = new Tiro(this.getX(), this.getY(), 0);
+    public Tiro atira() {
+        return new Tiro(this.getX(), this.getY(), 0);
     }
 
     /**

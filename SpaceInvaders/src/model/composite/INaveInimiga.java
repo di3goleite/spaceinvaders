@@ -7,6 +7,7 @@
 package model.composite;
 
 import javax.swing.ImageIcon;
+import model.Tiro;
 
 /**
  *
@@ -29,7 +30,7 @@ public interface INaveInimiga {
     /**
      *
      */
-    public void atira();
+    public Tiro atira();
 
     /**
      *

@@ -8,6 +8,7 @@ package model.composite;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import model.Tiro;
 
 /**
  *
@@ -65,7 +66,7 @@ public class NaveIminigaComposta implements INaveInimiga{
      *
      */
     @Override
-    public void atira() {
+    public Tiro atira() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

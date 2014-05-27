@@ -81,8 +81,8 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
     /**
      *
      */
-    public void atira() {
-        Tiro p = new Tiro(this.getX(), this.getY(), 0);
+    public Tiro atira() {
+        return new Tiro(this.getX(), this.getY(), 0);
 
     }
 

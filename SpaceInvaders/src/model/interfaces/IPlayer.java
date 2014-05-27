@@ -8,6 +8,7 @@ package model.interfaces;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import model.Tiro;
 
 /**
  *
@@ -17,8 +18,9 @@ public interface IPlayer{
 
     /**
      *
+     * @return 
      */
-    public void atira();
+    public Tiro atira();
 
     /**
      *
