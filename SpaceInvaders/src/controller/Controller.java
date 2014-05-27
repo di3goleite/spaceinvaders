@@ -21,7 +21,6 @@ import model.interfaces.IPlayer;
 public class Controller {
 
     private Jogo j;
-    private IPlayer p;
     private IFaseFactory qualFase;
     private ArrayList<Tiro> tiros= new ArrayList<>();
 
@@ -32,6 +31,10 @@ public class Controller {
      */
     public Controller(int largura, int altura) {
         j = new Jogo(largura, altura);
+    }
+
+    public ArrayList<Tiro> getTiros() {
+        return tiros;
     }
 
     /**

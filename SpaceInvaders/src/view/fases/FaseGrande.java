@@ -18,8 +18,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import model.Alien;
 import model.Jogo;
+import model.Tiro;
 import model.composite.INaveInimiga;
+import model.composite.NaveIminigaComposta;
 import model.interfaces.IBarreiras;
 import model.interfaces.IPlayer;
 
@@ -37,7 +40,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     private Controller controller;
     private Timer temporizador;
     private int framesPorSegundo = 30;
-    private INaveInimiga inimigos;
+    private NaveIminigaComposta inimigos;
     private IPlayer player;
     private ArrayList<IBarreiras> barreiras;
     private KeyEvent eventoTeclado;
@@ -68,10 +71,6 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
 
     private void cargaInicial() {
         controller.criarJogo();
-        Jogo j = controller.getJogo();
-        inimigos = j.getInimigos();
-        player = j.getPlayer();
-        barreiras = j.getBarreiras();
         this.setFocusable(true);
     }
     //Metodos que sao necessarios para a implementacao do game loop
@@ -110,31 +109,47 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
         //Parte onde os elementos da tela sao modificado atraves de outra variavel
         //Caso isso nao seja feito toda a tela sera modificada a cada vez
         Graphics2D bbg2d = (Graphics2D) backBuffer.getGraphics();
-        bbg2d.drawImage(player.getImagem().getImage(), this.player.getX(), this.player.getY(), this);
+        bbg2d.drawImage(controller.getPlayer().getImagem().getImage(), controller.getPlayer().getX(),
+                controller.getPlayer().getY(), this);
+        for (Tiro elemento : controller.getTiros()) {
+            bbg2d.fillRect(elemento.getPositionX() + 5, elemento.getPositionY(), 5, 10);
+        }
+        while (((NaveIminigaComposta) controller.getAliens()).getAliens().iterator().hasNext()) {
+            INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().iterator().next();
+            bbg2d.drawImage(((Alien)inimigo).getImageIcon().getImage(), inimigo.getX(),inimigo.getY(), this);
+            System.out.println("bbb");
+        }
+        System.out.println("aa");
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) { }
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A
                 || e.getKeyCode() == KeyEvent.VK_LEFT) {
-            player.mover(0);
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_D
+            controller.getPlayer().mover(0);
+        } else if (e.getKeyCode() == KeyEvent.VK_D
                 || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            player.mover(1);
+            controller.getPlayer().mover(1);
         }
-        else if (e.getKeyCode() == KeyEvent.VK_SPACE
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE
                 || e.getKeyCode() == KeyEvent.VK_ENTER) {
-            player.atira();
+            controller.atirarPlayer();
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE
+                || e.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.atirarPlayer();
+        }
+    }
 
     class Atualizadora extends TimerTask {
 

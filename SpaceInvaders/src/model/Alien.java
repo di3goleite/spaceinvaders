@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
+import model.flyweight.ImagemAlien1;
 import model.flyweight.MyImagem;
 import model.observer.PlayerEvent;
 import model.observer.PlayerListener;
@@ -37,7 +38,7 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
     /**
      *
      */
-    protected MyImagem myIcon;
+    protected MyImagem myIcon= new ImagemAlien1();
     private int orientacao = 0;
 
     /**

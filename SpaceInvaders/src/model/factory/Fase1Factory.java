@@ -7,6 +7,8 @@ import model.Barreira;
 import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
+import model.flyweight.ImagemAlien1;
+import model.flyweight.MyImagem;
 import model.interfaces.IPlayer;
 
 /**
@@ -32,11 +34,15 @@ public class Fase1Factory implements IFaseFactory {
 
         int x = 10, y = 10;
         Alien a;
+        MyImagem ia1=new ImagemAlien1();
+        ia1.setImage(new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.png"));
         for (int i = 0; i < 5; i++) { // disposição dos inimigos (ajeitar ainda)
-
+            
             for (int j = 0; j < 16; j++) {
                 a = new Alien(x, y);
                 inimigos.addNaveInimiga(a);
+                a.setImage(ia1.getImage());
+                
                 x += 40;
             }
             y += 25;

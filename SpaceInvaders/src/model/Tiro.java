@@ -32,7 +32,8 @@ public class Tiro implements TiroListener {
         
         evento = new TiroEvent(this);
         timer = new Timer();
-        timer.schedule(new Move(), 0);
+        timer.schedule(new Move(), 0, 1000/30);
+       
     }
 
     /**
@@ -63,6 +64,7 @@ public class Tiro implements TiroListener {
 
         @Override
         public void run() {
+             System.out.println("Tiro criado");
             disparaMoveu();
             if (getOrientacao() == 0) {
                 y = y - 10;

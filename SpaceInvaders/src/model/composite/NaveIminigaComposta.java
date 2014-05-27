@@ -18,6 +18,7 @@ public class NaveIminigaComposta implements INaveInimiga{
     ArrayList<INaveInimiga> aliens=new ArrayList<>();
     int limiteX, limiteY;
     
+    
     /**
      *
      */
@@ -26,6 +27,10 @@ public class NaveIminigaComposta implements INaveInimiga{
         for(INaveInimiga alien: aliens){
         alien.mover();
         }
+    }
+
+    public ArrayList<INaveInimiga> getAliens() {
+        return aliens;
     }
     
     /**
