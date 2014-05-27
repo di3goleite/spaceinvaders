@@ -33,8 +33,8 @@ public class TelaJogo extends javax.swing.JFrame {
         });
         this.setFocusable(true);
         this.painelContemFases.add(fase, BorderLayout.CENTER);
-        
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
     
         

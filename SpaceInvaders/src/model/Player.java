@@ -47,7 +47,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     /**
      *
      */
-    protected ImagemPlayer myIcon;
+    protected ImagemPlayer myIcon= new ImagemPlayer();
     private static Player INSTANCE;
     private Collection<TiroListener> tiroListeners = new ArrayList<>();
 
@@ -159,11 +159,11 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void setX(int x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    private void setY(int y) {
+    public void setY(int y) {
         this.y = y;
     }
 
@@ -195,7 +195,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     @Override
     public ImageIcon getImagem() {
-    return myIcon.getImage();
+        return myIcon.getImage();
     }
 
 }

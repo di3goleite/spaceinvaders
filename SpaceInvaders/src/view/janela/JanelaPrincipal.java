@@ -312,7 +312,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             TelaJogo ini = new TelaJogo(faseG);
                 ini.setVisible(true);
                 ini.setTitle("space Invaders - 800 * 600");
-                ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 600);
                 this.dispose();

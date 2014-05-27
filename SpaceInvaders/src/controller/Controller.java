@@ -51,7 +51,7 @@ public class Controller {
      *
      */
     public void criarJogo() {
-        j.montaFase(new Fase1Factory());
+        j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
     }
 
     /**
@@ -60,7 +60,7 @@ public class Controller {
      */
     public void mudarFase(int fase) {
         if (fase == 1) {
-            j.montaFase(new Fase1Factory());
+            j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
         }
     }
 
@@ -78,7 +78,7 @@ public class Controller {
 
     void criarFase(int i) {
         if (i == 1) {
-            qualFase = new Fase1Factory();
+            qualFase = new Fase1Factory(j.getParedeX(), j.getParedeY());
             j.montaFase(qualFase);
         } else if (i == 2) {
             

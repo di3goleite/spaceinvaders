@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model.flyweight;
 
 import java.awt.Image;
@@ -13,8 +12,9 @@ import javax.swing.ImageIcon;
  *
  * @author lucas
  */
-public class ImagemPlayer implements MyImagem{
-ImageIcon iconImage;
+public class ImagemPlayer implements MyImagem {
+
+    ImageIcon iconImage;
 
     /**
      *
@@ -22,7 +22,7 @@ ImageIcon iconImage;
      */
     @Override
     public void setImage(ImageIcon iconImage) {
-    this.iconImage=iconImage;
+        this.iconImage = iconImage;
     }
 
     /**
@@ -31,8 +31,7 @@ ImageIcon iconImage;
      */
     @Override
     public ImageIcon getImage() {
-    return iconImage;
+        return iconImage;
     }
-      
-      
+
 }
