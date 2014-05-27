@@ -44,6 +44,7 @@ public class Jogo {
         p = iff.criaPlayer();
         inimigos = iff.criaInimigos();
         barreiras = iff.criaBarreiras();
+        inimigos.mover();
     }
 
     /**

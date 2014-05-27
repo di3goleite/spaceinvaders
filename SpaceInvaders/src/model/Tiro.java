@@ -64,7 +64,6 @@ public class Tiro implements TiroListener {
 
         @Override
         public void run() {
-             System.out.println("Tiro criado");
             disparaMoveu();
             if (getOrientacao() == 0) {
                 y = y - 10;

@@ -75,8 +75,15 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
     @Override
     public void mover() {
         if (orientacao == 0) {
-            this.x--;
+            this.x-=10;
+        } else {
+            this.x+=10;
         }
+    }
+
+    @Override
+    public void mover(int descer) {
+        y+=10;
     }
 
     /**
@@ -140,4 +147,9 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
         return myIcon.getImage();
     }
 
+    @Override
+    public void mudarOrientacao() {
+     orientacao = (orientacao == 1)? 0: 1;
+
+}
 }

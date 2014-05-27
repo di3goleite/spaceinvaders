@@ -36,5 +36,9 @@ public interface INaveInimiga {
      *
      */
     public void mover();
+
+    public void mover(int descer);
+
+    public void mudarOrientacao();
     
 }
