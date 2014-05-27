@@ -5,12 +5,10 @@
  */
 package model;
 
-import model.interfaces.IAlien;
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
-import model.flyweight.ImagemAlien1;
 import model.flyweight.MyImagem;
 import model.observer.PlayerEvent;
 import model.observer.PlayerListener;
@@ -22,12 +20,12 @@ import model.observer.TiroListener;
  *
  * @author Lucas
  */
-public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga {
+public class Alien implements PlayerListener, TiroListener, INaveInimiga {
 
     private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
     protected int x;
     protected int y;
-    protected MyImagem myIcon = new ImagemAlien1();
+    protected MyImagem myIcon;
     private int orientacao = 0;
 
     /**
@@ -45,7 +43,7 @@ public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga
      * @return
      */
     @Override
-    public int getPositionX() {
+    public int getX() {
         return x;
     }
 
@@ -54,7 +52,7 @@ public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga
      * @return
      */
     @Override
-    public int getPositionY() {
+    public int getY() {
         return y;
     }
 
@@ -69,13 +67,13 @@ public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga
      *
      */
     public void atira() {
-        Tiro p = new Tiro(this.getPositionX(), this.getPositionY(), 0);
+        Tiro p = new Tiro(this.getX(), this.getY(), 0);
 
     }
 
-    public void myImage(Image iconImage) {
+    public void setImage(ImageIcon iconImage) {
         // setar sua imagem;
-        myIcon.myImage(iconImage);
+        myIcon.setImage(iconImage);
     }
 
     @Override
@@ -97,5 +95,9 @@ public class Alien implements PlayerListener, TiroListener, IAlien, INaveInimiga
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public ImageIcon getImageIcon() {
+    return myIcon.getImage();
+    }
+
 
 }

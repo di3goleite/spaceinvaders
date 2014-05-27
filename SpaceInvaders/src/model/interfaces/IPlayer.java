@@ -6,6 +6,9 @@
 
 package model.interfaces;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author lucas
@@ -21,5 +24,7 @@ public interface IPlayer{
     public int getX();
 
     public int getY();
+    
+    public ImageIcon getImagem();
     
 }

@@ -7,12 +7,13 @@
 package model.flyweight;
 
 import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author lucas
  */
-public interface MyImagem {
-    Image myIcon=null;
-    public void myImage(Image iconImage);
+public interface MyImagem{
+    public void setImage(ImageIcon iconImage);
+    public ImageIcon getImage();
 }

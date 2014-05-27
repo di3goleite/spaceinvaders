@@ -6,12 +6,21 @@
 
 package model.composite;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author lucas
  */
 public interface INaveInimiga {
     
-    public void mover();  //
+    public int getX();
+
+    public int getY();
+
+    public void atira();
+
+    
+   public void mover();
     
 }

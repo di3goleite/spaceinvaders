@@ -7,17 +7,23 @@
 package model.flyweight;
 
 import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author lucas
  */
 public class ImagemAlien1 implements MyImagem{
-    Image iconImage;
-    
+    ImageIcon iconImage;
+
     @Override
-    public void myImage(Image iconImage) {
-        this.iconImage=iconImage;
+    public void setImage(ImageIcon iconImage) {
+    this.iconImage=iconImage;
     }
-    
+
+    @Override
+    public ImageIcon getImage() {
+    return iconImage;
+    }
+      
 }

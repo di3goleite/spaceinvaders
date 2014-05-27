@@ -7,6 +7,7 @@
 package model.composite;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  */
 public class NaveIminigaComposta implements INaveInimiga{
     ArrayList<INaveInimiga> aliens=new ArrayList<>();
+    int limiteX, limiteY;
     
     /**
      *
@@ -31,6 +33,22 @@ public class NaveIminigaComposta implements INaveInimiga{
     public void removeNaveInimiga(INaveInimiga in){
         aliens.remove(in);
     }
-    
+
+    @Override
+    public int getX() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getY() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atira() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
     
 }

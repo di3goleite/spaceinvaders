@@ -9,6 +9,7 @@ import model.interfaces.IPlayer;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.swing.ImageIcon;
 import model.flyweight.ImagemPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
@@ -82,9 +83,9 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         Tiro tiro = new Tiro(this.getX(), this.getY(), 0);
     }
 
-    public void myImage(Image iconImage) {
+    public void setImage(ImageIcon iconImage) {
         // setar sua imagem;
-        myIcon.myImage(iconImage);
+        myIcon.setImage(iconImage);
     }
 
     @Override
@@ -127,6 +128,11 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     @Override
     public int getY() {
         return y;
+    }
+
+    @Override
+    public ImageIcon getImagem() {
+    return myIcon.getImage();
     }
 
 }
