@@ -11,7 +11,19 @@ package view.fases;
  * @author lucasvinicius
  */
 public interface IGameLoop {
+
+    /**
+     *
+     */
     void processInput();
+
+    /**
+     *
+     */
     void update();
+
+    /**
+     *
+     */
     void render();
 }

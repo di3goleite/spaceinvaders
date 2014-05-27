@@ -315,7 +315,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 600);
-                ini.setResizable(false);
                 this.dispose();
         }
        

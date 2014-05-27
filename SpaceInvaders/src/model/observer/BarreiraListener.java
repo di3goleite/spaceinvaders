@@ -13,6 +13,16 @@ import java.util.EventListener;
  * @author lucas
  */
 public interface BarreiraListener extends EventListener{
+
+    /**
+     *
+     * @param be
+     */
     void foiDestruida(BarreiraEvent be);
+
+    /**
+     *
+     * @param be
+     */
     void foiAtingida(BarreiraEvent be);
 }

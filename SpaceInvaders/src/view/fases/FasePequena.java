@@ -30,6 +30,9 @@ public class FasePequena extends JPanel {
     private int posicaoNAmigaX, posicaoNAmigaY = 520;
     private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
 
+    /**
+     *
+     */
     public FasePequena() {
         this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
         backBuffer = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
@@ -43,7 +46,11 @@ public class FasePequena extends JPanel {
         this.setFocusable(true);
     }
 
-  
+    /**
+     *
+     * @param posicaoX
+     * @param posicaoY
+     */
     public void criaInimigos(int posicaoX, int posicaoY) {
      //   this.inimigos = new Inimigos[5][16];
         int x, y = posicaoY;
@@ -68,10 +75,17 @@ public class FasePequena extends JPanel {
         }   
     }
     
-    
+    /**
+     *
+     * @param URL
+     */
     public void setBackImage(String URL) {
         this.fundo = new ImageIcon(URL);
     }
+
+    /**
+     *
+     */
     public void atualizar() {
        
     }

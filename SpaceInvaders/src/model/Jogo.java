@@ -36,36 +36,68 @@ public class Jogo {
         paredeY = altura;
     }
 
+    /**
+     *
+     * @param iff
+     */
     public void montaFase(IFaseFactory iff) {
         p = iff.criaPlayer();
         inimigos = iff.criaInimigos();
         barreiras = iff.criaBarreiras();
     }
 
+    /**
+     *
+     * @return
+     */
     public IPlayer getPlayer() {
         return p;
     }
 
+    /**
+     *
+     * @return
+     */
     public INaveInimiga getInimigos() {
         return inimigos;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<IBarreiras> getBarreiras() {
         return barreiras;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getParedeX() {
         return paredeX;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getParedeY() {
         return paredeY;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getParedeX0() {
         return paredeX0;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getParedeY0() {
         return paredeY0;
     }

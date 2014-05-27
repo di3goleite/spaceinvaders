@@ -14,6 +14,10 @@ import java.util.EventObject;
  */
 public class BarreiraEvent extends EventObject{
 
+    /**
+     *
+     * @param source
+     */
     public BarreiraEvent(Object source) {
         super(source);
     }

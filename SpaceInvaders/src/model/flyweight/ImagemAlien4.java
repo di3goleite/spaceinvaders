@@ -16,12 +16,19 @@ import javax.swing.ImageIcon;
 public class ImagemAlien4 implements MyImagem{
 ImageIcon iconImage;
 
-   
+    /**
+     *
+     * @param iconImage
+     */
     @Override
     public void setImage(ImageIcon iconImage) {
     this.iconImage=iconImage;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ImageIcon getImage() {
     return iconImage;

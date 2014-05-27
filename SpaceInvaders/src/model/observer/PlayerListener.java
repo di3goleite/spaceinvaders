@@ -14,7 +14,21 @@ import java.util.EventListener;
  */
 public interface PlayerListener extends EventListener{
     
+    /**
+     *
+     * @param pe
+     */
     void moveu(PlayerEvent pe);
+
+    /**
+     *
+     * @param pe
+     */
     void atirou(PlayerEvent pe);
+
+    /**
+     *
+     * @param pe
+     */
     void foiAtingido(PlayerEvent pe);   
 }

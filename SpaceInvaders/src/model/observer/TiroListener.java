@@ -14,6 +14,10 @@ import java.util.EventListener;
  */
 public interface TiroListener extends EventListener{
     
+    /**
+     *
+     * @param e
+     */
     void moveu(TiroEvent e);
     
 }

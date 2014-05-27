@@ -41,6 +41,10 @@ public class FaseGrande extends JPanel implements IGameLoop {
     private IPlayer player;
     private ArrayList<IBarreiras> barreiras;
 
+    /**
+     *
+     * @param c
+     */
     public FaseGrande(Controller c) {
         this.setBackground(Color.blue);
         this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
@@ -52,6 +56,10 @@ public class FaseGrande extends JPanel implements IGameLoop {
         this.cargaInicial();
     }
 
+    /**
+     *
+     * @param URL
+     */
     public void setBackImage(String URL) {
         this.fundo = new ImageIcon(URL);
     }
@@ -64,16 +72,26 @@ public class FaseGrande extends JPanel implements IGameLoop {
         barreiras = j.getBarreiras();
     }
     //Metodos que sao necessarios para a implementacao do game loop
-    @Override
+
+    /**
+     *
+     */
+        @Override
     public void processInput() {
         
     }
 
+    /**
+     *
+     */
     @Override
     public void update() {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void render() {
         this.repaint();

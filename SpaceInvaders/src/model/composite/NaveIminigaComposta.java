@@ -27,23 +27,43 @@ public class NaveIminigaComposta implements INaveInimiga{
         }
     }
     
+    /**
+     *
+     * @param in
+     */
     public void addNaveInimiga(INaveInimiga in){
         aliens.add(in);
     }
+
+    /**
+     *
+     * @param in
+     */
     public void removeNaveInimiga(INaveInimiga in){
         aliens.remove(in);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getX() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getY() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void atira() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

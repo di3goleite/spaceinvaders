@@ -14,7 +14,16 @@ import model.interfaces.IPlayer;
  */
 public interface IPlayerState {
     
-   void evento(IPlayer p);
-   void update(IPlayer p);
+    /**
+     *
+     * @param p
+     */
+    void evento(IPlayer p);
+
+    /**
+     *
+     * @param p
+     */
+    void update(IPlayer p);
     
 }

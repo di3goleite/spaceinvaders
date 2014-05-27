@@ -14,13 +14,26 @@ import javax.swing.ImageIcon;
  */
 public interface INaveInimiga {
     
+    /**
+     *
+     * @return
+     */
     public int getX();
 
+    /**
+     *
+     * @return
+     */
     public int getY();
 
+    /**
+     *
+     */
     public void atira();
 
-    
-   public void mover();
+    /**
+     *
+     */
+    public void mover();
     
 }

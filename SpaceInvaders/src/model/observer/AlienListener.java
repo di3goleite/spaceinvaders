@@ -13,7 +13,22 @@ import java.util.EventListener;
  * @author lucas
  */
 public interface AlienListener extends EventListener{
+
+    /**
+     *
+     * @param ae
+     */
     void moveu(AlienEvent ae);
+
+    /**
+     *
+     * @param ae
+     */
     void atirou(AlienEvent ae);
+
+    /**
+     *
+     * @param ae
+     */
     void foiAtingido(AlienEvent ae);
 }

@@ -11,5 +11,9 @@ package model.prototype;
  * @author lucas
  */
 public interface ICloneable {
+
+    /**
+     *
+     */
     public void clone();
 }

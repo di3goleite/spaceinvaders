@@ -14,6 +14,10 @@ import java.util.EventObject;
  */
 public class PlayerEvent extends EventObject{
 
+    /**
+     *
+     * @param source
+     */
     public PlayerEvent(Object source) {
         super(source);
     }

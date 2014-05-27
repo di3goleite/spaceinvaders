@@ -23,8 +23,20 @@ import model.observer.TiroListener;
 public class Alien implements PlayerListener, TiroListener, INaveInimiga {
 
     private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
+
+    /**
+     *
+     */
     protected int x;
+
+    /**
+     *
+     */
     protected int y;
+
+    /**
+     *
+     */
     protected MyImagem myIcon;
     private int orientacao = 0;
 
@@ -56,6 +68,9 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
         return y;
     }
 
+    /**
+     *
+     */
     @Override
     public void mover() {
         if (orientacao == 0) {
@@ -71,30 +86,55 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
 
     }
 
+    /**
+     *
+     * @param iconImage
+     */
     public void setImage(ImageIcon iconImage) {
         // setar sua imagem;
         myIcon.setImage(iconImage);
     }
 
+    /**
+     *
+     * @param pe
+     */
     @Override
     public void moveu(PlayerEvent pe) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param pe
+     */
     @Override
     public void atirou(PlayerEvent pe) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param pe
+     */
     @Override
     public void foiAtingido(PlayerEvent pe) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     *
+     * @return
+     */
     public ImageIcon getImageIcon() {
     return myIcon.getImage();
     }

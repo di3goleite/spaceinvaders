@@ -15,16 +15,39 @@ import javax.swing.ImageIcon;
  */
 public interface IPlayer{
 
+    /**
+     *
+     */
     public void atira();
 
+    /**
+     *
+     * @param direcao
+     */
     public void mover(int direcao);
     
+    /**
+     *
+     * @return
+     */
     public int getVidas();
 
+    /**
+     *
+     * @return
+     */
     public int getX();
 
+    /**
+     *
+     * @return
+     */
     public int getY();
     
+    /**
+     *
+     * @return
+     */
     public ImageIcon getImagem();
     
 }

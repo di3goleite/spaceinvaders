@@ -35,14 +35,26 @@ public class Tiro implements TiroListener {
         timer.schedule(new Move(), 0);
     }
 
+    /**
+     *
+     * @return
+     */
     public int getOrientacao() {
         return orientacao;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPositionX() {
         return x;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getPositionY() {
         return y;
     }
@@ -76,6 +88,10 @@ public class Tiro implements TiroListener {
         tiroListeners.remove(tl);
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void moveu(TiroEvent e) {
         if (getPositionX() == ((Tiro) e.getSource()).getPositionX() && 

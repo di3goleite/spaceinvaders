@@ -6,14 +6,15 @@
 
 package model;
 
-import model.interfaces.IAlien;
 import java.awt.Image;
+import javax.swing.ImageIcon;
+import model.composite.INaveInimiga;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -21,7 +22,7 @@ import static org.junit.Assert.*;
  */
 public class AlienTest {
     
-    IAlien a=new Alien(10,10);
+    INaveInimiga a=new Alien(10,10);
     Player p=Player.getInstance();
     Tiro P;
     
@@ -68,19 +69,19 @@ public class AlienTest {
     @Test
     public void moverTest(){
         
-        int x=a.getPositionX();
-        int y=a.getPositionY();
+        int x=a.getX();
+        int y=a.getY();
         a.mover();
-        assertFalse(x==a.getPositionX());
-        assertEquals(x+10, a.getPositionX());
-        assertEquals(y, a.getPositionY());
+        assertFalse(x==a.getX());
+        assertEquals(x+10, a.getX());
+        assertEquals(y, a.getY());
         
-        x=a.getPositionX();
-        y=a.getPositionY();
+        x=a.getX();
+        y=a.getY();
        // a.mover(a.getPositionX(), a.getPositionY()+10);
-        assertFalse(y==a.getPositionY());
-        assertEquals(x, a.getPositionX());
-        assertEquals(y+10, a.getPositionY());
+        assertFalse(y==a.getY());
+        assertEquals(x, a.getX());
+        assertEquals(y+10, a.getY());
         
     }
     
@@ -89,10 +90,10 @@ public class AlienTest {
      */
     @Test
     public void foiAtingidoTeste(){
-    assertEquals(p.getX(),a.getPositionX());
+    assertEquals(p.getX(),a.getX());
     p.atira();
     assertEquals(p.getX(),P.getPositionX());
-    assertEquals(P.getPositionX(),a.getPositionX());
+    assertEquals(P.getPositionX(),a.getX());
     assertNull(a);
     }
     
@@ -108,7 +109,7 @@ public class AlienTest {
     @Test
     public void testGetPositionX() {
         int expResult = 0;
-        int result = a.getPositionX();
+        int result = a.getX();
         assertEquals(expResult, result);
     }
 
@@ -118,7 +119,7 @@ public class AlienTest {
     @Test
     public void testGetPositionY() {
         int expResult = 0;
-        int result = a.getPositionY();
+        int result = a.getY();
         assertEquals(expResult, result);
     }
 
@@ -139,12 +140,4 @@ public class AlienTest {
         Tiro expResult = null;
     }
 
-    /**
-     * Test of myImage method, of class Alien.
-     */
-    @Test
-    public void testMyImage() {
-        Image iconImage = null;
-        a.myImage(iconImage);
-    }
 }

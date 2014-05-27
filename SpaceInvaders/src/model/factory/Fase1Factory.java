@@ -18,6 +18,10 @@ public class Fase1Factory implements IFaseFactory{
     NaveIminigaComposta inimigos = new NaveIminigaComposta(); // o conjunto de inimigos não pode ser
                                                               //criado toda vez que for inserido um novo inimigo
     
+    /**
+     *
+     * @return
+     */
     @Override
     public INaveInimiga criaInimigos() {
         
@@ -36,11 +40,19 @@ public class Fase1Factory implements IFaseFactory{
         return inimigos;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public IPlayer criaPlayer() {
     return Player.getInstance();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ArrayList criaBarreiras() {
     ArrayList<Barreira> barreiras=new ArrayList<>();

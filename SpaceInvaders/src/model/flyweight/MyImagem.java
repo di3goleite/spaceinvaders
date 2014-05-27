@@ -14,6 +14,16 @@ import javax.swing.ImageIcon;
  * @author lucas
  */
 public interface MyImagem{
+
+    /**
+     *
+     * @param iconImage
+     */
     public void setImage(ImageIcon iconImage);
+
+    /**
+     *
+     * @return
+     */
     public ImageIcon getImage();
 }

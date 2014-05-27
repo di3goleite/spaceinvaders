@@ -23,28 +23,51 @@ public class Controller {
     private IPlayer p;
     private IFaseFactory qualFase;
 
+    /**
+     *
+     * @param largura
+     * @param altura
+     */
     public Controller(int largura, int altura) {
         j = new Jogo(largura, altura);
     }
 
+    /**
+     *
+     */
     public void atirarPlayer() {
         j.getPlayer().atira();
     }
 
+    /**
+     *
+     * @param direcao
+     */
     public void moverPlayer(int direcao) {
         j.getPlayer().mover(direcao);
     }
 
+    /**
+     *
+     */
     public void criarJogo() {
         j.montaFase(new Fase1Factory());
     }
 
+    /**
+     *
+     * @param fase
+     */
     public void mudarFase(int fase) {
         if (fase == 1) {
             j.montaFase(new Fase1Factory());
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Jogo getJogo() {
         return j;
     }
@@ -62,18 +85,34 @@ public class Controller {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public INaveInimiga getAliens() {
         return j.getInimigos();
     }
 
+    /**
+     *
+     * @return
+     */
     public IPlayer getPlayer() {
         return j.getPlayer();
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<IBarreiras> getBarreira() {
         return j.getBarreiras();
     }
 
+    /**
+     *
+     * @param direcao
+     */
     public void mover(int direcao) {
         j.getPlayer().mover(direcao);
     }

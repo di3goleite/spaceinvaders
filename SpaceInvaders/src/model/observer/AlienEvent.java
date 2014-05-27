@@ -14,6 +14,10 @@ import java.util.EventObject;
  */
 public class AlienEvent extends EventObject{
 
+    /**
+     *
+     * @param source
+     */
     public AlienEvent(Object source) {
         super(source);
     }

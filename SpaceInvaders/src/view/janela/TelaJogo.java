@@ -20,6 +20,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaGrande
+     * @param fase
      */
     public TelaJogo(JPanel fase) {
         initComponents();
@@ -32,6 +33,8 @@ public class TelaJogo extends javax.swing.JFrame {
         });
         this.setFocusable(true);
         this.painelContemFases.add(fase, BorderLayout.CENTER);
+        
+        this.setResizable(false);
     }
     
         

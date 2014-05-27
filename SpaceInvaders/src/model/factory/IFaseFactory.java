@@ -16,9 +16,22 @@ import model.composite.INaveInimiga;
  */
 public interface IFaseFactory {  //cria os componentes que formam o jogo. player, alien e barreiras.
 
+    /**
+     *
+     * @return
+     */
+    
     public IPlayer criaPlayer();
 
+    /**
+     *
+     * @return
+     */
     public INaveInimiga criaInimigos();
 
+    /**
+     *
+     * @return
+     */
     public ArrayList criaBarreiras();
 }

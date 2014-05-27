@@ -14,6 +14,10 @@ import java.util.EventObject;
  */
 public class TiroEvent extends EventObject{
 
+    /**
+     *
+     * @param source
+     */
     public TiroEvent(Object source) {
         super(source);
     }

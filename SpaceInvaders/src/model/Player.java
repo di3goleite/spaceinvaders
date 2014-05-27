@@ -23,10 +23,30 @@ import model.observer.TiroListener;
 public class Player implements TiroListener, IPlayer, AlienListener {
 
     private int vidas;
+
+    /**
+     *
+     */
     public static final int direita = 1;
+
+    /**
+     *
+     */
     public static final int esquerda = 0;
+
+    /**
+     *
+     */
     protected int x;
+
+    /**
+     *
+     */
     protected int y;
+
+    /**
+     *
+     */
     protected ImagemPlayer myIcon;
     private static Player INSTANCE;
     private Collection<TiroListener> tiroListeners = new ArrayList<>();
@@ -43,6 +63,10 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         this.setY(y);
     }
 
+    /**
+     *
+     * @return
+     */
     public static Player getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Player(3, 320, 750);
@@ -67,6 +91,10 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         this.vidas = vidas;
     }
 
+    /**
+     *
+     * @param direcao
+     */
     @Override
     public void mover(int direcao) {
         if (direcao == direita) {
@@ -78,31 +106,54 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void atira() {
         Tiro tiro = new Tiro(this.getX(), this.getY(), 0);
     }
 
+    /**
+     *
+     * @param iconImage
+     */
     public void setImage(ImageIcon iconImage) {
         // setar sua imagem;
         myIcon.setImage(iconImage);
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void moveu(TiroEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param ae
+     */
     @Override
     public void moveu(AlienEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param ae
+     */
     @Override
     public void atirou(AlienEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param ae
+     */
     @Override
     public void foiAtingido(AlienEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -120,16 +171,28 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         tiroListeners.add(a);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getX() {
         return x;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getY() {
         return y;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ImageIcon getImagem() {
     return myIcon.getImage();
