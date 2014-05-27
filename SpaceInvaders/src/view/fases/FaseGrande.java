@@ -90,7 +90,7 @@ public class FaseGrande extends JPanel implements IGameLoop {
         //Parte onde os elementos da tela sao modificado atraves de outra variavel
         //Caso isso nao seja feito toda a tela sera modificada a cada vez
         Graphics2D bbg2d = (Graphics2D) backBuffer.getGraphics();
-        bbg2d.drawImage(naveAmiga.getImage(), this.posicaoNAmigaX, this.posicaoNAmigaY, this);
+        //bbg2d.drawImage(naveAmiga.getImage(), this.posicaoNAmigaX, this.posicaoNAmigaY, this);
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
 
