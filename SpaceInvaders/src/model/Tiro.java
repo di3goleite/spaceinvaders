@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.TimerTask;
 import java.util.Timer;
 import java.util.concurrent.ConcurrentLinkedQueue;

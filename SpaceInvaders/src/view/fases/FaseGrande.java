@@ -34,7 +34,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     // private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 30, score, highScore;
+    private int framesPorSegundo = 30;
 
     /**
      *
@@ -110,7 +110,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
             bbg2d.drawImage(((Alien)inimigo).getImageIcon().getImage(), inimigo.getX(),inimigo.getY(), this);
           
         }
-        
+        bbg2d.drawString("Score = "+controller.getScore(), 10, 10);
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
 
@@ -143,7 +143,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     }
 
     public int getHighScore() {
-    return highScore;
+    return controller.getScore();
     }
 
     class Atualizadora extends TimerTask {

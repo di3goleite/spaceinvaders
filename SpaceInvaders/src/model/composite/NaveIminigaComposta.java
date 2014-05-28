@@ -8,14 +8,16 @@ package model.composite;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.swing.ImageIcon;
+import model.Alien;
 import model.Tiro;
+import model.observer.AlienEvent;
+import model.observer.AlienListener;
 
 /**
  *
  * @author lucas
  */
-public class NaveIminigaComposta implements INaveInimiga {
+public class NaveIminigaComposta implements INaveInimiga, AlienListener {
 
     ArrayList<INaveInimiga> aliens = new ArrayList<>();
     int caixaX0, caixaX, caixaY0, caixaY, paredeX, paredeY;
@@ -49,6 +51,31 @@ public class NaveIminigaComposta implements INaveInimiga {
     public void mudarOrientacao() {
     }
 
+    @Override
+    public void moveu(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atirou(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void foiAtingido(AlienEvent ae) {
+    this.removeNaveInimiga((Alien)ae.getSource());
+    if(aliens.isEmpty()){
+        System.out.println("acabou");
+    }
+    }
+
+    @Override
+    public void addAlienListener(AlienListener listener) {
+      for (INaveInimiga alien : aliens) {
+      alien.addAlienListener(listener);
+      }
+    }
+
     private class Move extends TimerTask {
 
         @Override
@@ -78,7 +105,6 @@ public class NaveIminigaComposta implements INaveInimiga {
                 caixaX -= 10;
                 caixaX0 -= 10;
             }
-            
         }
     }
 
@@ -91,6 +117,7 @@ public class NaveIminigaComposta implements INaveInimiga {
      * @param in
      */
     public void addNaveInimiga(INaveInimiga in) {
+        ((Alien)in).addAlienListener(this);
         if (aliens.isEmpty()) {
             caixaX = in.getX();
             caixaX0 = in.getX();
@@ -127,21 +154,18 @@ public class NaveIminigaComposta implements INaveInimiga {
         caixaY = 0;
         caixaX0 = 1000;
         caixaY0 = 1000;
-        for (int i = 0; i < aliens.size(); i++) {
-            if (aliens.get(i).getX() > caixaX) {
-                caixaX = in.getX();
+        for (INaveInimiga alien : aliens) {
+            if (alien.getX() > caixaX) {
+                caixaX = alien.getX();
             }
-
-            if (aliens.get(i).getX() < caixaX0) {
-                caixaX0 = in.getX();
+            if (alien.getX() < caixaX0) {
+                caixaX0 = alien.getX();
             }
-
-            if (aliens.get(i).getY() > caixaY) {
-                caixaY = aliens.get(i).getY();
+            if (alien.getY() > caixaY) {
+                caixaY = alien.getY();
             }
-
-            if (aliens.get(i).getY() < caixaY0) {
-                caixaY0 = aliens.get(i).getY();
+            if (alien.getY() < caixaY0) {
+                caixaY0 = alien.getY();
             }
         }
     }
@@ -166,10 +190,15 @@ public class NaveIminigaComposta implements INaveInimiga {
 
     /**
      *
+     * @return 
      */
     @Override
     public Tiro atira() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(aliens.isEmpty()){
+        return null;
+        }
+        return aliens.get((int) (Math.random() * aliens.size())).atira();
+        
     }
 
 }

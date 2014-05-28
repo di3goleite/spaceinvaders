@@ -23,7 +23,6 @@ public class Controller {
 
     private Jogo j;
     private IFaseFactory qualFase;
-    private ArrayList<Tiro> tiros= new ArrayList<>();
 
     /**
      *
@@ -35,7 +34,7 @@ public class Controller {
     }
 
     public ArrayList<Tiro> getTiros() {
-        return tiros;
+        return j.getTiros();
     }
 
     /**
@@ -43,7 +42,7 @@ public class Controller {
      */
     public void atirarPlayer() {
         Tiro pipoco = j.getPlayer().atira();
-        tiros.add(pipoco);
+        j.getTiros().add(pipoco);
         j.alliensOuvemTiro(pipoco);        
     }
 
@@ -135,6 +134,10 @@ public class Controller {
 
     public Image getImagemPlayer() {
      return j.getPlayer().getImagem().getImage();
+    }
+
+    public int getScore() {
+    return j.getScore();
     }
     
 

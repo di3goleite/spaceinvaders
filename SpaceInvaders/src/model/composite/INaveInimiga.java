@@ -7,7 +7,9 @@
 package model.composite;
 
 import javax.swing.ImageIcon;
+import model.Jogo;
 import model.Tiro;
+import model.observer.AlienListener;
 
 /**
  *
@@ -29,6 +31,7 @@ public interface INaveInimiga {
 
     /**
      *
+     * @return 
      */
     public Tiro atira();
 
@@ -40,5 +43,7 @@ public interface INaveInimiga {
     public void mover(int descer);
 
     public void mudarOrientacao();
+
+    public void addAlienListener(AlienListener listener);
     
 }

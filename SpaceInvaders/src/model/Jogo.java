@@ -5,23 +5,30 @@
  */
 package model;
 
-import model.interfaces.IBarreiras;
-import model.interfaces.IPlayer;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
 import model.factory.IFaseFactory;
+import model.interfaces.IBarreiras;
+import model.interfaces.IPlayer;
+import model.observer.AlienEvent;
+import model.observer.AlienListener;
 import model.observer.TiroListener;
 
 /**
  *
  * @author lucas
  */
-public class Jogo {
+public class Jogo implements AlienListener{
 
     IPlayer p;
     INaveInimiga inimigos;
     ArrayList<IBarreiras> barreiras;
+    ArrayList<Tiro> tiros = new ArrayList<>();
+    Timer timer;
+    int score=0, highScore=0;
 
     int paredeX0 = 0;
     int paredeY0 = 0;
@@ -45,8 +52,38 @@ public class Jogo {
     public void montaFase(IFaseFactory iff) {
         p = iff.criaPlayer();
         inimigos = iff.criaInimigos();
+        inimigos.addAlienListener(this);
         barreiras = iff.criaBarreiras();
         inimigos.mover();
+        timer = new Timer();
+        timer.schedule(new AlienAtira(), 0, 1000/2);
+    }
+
+    @Override
+    public void moveu(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atirou(AlienEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void foiAtingido(AlienEvent ae) {
+    score+=10;  
+    }
+
+    public int getScore() {
+    return score; 
+    }
+    
+    private class AlienAtira extends TimerTask {
+
+        @Override
+        public void run() {
+            tiros.add(inimigos.atira());
+        }
     }
 
     /**
@@ -106,12 +143,16 @@ public class Jogo {
     }
 
     public void alliensOuvemTiro(Tiro pipoco) {
-        
-        ArrayList a = ((NaveIminigaComposta)inimigos).getAliens();
-        for(int i=0; i< a.size(); i++) {
-            
-            pipoco.addTiroListerner( ((TiroListener)a.get(i)) );
+
+        ArrayList a = ((NaveIminigaComposta) inimigos).getAliens();
+        for (int i = 0; i < a.size(); i++) {
+
+            pipoco.addTiroListerner(((TiroListener) a.get(i)));
         }
+    }
+
+    public ArrayList<Tiro> getTiros() {
+        return tiros;
     }
 
 }

@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
 import model.flyweight.ImagemAlien1;
 import model.flyweight.MyImagem;
+import model.observer.AlienEvent;
+import model.observer.AlienListener;
 import model.observer.PlayerEvent;
 import model.observer.PlayerListener;
 import model.observer.TiroEvent;
@@ -23,7 +25,8 @@ import model.observer.TiroListener;
  */
 public class Alien implements PlayerListener, TiroListener, INaveInimiga {
 
-    private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
+    private Collection<AlienListener> alienListener = new ArrayList<>();
+    
 
     /**
      *
@@ -88,9 +91,11 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
 
     /**
      *
+     * @return 
      */
+    @Override
     public Tiro atira() {
-        return new Tiro(this.getX(), this.getY(), 0);
+        return new Tiro(this.getX(), this.getY(), 1);
 
     }
 
@@ -136,10 +141,9 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      */
     @Override 
     public void moveu(TiroEvent e) {
-          if (getX() <= ( ((Tiro) e.getSource()).getPositionX() +2) && getX() >= ( ((Tiro) e.getSource()).getPositionX() -2) && 
-            getY() <= ( ((Tiro) e.getSource()).getPositionY() +2) && getY() >= ( ((Tiro) e.getSource()).getPositionY() -2)) {
-            
-              javax.swing.JOptionPane.showMessageDialog(null, "BATII");
+          if (getX() <= ( ((Tiro) e.getSource()).getPositionX() +10) && getX() >= ( ((Tiro) e.getSource()).getPositionX() -10) && 
+            getY() <= ( ((Tiro) e.getSource()).getPositionY() +10) && getY() >= ( ((Tiro) e.getSource()).getPositionY() -10)) {
+              disparaAlienMorreu();
         }
     }
 
@@ -156,4 +160,15 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      orientacao = (orientacao == 1)? 0: 1;
 
 }
+
+    private void disparaAlienMorreu() {
+        for (AlienListener t : alienListener) {
+            t.foiAtingido(new AlienEvent(this));
+        }
+      
+    }
+    
+    public void addAlienListener(AlienListener e){
+        alienListener.add(e);
+    }
 }
