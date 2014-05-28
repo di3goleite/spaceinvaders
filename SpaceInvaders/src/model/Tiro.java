@@ -64,7 +64,7 @@ public class Tiro implements TiroListener {
     }
 
 
-    private void disparaBati() {
+    public void disparaBati() {
     for (BatiListener t : batiListener) {
             t.bati(new BatiEvent(this));
         }

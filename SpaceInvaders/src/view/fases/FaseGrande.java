@@ -104,6 +104,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
                 controller.getPlayerY(), this);
         for (Tiro elemento : controller.getTiros()) {
             bbg2d.fillRect(elemento.getX() + 5, elemento.getY(), 5, 10);
+            bbg2d.setColor(Color.red);
         }
         for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
             INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
