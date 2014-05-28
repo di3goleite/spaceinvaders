@@ -29,7 +29,7 @@ public class NaveIminigaComposta implements INaveInimiga {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/2);
 
     }
 
@@ -53,8 +53,11 @@ public class NaveIminigaComposta implements INaveInimiga {
 
         @Override
         public void run() {
-            if ((caixaX >= paredeX)
-                    || (caixaX0 <= 10)) {
+            System.out.println(caixaX);
+            System.out.println(paredeX);
+            System.out.println(caixaX0);
+            if ((caixaX >= paredeX-50 && orientacao==1)
+                    || (caixaX0 <= 10 && orientacao==0)) {
                 for (INaveInimiga alien : aliens) {
                     alien.mover(1);
                     alien.mudarOrientacao();
@@ -62,6 +65,7 @@ public class NaveIminigaComposta implements INaveInimiga {
                 orientacao=(orientacao==1)? 0:1;
                 caixaY += 10;
                 caixaY0 += 10;
+                System.out.println("ifif");
             } 
                 for (INaveInimiga alien : aliens) {
                     alien.mover();
@@ -97,7 +101,7 @@ public class NaveIminigaComposta implements INaveInimiga {
                 caixaX = in.getX();
             }
 
-            if (in.getX() < caixaX0) {
+            else if (in.getX() < caixaX0) {
                 caixaX0 = in.getX();
             }
 
@@ -105,7 +109,7 @@ public class NaveIminigaComposta implements INaveInimiga {
                 caixaY = in.getY();
             }
 
-            if (in.getY() < caixaY0) {
+            else if (in.getY() < caixaY0) {
                 caixaY0 = in.getY();
             }
         }
