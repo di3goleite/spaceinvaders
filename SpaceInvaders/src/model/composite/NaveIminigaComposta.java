@@ -31,7 +31,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/2);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000 / 2);
 
     }
 
@@ -53,17 +53,17 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
 
     @Override
     public void foiAtingido(AlienEvent ae) {
-    this.removeNaveInimiga((Alien)ae.getSource());
-    if(aliens.isEmpty()){
-        System.out.println("acabou");
-    }
+        this.removeNaveInimiga((Alien) ae.getSource());
+        if (aliens.isEmpty()) {
+            System.out.println("acabou");
+        }
     }
 
     @Override
     public void addAlienListener(AlienListener listener) {
-      for (INaveInimiga alien : aliens) {
-      alien.addAlienListener(listener);
-      }
+        for (INaveInimiga alien : aliens) {
+            alien.addAlienListener(listener);
+        }
     }
 
     private class Move extends TimerTask {
@@ -73,21 +73,21 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
             System.out.println(caixaX);
             System.out.println(paredeX);
             System.out.println(caixaX0);
-            if ((caixaX >= paredeX-50 && orientacao==1)
-                    || (caixaX0 <= 10 && orientacao==0)) {
+            if ((caixaX >= paredeX - 50 && orientacao == 1)
+                    || (caixaX0 <= 10 && orientacao == 0)) {
                 for (INaveInimiga alien : aliens) {
                     alien.mover(1);
                     alien.mudarOrientacao();
                 }
-                orientacao=(orientacao==1)? 0:1;
+                orientacao = (orientacao == 1) ? 0 : 1;
                 caixaY += 10;
                 caixaY0 += 10;
                 System.out.println("ifif");
-            } 
-                for (INaveInimiga alien : aliens) {
-                    alien.mover();
-                }
-                
+            }
+            for (INaveInimiga alien : aliens) {
+                alien.mover();
+            }
+
             if (orientacao == 1) {
                 caixaX += 10;
                 caixaX0 += 10;
@@ -107,7 +107,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
      * @param in
      */
     public void addNaveInimiga(INaveInimiga in) {
-        ((Alien)in).addAlienListener(this);
+        ((Alien) in).addAlienListener(this);
         if (aliens.isEmpty()) {
             caixaX = in.getX();
             caixaX0 = in.getX();
@@ -116,17 +116,13 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
         } else {
             if (in.getX() > caixaX) {
                 caixaX = in.getX();
-            }
-
-            else if (in.getX() < caixaX0) {
+            } else if (in.getX() < caixaX0) {
                 caixaX0 = in.getX();
             }
 
             if (in.getY() > caixaY) {
                 caixaY = in.getY();
-            }
-
-            else if (in.getY() < caixaY0) {
+            } else if (in.getY() < caixaY0) {
                 caixaY0 = in.getY();
             }
         }
@@ -180,15 +176,15 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
 
     /**
      *
-     * @return 
+     * @return
      */
     @Override
     public Tiro atira() {
-        if(aliens.isEmpty()){
-        return null;
+        if (aliens.isEmpty()) {
+            return null;
         }
         return aliens.get((int) (Math.random() * aliens.size())).atira();
-        
+
     }
 
 }

@@ -98,7 +98,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     @Override
     public void mover(int direcao) {
         if (direcao == direita) {
-            if (this.getX() + 10 != 600) {
+            if (this.getX() + 10 <= 740) {
                 this.setX(this.getX() + 10);
             }
         } else {
@@ -133,7 +133,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     public void moveu(TiroEvent e) {
         if (getX() <= ( ((Tiro) e.getSource()).getX() +10) && getX() >= ( ((Tiro) e.getSource()).getX() -10) && 
             getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= ( ((Tiro) e.getSource()).getY() -10)) 
-        
+            
             disparaPlayerLevouTiro();
             ((Tiro) e.getSource()).disparaBati();
     }
@@ -184,6 +184,19 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     @Override
     public ImageIcon getImagem() {
         return myIcon.getImage();
+    }
+
+    private void disparaPlayerLevouTiro() {
+        this.vidas--;
+        if(this.vidas == 0) {
+            disparaPlayerMorreu();
+        } else {
+            
+        }
+    }
+    
+    private void disparaPlayerMorreu() {
+        System.out.println("morii");
     }
 
    

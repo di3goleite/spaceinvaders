@@ -103,8 +103,8 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
         bbg2d.drawImage(controller.getImagemPlayer(), controller.getPlayerX(),
                 controller.getPlayerY(), this);
         for (Tiro elemento : controller.getTiros()) {
-            bbg2d.fillRect(elemento.getX() + 5, elemento.getY(), 5, 10);
             bbg2d.setColor(Color.red);
+            bbg2d.fillRect(elemento.getX() + 5, elemento.getY(), 5, 10);
         }
         for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
             INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
@@ -119,10 +119,10 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A
                 || e.getKeyCode() == KeyEvent.VK_LEFT) {
-            controller.getPlayer().mover(0);
+            controller.moverPlayer(0);
         } else if (e.getKeyCode() == KeyEvent.VK_D
                 || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            controller.getPlayer().mover(1);
+            controller.moverPlayer(1);
         }
 
     }
