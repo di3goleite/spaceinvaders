@@ -35,7 +35,7 @@ public class Tiro implements TiroListener {
         
         evento = new TiroEvent(this);
         timer = new Timer();
-        timer.schedule(new Move(), 0, 1000/10);
+        timer.schedule(new Move(), 0, 1000/20);
        
     }
 

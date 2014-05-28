@@ -131,7 +131,11 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     @Override
     public void moveu(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (getX() <= ( ((Tiro) e.getSource()).getX() +10) && getX() >= ( ((Tiro) e.getSource()).getX() -10) && 
+            getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= ( ((Tiro) e.getSource()).getY() -10)) 
+        
+            disparaPlayerLevouTiro();
+            ((Tiro) e.getSource()).disparaBati();
     }
 
     /**
