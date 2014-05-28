@@ -85,7 +85,7 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
         super.paintComponent(g2);
         g2.fillRect( controller.getPlayerX(), controller.getPlayerY(), 5, 5);
         for (Tiro elemento : controller.getTiros()) {
-            g2.fillRect(elemento.getPositionX() + 5, elemento.getPositionY(), 1, 2);
+            g2.fillRect(elemento.getX() + 5, elemento.getY(), 1, 2);
         }
         for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
             INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
