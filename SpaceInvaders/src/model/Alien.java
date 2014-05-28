@@ -39,7 +39,7 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      *
      */
     protected MyImagem myIcon = new ImagemAlien1();
-    private int orientacao = 0;
+    private int orientacao = 1;
 
     /**
      *
