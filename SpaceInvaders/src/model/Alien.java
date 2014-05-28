@@ -134,9 +134,13 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      *
      * @param e
      */
-    @Override
+    @Override 
     public void moveu(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          if (getX() <= ( ((Tiro) e.getSource()).getPositionX() +2) && getX() >= ( ((Tiro) e.getSource()).getPositionX() -2) && 
+            getY() <= ( ((Tiro) e.getSource()).getPositionY() +2) && getY() >= ( ((Tiro) e.getSource()).getPositionY() -2)) {
+            
+              javax.swing.JOptionPane.showMessageDialog(null, "BATII");
+        }
     }
 
     /**

@@ -41,7 +41,9 @@ public class Controller {
      *
      */
     public void atirarPlayer() {
-        tiros.add(j.getPlayer().atira());
+        Tiro pipoco = j.getPlayer().atira();
+        tiros.add(pipoco);
+        j.alliensOuvemTiro(pipoco);        
     }
 
     /**

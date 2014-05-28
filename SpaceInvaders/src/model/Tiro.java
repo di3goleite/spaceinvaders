@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TimerTask;
 import java.util.Timer;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
@@ -18,7 +19,7 @@ import model.observer.TiroListener;
  */
 public class Tiro implements TiroListener {
 
-    private Collection<TiroListener> tiroListeners = new ArrayList<TiroListener>();
+    private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<TiroListener>();
     int x, y;
     int orientacao;
     Timer timer;
@@ -81,11 +82,11 @@ public class Tiro implements TiroListener {
 
     }
 
-    void addTiroListerner(TiroListener tl) {
+    public void addTiroListerner(TiroListener tl) {
         tiroListeners.add(tl);
     }
 
-    void removeTiroListerner(TiroListener tl) {
+    public void removeTiroListerner(TiroListener tl) {
         tiroListeners.remove(tl);
     }
 
