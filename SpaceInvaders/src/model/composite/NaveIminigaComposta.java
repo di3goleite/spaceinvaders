@@ -29,7 +29,7 @@ public class NaveIminigaComposta implements INaveInimiga {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000 / 10);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000);
 
     }
 

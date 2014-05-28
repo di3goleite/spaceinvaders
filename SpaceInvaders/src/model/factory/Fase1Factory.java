@@ -44,7 +44,7 @@ public class Fase1Factory implements IFaseFactory {
                 inimigos.addNaveInimiga(a);
                 a.setImage(ia1.getImage());
                 
-                x += 60;
+                x += 40;
                 System.out.println("inimigo"+x+" "+y);
             }
             y += 25;
