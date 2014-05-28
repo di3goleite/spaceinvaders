@@ -6,13 +6,9 @@
 
 package view.janela;
 
-import controller.Controller;
 import java.awt.BorderLayout;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import view.fases.FaseGrande;
-import view.fases.IGameLoop;
 
 /**
  *

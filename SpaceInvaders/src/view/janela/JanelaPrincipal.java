@@ -7,15 +7,11 @@
 package view.janela;
 
 import controller.Controller;
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Timer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.fases.FaseGrande;
-import view.fases.FasePequena;
 
 /**
  *
@@ -28,7 +24,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
      */
     private int contaHistorinha;
     private FaseGrande fase;
-    private Thread moverInimigos;
       /**
      * Creates new form JanelaPrincipal
      */
@@ -128,12 +123,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         setTitle("space INVADERS");
         setBackground(new java.awt.Color(0, 0, 0));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelInferior.setLayout(new java.awt.CardLayout());
 
         painelInferiorMenuP.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)), "D.L.O.L Entertainment", 0, 5, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(253, 251, 251))); // NOI18N
+        painelInferiorMenuP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, null, new java.awt.Color(253, 251, 251)));
 
         botaoPlay.setBackground(new java.awt.Color(250, 250, 250));
         botaoPlay.setText("PLAY");
@@ -146,6 +140,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         botaoScore.setBackground(new java.awt.Color(250, 250, 250));
         botaoScore.setText("HIGH SCORE");
+        botaoScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoScoreActionPerformed(evt);
+            }
+        });
         painelInferiorMenuP.add(botaoScore);
 
         botaoHelp.setBackground(new java.awt.Color(250, 250, 250));
@@ -172,7 +171,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelInferior.add(painelInferiorMenuP, "painel1");
 
         painelInferiorHistorinha.setBackground(new java.awt.Color(0, 0, 0));
-        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", 0, 5, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        painelInferiorHistorinha.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "D.L.O.L Entertainment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BOTTOM, null, new java.awt.Color(255, 255, 255)));
         painelInferiorHistorinha.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -290,7 +289,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAboutActionPerformed
 
     private void botaoHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoHelpActionPerformed
-        // TODO add your handling code here:
+     JOptionPane.showMessageDialog(null, "SETAS DIRECIONAIS(RIGTH e LEFT) ou A e D movem a nave\n e "
+             + "SPACE ou ENTER atira");
     }//GEN-LAST:event_botaoHelpActionPerformed
 
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
@@ -362,6 +362,10 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
        }
     }//GEN-LAST:event_labelLogoKeyPressed
+
+    private void botaoScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoScoreActionPerformed
+    JOptionPane.showMessageDialog(null, fase.getHighScore());
+    }//GEN-LAST:event_botaoScoreActionPerformed
 
     /**
      * @param args the command line arguments

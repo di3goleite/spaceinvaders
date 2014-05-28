@@ -9,22 +9,17 @@ import controller.Controller;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import model.Alien;
-import model.Jogo;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
-import model.interfaces.IBarreiras;
-import model.interfaces.IPlayer;
 
 /**
  *
@@ -39,11 +34,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     // private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 30;
-    private NaveIminigaComposta inimigos;
-    private IPlayer player;
-    private ArrayList<IBarreiras> barreiras;
-    private KeyEvent eventoTeclado;
+    private int framesPorSegundo = 30, score, highScore;
 
     /**
      *
@@ -53,7 +44,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
         this.setFocusable(true);
         this.setBackground(Color.blue);
         this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
-        backBuffer = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+        backBuffer = new BufferedImage(c.getLargura(), c.getAltura(), BufferedImage.TYPE_INT_RGB);
         this.controller = c;
         //Criando o temporizador que controlara a atualizacao da tela
         temporizador = new Timer();
@@ -109,8 +100,8 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
         //Parte onde os elementos da tela sao modificado atraves de outra variavel
         //Caso isso nao seja feito toda a tela sera modificada a cada vez
         Graphics2D bbg2d = (Graphics2D) backBuffer.getGraphics();
-        bbg2d.drawImage(controller.getPlayer().getImagem().getImage(), controller.getPlayer().getX(),
-                controller.getPlayer().getY(), this);
+        bbg2d.drawImage(controller.getImagemPlayer(), controller.getPlayerX(),
+                controller.getPlayerY(), this);
         for (Tiro elemento : controller.getTiros()) {
             bbg2d.fillRect(elemento.getPositionX() + 5, elemento.getPositionY(), 5, 10);
         }
@@ -149,6 +140,10 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
                 || e.getKeyCode() == KeyEvent.VK_ENTER) {
             controller.atirarPlayer();
         }
+    }
+
+    public int getHighScore() {
+    return highScore;
     }
 
     class Atualizadora extends TimerTask {
