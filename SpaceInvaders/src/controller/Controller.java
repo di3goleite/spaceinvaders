@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import model.Jogo;
 import model.Tiro;
@@ -41,7 +42,9 @@ public class Controller {
      *
      */
     public void atirarPlayer() {
-        tiros.add(j.getPlayer().atira());
+        Tiro pipoco = j.getPlayer().atira();
+        tiros.add(pipoco);
+        j.alliensOuvemTiro(pipoco);        
     }
 
     /**
@@ -113,7 +116,26 @@ public class Controller {
     public ArrayList<IBarreiras> getBarreira() {
         return j.getBarreiras();
     }
+    
+    public int getLargura(){
+    return this.j.getParedeX();
+    }
+    
+    public int getAltura(){
+    return this.j.getParedeY();
+    }
+    
+    public int getPlayerX(){
+    return this.j.getPlayer().getX();
+    }
+    
+    public int getPlayerY(){
+    return this.j.getPlayer().getY();
+    }
 
+    public Image getImagemPlayer() {
+     return j.getPlayer().getImagem().getImage();
+    }
     
 
 }

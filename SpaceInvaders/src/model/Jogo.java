@@ -9,7 +9,9 @@ import model.interfaces.IBarreiras;
 import model.interfaces.IPlayer;
 import java.util.ArrayList;
 import model.composite.INaveInimiga;
+import model.composite.NaveIminigaComposta;
 import model.factory.IFaseFactory;
+import model.observer.TiroListener;
 
 /**
  *
@@ -101,6 +103,15 @@ public class Jogo {
      */
     public int getParedeY0() {
         return paredeY0;
+    }
+
+    public void alliensOuvemTiro(Tiro pipoco) {
+        
+        ArrayList a = ((NaveIminigaComposta)inimigos).getAliens();
+        for(int i=0; i< a.size(); i++) {
+            
+            pipoco.addTiroListerner( ((TiroListener)a.get(i)) );
+        }
     }
 
 }
