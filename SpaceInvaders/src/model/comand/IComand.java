@@ -7,9 +7,9 @@
 package model.comand;
 
 /**
- *
+ * Interface for the command pattern
  * @author lucas
  */
 public interface IComand {
-    
+    void execute();
 }
