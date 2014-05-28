@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.fases.FaseGrande;
+import view.fases.FasePequena;
 
 /**
  *
@@ -296,15 +297,15 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
         int i = JOptionPane.showConfirmDialog(this, "Iniciar em Tela Cheia (800 * 600)?");
         if(i == 1){
-         //   Controller c = new Controller(320, 180);
-          //  FasePequena faseP = new FasePequena(c);
-          //  TelaJogo ini = new TelaJogo(faseP);
-          //      ini.setVisible(true);
-          //      ini.setTitle("space Invaders - 320 * 180");
-          //      ini.setLocationRelativeTo(null);
-           //     ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-           //     ini.setSize(320, 180);
-           //     this.dispose();
+            Controller c = new Controller(320, 180);
+            FasePequena faseP = new FasePequena(c);
+            TelaJogo ini = new TelaJogo(faseP);
+                ini.setVisible(true);
+                ini.setTitle("space Invaders - 320 * 180");
+                ini.setLocationRelativeTo(null);
+                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ini.setSize(320, 180);
+                this.dispose();
         }
         else if(i == 0){
             Controller c = new Controller(800, 600);
@@ -348,23 +349,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
          this.mudaHistorinha();
     }//GEN-LAST:event_botaoDireitaActionPerformed
 
-    //Tentando mexer a nave aliada
+   
     private void labelLogoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelLogoKeyPressed
-        if( fase.isFocusOwner() ) {
-            switch (evt.getKeyCode()) {
-                case KeyEvent.VK_RIGHT: System.out.println("ANDEI >");
-                     break;
-                case KeyEvent.VK_LEFT: System.out.println("ATIREI <");
-                     break;
-                case KeyEvent.VK_SPACE: System.out.println("ATIREI");
-                     break;
 
-            }
-       }
     }//GEN-LAST:event_labelLogoKeyPressed
 
     private void botaoScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoScoreActionPerformed
-    JOptionPane.showMessageDialog(null, fase.getHighScore());
+         JOptionPane.showMessageDialog(null, fase.getHighScore());
     }//GEN-LAST:event_botaoScoreActionPerformed
 
     /**

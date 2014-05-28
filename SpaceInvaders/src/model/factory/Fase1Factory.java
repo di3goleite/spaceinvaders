@@ -62,7 +62,7 @@ public class Fase1Factory implements IFaseFactory {
         Player p = Player.getInstance();
         System.out.println(altura +" "+ largura);
         Player.getInstance().setX(largura/2);
-       Player.getInstance().setY(altura - altura/6);
+       Player.getInstance().setY(altura - altura/5);
         p.setImage(
                 new ImageIcon("src/interface1/multimidia/imagens/personagens/naveAmiga.png"));
         return p;
