@@ -6,17 +6,12 @@
 
 package model.observer;
 
-import java.util.EventListener;
-
 /**
  *
- * @author lucas
+ * @author netmedia3
  */
-public interface PlayerListener extends EventListener{
+public interface BatiListener {
     
-    /**
-     *
-     * @param pe
-     */
-    void foiAtingido(PlayerEvent pe);   
+    void bati(BatiEvent e);
+    
 }

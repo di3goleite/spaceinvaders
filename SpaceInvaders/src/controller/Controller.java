@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.Jogo;
 import model.Tiro;
 import model.composite.INaveInimiga;
@@ -33,7 +34,7 @@ public class Controller {
         j = new Jogo(largura, altura);
     }
 
-    public ArrayList<Tiro> getTiros() {
+    public ConcurrentLinkedQueue<Tiro> getTiros() {
         return j.getTiros();
     }
 
@@ -41,9 +42,7 @@ public class Controller {
      *
      */
     public void atirarPlayer() {
-        Tiro pipoco = j.getPlayer().atira();
-        j.getTiros().add(pipoco);
-        j.alliensOuvemTiro(pipoco);        
+        j.atiraPlayer();
     }
 
     /**

@@ -46,7 +46,7 @@ public class TiroTest {
     public void testGetPositionX() {
         Tiro instance = null;
         int expResult = 0;
-        int result = instance.getPositionX();
+        int result = instance.getX();
         assertEquals(expResult, result);
     }
 

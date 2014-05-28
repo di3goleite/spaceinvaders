@@ -13,7 +13,7 @@ import model.observer.*;
  *
  * @author lucas
  */
-public class Barreira implements TiroListener, AlienListener{
+public class Barreira implements TiroListener{
     
     ArrayList barreira = new ArrayList();
 
@@ -26,31 +26,5 @@ public class Barreira implements TiroListener, AlienListener{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     *
-     * @param ae
-     */
-    @Override
-    public void moveu(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param ae
-     */
-    @Override
-    public void atirou(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param ae
-     */
-    @Override
-    public void foiAtingido(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

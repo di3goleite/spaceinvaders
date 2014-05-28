@@ -92,8 +92,8 @@ public class AlienTest {
     public void foiAtingidoTeste(){
     assertEquals(p.getX(),a.getX());
     p.atira();
-    assertEquals(p.getX(),P.getPositionX());
-    assertEquals(P.getPositionX(),a.getX());
+    assertEquals(p.getX(),P.getX());
+    assertEquals(P.getX(),a.getX());
     assertNull(a);
     }
     

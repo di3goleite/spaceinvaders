@@ -52,16 +52,6 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     }
 
     @Override
-    public void moveu(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void atirou(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void foiAtingido(AlienEvent ae) {
     this.removeNaveInimiga((Alien)ae.getSource());
     if(aliens.isEmpty()){

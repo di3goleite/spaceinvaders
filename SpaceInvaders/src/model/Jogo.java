@@ -8,6 +8,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
 import model.factory.IFaseFactory;
@@ -15,20 +16,25 @@ import model.interfaces.IBarreiras;
 import model.interfaces.IPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
+import model.observer.BatiEvent;
+import model.observer.BatiListener;
+import model.observer.PlayerEvent;
+import model.observer.PlayerListener;
+import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
 /**
  *
  * @author lucas
  */
-public class Jogo implements AlienListener{
+public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiListener {
 
     IPlayer p;
     INaveInimiga inimigos;
     ArrayList<IBarreiras> barreiras;
-    ArrayList<Tiro> tiros = new ArrayList<>();
+    ConcurrentLinkedQueue<Tiro> tiros = new ConcurrentLinkedQueue<>();
     Timer timer;
-    int score=0, highScore=0;
+    int score = 0, highScore = 0;
 
     int paredeX0 = 0;
     int paredeY0 = 0;
@@ -56,33 +62,73 @@ public class Jogo implements AlienListener{
         barreiras = iff.criaBarreiras();
         inimigos.mover();
         timer = new Timer();
-        timer.schedule(new AlienAtira(), 0, 1000/2);
-    }
-
-    @Override
-    public void moveu(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void atirou(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        timer.schedule(new AlienAtira(), 0, 1000 / 2);
     }
 
     @Override
     public void foiAtingido(AlienEvent ae) {
-    score+=10;  
+        score += 10;
     }
 
     public int getScore() {
-    return score; 
+        return score;
     }
+
+    @Override
+    public void foiAtingido(PlayerEvent pe) {
+        Player.getInstance().setVidas(Player.getInstance().getVidas() - 1);
+        if (Player.getInstance().getVidas() == 0) {
+            disparaGameOver();
+        }
+    }
+
+    @Override
+    public void moveu(TiroEvent e) {
+    }
+
+    private void disparaGameOver() {
+
+    }
+
+    @Override
+    public void bati(BatiEvent e) {
+        this.tiros.remove((Tiro) e.getSource());
+        System.out.println("sumiu");
+    }
+
+    public void atiraPlayer() {
     
+        Tiro pipoco = getPlayer().atira();
+        pipoco.addTiroListerner(this);
+        alliensOuvemTiro(pipoco);
+        
+         for(Tiro tiro : tiros){
+           pipoco.addTiroListerner(tiro);
+           tiro.addTiroListerner(pipoco);
+        }
+         
+        tiros.add(pipoco);
+        
+        pipoco.addBatiListerner(this); 
+    }
+
     private class AlienAtira extends TimerTask {
 
         @Override
         public void run() {
-            tiros.add(inimigos.atira());
+            Tiro t = inimigos.atira();
+            adicionarListener(t);
+            tiros.add(t);
+        }
+
+    }
+
+    private void adicionarListener(Tiro t) {
+        t.addTiroListerner(this);
+        t.addBatiListerner(this);
+        for (Tiro tiro : tiros) {
+            tiro.addTiroListerner(t);
+            t.addTiroListerner(tiro);
         }
     }
 
@@ -145,13 +191,12 @@ public class Jogo implements AlienListener{
     public void alliensOuvemTiro(Tiro pipoco) {
 
         ArrayList a = ((NaveIminigaComposta) inimigos).getAliens();
-        for (int i = 0; i < a.size(); i++) {
-
-            pipoco.addTiroListerner(((TiroListener) a.get(i)));
+        for (Object a1 : a) {
+            pipoco.addTiroListerner((TiroListener) a1);
         }
     }
 
-    public ArrayList<Tiro> getTiros() {
+    public ConcurrentLinkedQueue<Tiro> getTiros() {
         return tiros;
     }
 

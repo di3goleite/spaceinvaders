@@ -23,7 +23,7 @@ import model.observer.TiroListener;
  *
  * @author Lucas
  */
-public class Alien implements PlayerListener, TiroListener, INaveInimiga {
+public class Alien implements TiroListener, INaveInimiga {
 
     private Collection<AlienListener> alienListener = new ArrayList<>();
     
@@ -108,32 +108,6 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
         myIcon.setImage(iconImage);
     }
 
-    /**
-     *
-     * @param pe
-     */
-    @Override
-    public void moveu(PlayerEvent pe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param pe
-     */
-    @Override
-    public void atirou(PlayerEvent pe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param pe
-     */
-    @Override
-    public void foiAtingido(PlayerEvent pe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      *
@@ -141,8 +115,8 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
      */
     @Override 
     public void moveu(TiroEvent e) {
-          if (getX() <= ( ((Tiro) e.getSource()).getPositionX() +10) && getX() >= ( ((Tiro) e.getSource()).getPositionX() -10) && 
-            getY() <= ( ((Tiro) e.getSource()).getPositionY() +10) && getY() >= ( ((Tiro) e.getSource()).getPositionY() -10)) {
+          if (getX() <= ( ((Tiro) e.getSource()).getX() +10) && getX() >= ( ((Tiro) e.getSource()).getX() -10) && 
+            getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= ( ((Tiro) e.getSource()).getY() -10)) {
               disparaAlienMorreu();
         }
     }
@@ -168,6 +142,7 @@ public class Alien implements PlayerListener, TiroListener, INaveInimiga {
       
     }
     
+    @Override
     public void addAlienListener(AlienListener e){
         alienListener.add(e);
     }

@@ -14,17 +14,6 @@ import java.util.EventListener;
  */
 public interface AlienListener extends EventListener{
 
-    /**
-     *
-     * @param ae
-     */
-    void moveu(AlienEvent ae);
-
-    /**
-     *
-     * @param ae
-     */
-    void atirou(AlienEvent ae);
 
     /**
      *

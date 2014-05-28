@@ -6,17 +6,16 @@
 
 package model.observer;
 
-import java.util.EventListener;
+import java.util.EventObject;
 
 /**
  *
- * @author lucas
+ * @author netmedia3
  */
-public interface PlayerListener extends EventListener{
+public class JogoEvent extends EventObject{
+
+    public JogoEvent(Object source) {
+        super(source);
+    }
     
-    /**
-     *
-     * @param pe
-     */
-    void foiAtingido(PlayerEvent pe);   
 }

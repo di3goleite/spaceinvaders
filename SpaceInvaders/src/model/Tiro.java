@@ -5,9 +5,12 @@
  */
 package model;
 
-import java.util.TimerTask;
+import java.util.ArrayList;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import model.observer.BatiEvent;
+import model.observer.BatiListener;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
@@ -18,6 +21,7 @@ import model.observer.TiroListener;
 public class Tiro implements TiroListener {
 
     private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<TiroListener>();
+    private ArrayList <BatiListener> batiListener= new ArrayList<>();
     int x, y;
     int orientacao;
     Timer timer;
@@ -31,7 +35,7 @@ public class Tiro implements TiroListener {
         
         evento = new TiroEvent(this);
         timer = new Timer();
-        timer.schedule(new Move(), 0, 1000/30);
+        timer.schedule(new Move(), 0, 1000/10);
        
     }
 
@@ -47,7 +51,7 @@ public class Tiro implements TiroListener {
      *
      * @return
      */
-    public int getPositionX() {
+    public int getX() {
         return x;
     }
     
@@ -55,8 +59,21 @@ public class Tiro implements TiroListener {
      *
      * @return
      */
-    public int getPositionY() {
+    public int getY() {
         return y;
+    }
+
+
+    private void disparaBati() {
+    for (BatiListener t : batiListener) {
+            t.bati(new BatiEvent(this));
+        }
+    
+            timer.cancel();
+    }
+
+    public void addBatiListerner(Jogo tl) {
+    batiListener.add(tl);
     }
 
     private class Move extends TimerTask {
@@ -94,10 +111,12 @@ public class Tiro implements TiroListener {
      */
     @Override
     public void moveu(TiroEvent e) {
-        if (getPositionX() == ((Tiro) e.getSource()).getPositionX() && 
-            getPositionY() == ((Tiro) e.getSource()).getPositionY()) {
+        if (getX() <= ( ((Tiro) e.getSource()).getX() +5) && getX() >= ( ((Tiro) e.getSource()).getX()-5) && 
+            getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= (((Tiro) e.getSource()).getY())-10) {
             
-            
+            disparaBati();
+            ((Tiro)e.getSource()).disparaBati();
+            System.out.println("batitit");
         }
     }
 
