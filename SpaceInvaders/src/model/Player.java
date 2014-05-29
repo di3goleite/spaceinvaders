@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
@@ -53,6 +52,14 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     private static Player INSTANCE;
     private Collection<PlayerListener> playerListeners = new ConcurrentLinkedQueue<>();
 
+    /**
+     * Getter for playerListeners attribute
+     * @return 
+     */
+    public Iterable<PlayerListener> getPlayerListeners(){
+        return playerListeners;
+    }
+    
     /**
      *
      * @param vidas
@@ -192,7 +199,6 @@ public class Player implements TiroListener, IPlayer, AlienListener {
             t.foiAtingido(new PlayerEvent(this));
         }
     }
-
 
     @Override
     public void addPlayerListener(PlayerListener a) {

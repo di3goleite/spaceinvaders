@@ -5,10 +5,8 @@
  */
 package model;
 
-import model.observer.TiroEvent;
-import model.observer.TiroListener;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Tests of Tiro Class.
@@ -31,35 +29,4 @@ public class TiroTest {
         t = p.atira();
         assertEquals(t.getX(), p.getX());
     }
-
-    /**
-     * Test of addTiroListerner method, of class Tiro.
-     */
-    @Test
-    public void testAddTiroListerner() {
-        TiroListener tl = null;
-        Tiro instance = null;
-        instance.addTiroListerner(tl);
-    }
-
-    /**
-     * Test of removeTiroListerner method, of class Tiro.
-     */
-    @Test
-    public void testRemoveTiroListerner() {
-        TiroListener tl = null;
-        Tiro instance = null;
-        instance.removeTiroListerner(tl);
-    }
-
-    /**
-     * Test of moveu method, of class Tiro.
-     */
-    @Test
-    public void testMoveu() {
-        TiroEvent e = null;
-        Tiro instance = null;
-        instance.moveu(e);
-    }
-
 }

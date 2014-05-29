@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
@@ -26,7 +25,6 @@ public class Alien implements TiroListener, INaveInimiga {
 
     private Collection<AlienListener> alienListener = new ConcurrentLinkedQueue<>();
     
-
     /**
      *
      */
@@ -107,7 +105,6 @@ public class Alien implements TiroListener, INaveInimiga {
         // setar sua imagem;
         myIcon.setImage(iconImage);
     }
-
 
     /**
      *

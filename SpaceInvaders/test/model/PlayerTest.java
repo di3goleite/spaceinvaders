@@ -32,14 +32,6 @@ public class PlayerTest {
     }
     
     /**
-     * Test if Player is reached by a Alien
-     */
-    @Test
-    public void foiAtingidoTest(){
-        //TODO
-    }
-    
-    /**
      * Test of the life of the Player.
      */
     @Test
