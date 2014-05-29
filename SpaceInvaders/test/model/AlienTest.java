@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Tests of Alien Class
  * @author Lucas
  */
 public class AlienTest {
@@ -23,14 +23,7 @@ public class AlienTest {
     Tiro tAlien;
     
     /**
-     *
-     */
-    public AlienTest() {
-    
-    }
-      
-    /**
-     *
+     * Setup of test
      */
     @Before
     public void setUp() {
@@ -110,15 +103,12 @@ public class AlienTest {
     @Test
     public void testMover() {
         a.mover();
+        assertEquals(a.getX(), 10);
+        
+        for (int i = 0; i < 32; i++) {
+            a.mover();
+        }
+        assertFalse(a.getX()==320);
+        assertTrue(a.getX()==330);
     }
-
-    /**
-     * Test of atira method, of class Alien.
-     */
-    @Test
-    public void testAtira() {
-        Alien instance = null;
-        Tiro expResult = null;
-    }
-
 }
