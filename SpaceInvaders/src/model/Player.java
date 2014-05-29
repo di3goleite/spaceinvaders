@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.ImageIcon;
@@ -19,7 +18,7 @@ import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
 /**
- * 
+ * Class of the Player
  * @author Lucas
  */
 public class Player implements TiroListener, IPlayer, AlienListener {
