@@ -19,7 +19,7 @@ public class AlienTest {
     
     INaveInimiga a=new Alien(10,10);
     Player p=Player.getInstance();
-    Tiro P;
+    Tiro tPlayer;
     
     /**
      *
@@ -37,7 +37,7 @@ public class AlienTest {
     }
 
     /**
-     * Drive test of Alien
+     * Drive test
      */
     @Test
     public void moverTest(){        
@@ -57,15 +57,21 @@ public class AlienTest {
     }
     
     /**
-     *
+     * Wast reached test
      */
     @Test
     public void foiAtingidoTeste(){
-    assertEquals(p.getX(),a.getX());
-    p.atira();
-    assertEquals(p.getX(),P.getX());
-    assertEquals(P.getX(),a.getX());
-    assertNull(a);
+        //Move alien to the same position of the player
+        for(int i=0; i<32; i++){
+            a.mover();
+        }
+        
+        assertEquals(p.getX(),a.getX());
+        tPlayer = p.atira();
+        assertEquals(p.getX(),tPlayer.getX());
+        assertEquals(tPlayer.getX(),a.getX());
+        a = null; //Alien is dead
+        assertNull(a);
     }
     
     @Test

@@ -94,7 +94,6 @@ public class Alien implements TiroListener, INaveInimiga {
     @Override
     public Tiro atira() {
         return new Tiro(this.getX(), this.getY(), 1);
-
     }
 
     /**
@@ -115,9 +114,8 @@ public class Alien implements TiroListener, INaveInimiga {
     public void moveu(TiroEvent e) {
           if (getX() <= ( ((Tiro) e.getSource()).getX() +10) && getX() >= ( ((Tiro) e.getSource()).getX() -10) && 
             getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= ( ((Tiro) e.getSource()).getY() -10)) {
-              disparaAlienMorreu();
               ((Tiro) e.getSource()).disparaBati();
-              
+              disparaAlienMorreu();    
         }
     }
 
