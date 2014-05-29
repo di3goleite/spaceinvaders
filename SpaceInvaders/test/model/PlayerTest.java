@@ -10,12 +10,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author Lucas
+ * Tests of Player Class
+ * @author Lucas, Diego Leite.
  */
 public class PlayerTest {
 
     Player p = Player.getInstance();
+    Tiro tPlayer;
 
     @Before
     public void setUp() {
@@ -56,8 +57,6 @@ public class PlayerTest {
 
     }
 
-   
-
     /**
      * Test of mover method, of class Player.
      */
@@ -72,10 +71,7 @@ public class PlayerTest {
      */
     @Test
     public void testAtira() {
-        Player instance = Player.getInstance();
-        Tiro expResult = null;
-        instance.atira();
-        assertEquals(expResult, 1);
+        tPlayer = p.atira();
+        assertEquals(tPlayer.getX(), p.getX());
     }
-
 }
