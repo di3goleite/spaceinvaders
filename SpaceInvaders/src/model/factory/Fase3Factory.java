@@ -8,6 +8,7 @@ import model.Barreira;
 import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
+import model.composite.NaveInimigaCompostaRapida;
 import model.flyweight.ImagemAlien1;
 import model.flyweight.ImagemAlien2;
 import model.flyweight.ImagemAlien3;
@@ -22,7 +23,7 @@ import model.interfaces.IPlayer;
  */
 public class Fase3Factory implements IFaseFactory {
 
-    NaveIminigaComposta inimigos = new NaveIminigaComposta(); // o conjunto de inimigos não pode ser
+    NaveInimigaCompostaRapida inimigos = new NaveInimigaCompostaRapida(); // o conjunto de inimigos não pode ser
     private int largura, altura;
 
     //criado toda vez que for inserido um novo inimigo

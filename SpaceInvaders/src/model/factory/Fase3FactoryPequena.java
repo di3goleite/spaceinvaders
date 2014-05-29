@@ -8,7 +8,7 @@ import model.Barreira;
 import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
-import model.composite.NaveInimigaCompostaRapida;
+import model.composite.NaveInimigaCompostaRapidaPequena;
 import model.flyweight.ImagemAlien1;
 import model.flyweight.ImagemAlien2;
 import model.flyweight.ImagemAlien3;
@@ -21,14 +21,14 @@ import model.interfaces.IPlayer;
  *
  * @author lucas
  */
-public class Fase2factory implements IFaseFactory {
+public class Fase3FactoryPequena implements IFaseFactory {
 
-    NaveInimigaCompostaRapida inimigos = new NaveInimigaCompostaRapida(); // o conjunto de inimigos não pode ser
+    NaveInimigaCompostaRapidaPequena inimigos = new NaveInimigaCompostaRapidaPequena(); // o conjunto de inimigos não pode ser
     private int largura, altura;
 
     //criado toda vez que for inserido um novo inimigo
 
-    public Fase2factory(int largura, int altura) {
+    public Fase3FactoryPequena(int largura, int altura) {
         this.altura = altura;
         this.largura = largura;
     }
@@ -86,13 +86,6 @@ public class Fase2factory implements IFaseFactory {
     @Override
     public ConcurrentLinkedQueue criaBarreiras() {
         ConcurrentLinkedQueue<Barreira> barreiras = new ConcurrentLinkedQueue<>();
-        for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 5; i++) {
-                for (int x = 0; x < 5; x++) {
-                    barreiras.add(new Barreira(60+(j*150)+(5*i), (altura - altura / 4)-10 + (x * 5)));
-                }
-            }
-        }
         return barreiras;
     }
 

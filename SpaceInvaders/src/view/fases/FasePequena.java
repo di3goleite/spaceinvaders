@@ -18,10 +18,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Alien;
+import model.Barreira;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
+import model.interfaces.IBarreiras;
 import model.observer.JogoEvent;
+import view.janela.JanelaPrincipal;
+import view.janela.TelaJogo;
 
 /**
  *
@@ -36,7 +40,7 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
     // private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 10;
+    private int framesPorSegundo = 30, fase=1;
 
     /**
      *
@@ -44,12 +48,22 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
      */
     public FasePequena(Controller c) {
         this.setFocusable(true);
-        this.setBackground(Color.white);
+        this.setBackground(Color.blue);
+        this.setBackImage("src/interface1/multimidia/imagens/cenas/planoFundo.jpg");
+        backBuffer = new BufferedImage(c.getLargura(), c.getAltura(), BufferedImage.TYPE_INT_RGB);
         this.controller = c;
         //Criando o temporizador que controlara a atualizacao da tela
         temporizador = new Timer();
         temporizador.schedule(new Atualizadora(), 0, 1000 / this.framesPorSegundo);
         this.cargaInicial();
+    }
+
+    /**
+     *
+     * @param URL
+     */
+    public void setBackImage(String URL) {
+        this.fundo = new ImageIcon(URL);
     }
 
     private void cargaInicial() {
@@ -86,27 +100,45 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         super.paintComponent(g2);
-        g2.fillRect( controller.getPlayerX(), controller.getPlayerY(), 5, 5);
+        Graphics bbg = backBuffer.getGraphics();
+        //Parte onde o fundo eh desenhado
+        //Fundo com dimensoes de 800x600
+        //bbg.drawImage(fundo.getImage().getScaledInstance(320, 180, 1), 0, 0, this);
+        //Parte onde os elementos da tela sao modificado atraves de outra variavel
+        //Caso isso nao seja feito toda a tela sera modificada a cada vez
+        //Graphics2D bbg2d = (Graphics2D) backBuffer.getGraphics();
+        g2.fillRect(controller.getPlayerX(), controller.getPlayerY(), 2,2);
         for (Tiro elemento : controller.getTiros()) {
-            g2.fillRect(elemento.getX() + 5, elemento.getY(), 1, 2);
+            g2.setColor(Color.red);
+            g2.fillRect(elemento.getX(), elemento.getY(), 1, 2);
         }
         for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
             INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
-            g2.fillOval(inimigo.getX(),inimigo.getY(), 5, 5);
+            g2.fillOval(inimigo.getX(),inimigo.getY(), 2,2);
           
         }
-        g2.drawString("Score = "+controller.getScore(), 10, 10);
         
+        g2.drawString("Score = "+controller.getScore(), 10, 10);
+        g2.drawString("Vidas ", controller.getLargura()-20,10);
+        for(int i=0; i<controller.getPlayer().getVidas(); i++){
+        g2.fillRect(controller.getLargura()-15+(10*i), 10, 1, 1);
+        }
+        
+        /*for (Barreira elemento : controller.getBarreira()) {
+           g2.fillRect(elemento.getX(), elemento.getY(), 1, 1);
+        }*/
+        
+        //g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A
                 || e.getKeyCode() == KeyEvent.VK_LEFT) {
-            controller.getPlayer().mover(0);
+            controller.moverPlayer(0);
         } else if (e.getKeyCode() == KeyEvent.VK_D
                 || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            controller.getPlayer().mover(1);
+            controller.moverPlayer(1);
         }
 
     }
@@ -133,13 +165,23 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
 
     @Override
     public void fimDeFase(JogoEvent je) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    if(fase<3) fase++;
+    controller.mudarFase(fase);
     }
 
     @Override
     public void gameOver(JogoEvent je) {
-     temporizador.cancel();
-    JOptionPane.showMessageDialog(null, "FIM DE JOGO");
+    temporizador.cancel();
+    int i = JOptionPane.showConfirmDialog(this, "FIM DE JOGO, Deseja reiniciar?");
+    if(i==0){
+    controller.criarJogo();
+    temporizador=new Timer();
+    temporizador.schedule(new Atualizadora(), 0, 1000 / this.framesPorSegundo);
+    }
+    else{
+        System.exit(0);
+    }
+
     }
 
     class Atualizadora extends TimerTask {

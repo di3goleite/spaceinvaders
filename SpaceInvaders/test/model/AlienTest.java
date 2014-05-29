@@ -56,9 +56,7 @@ public class AlienTest {
     @Test
     public void alienFoiAtingidoTeste(){
         //Move alien to the same position of the player
-        for(int i=0; i<32; i++){
-            a.mover();
-        }
+        a.mover();
         
         System.out.println(a.getX());
         
