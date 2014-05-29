@@ -165,6 +165,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     @Override
     public void fimDeFase(JogoEvent je) {
     temporizador.cancel();
+    controller.mudarFase(2);
     JOptionPane.showMessageDialog(null, "VOCÊ GANHOU");
     }
 

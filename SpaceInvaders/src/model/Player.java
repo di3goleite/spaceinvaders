@@ -7,6 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
 import model.flyweight.ImagemPlayer;
 import model.interfaces.IPlayer;
@@ -50,7 +51,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     protected ImagemPlayer myIcon = new ImagemPlayer();
     private static Player INSTANCE;
-    private Collection<PlayerListener> playerListeners = new ArrayList<>();
+    private Collection<PlayerListener> playerListeners = new ConcurrentLinkedQueue<>();
 
     /**
      *
@@ -145,9 +146,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      * @param ae
      */
     @Override
-    public void foiAtingido(AlienEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void foiAtingido(AlienEvent ae) { }
 
     public void setX(int x) {
         this.x = x;

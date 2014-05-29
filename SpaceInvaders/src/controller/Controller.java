@@ -6,15 +6,14 @@
 package controller;
 
 import java.awt.Image;
-import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import model.Barreira;
 import model.Jogo;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;
+import model.factory.Fase2factory;
 import model.factory.IFaseFactory;
-import model.interfaces.IBarreiras;
 import model.interfaces.IPlayer;
 
 /**
@@ -68,6 +67,9 @@ public class Controller {
     public void mudarFase(int fase) {
         if (fase == 1) {
             j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
+        }
+        if(fase ==2){
+        j.montaFase(new Fase2factory(j.getParedeX(), j.getParedeY()));
         }
     }
 

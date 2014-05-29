@@ -7,6 +7,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.observer.*;
 
 /**
@@ -15,7 +16,7 @@ import model.observer.*;
  */
 public class Barreira implements TiroListener, AlienListener{
     int x, y;
-    ArrayList<BarreiraListener> listeners=new ArrayList<>();
+    ConcurrentLinkedQueue<BarreiraListener> listeners=new ConcurrentLinkedQueue<>();
 
     public Barreira(int x, int y) {
         this.x = x;

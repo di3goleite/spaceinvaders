@@ -21,7 +21,7 @@ import model.observer.TiroListener;
 public class Tiro implements TiroListener {
 
     private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<>();
-    private ArrayList <BatiListener> batiListener= new ArrayList<>();
+    private ConcurrentLinkedQueue <BatiListener> batiListener= new ConcurrentLinkedQueue<>();
     int x, y;
     int orientacao;
     Timer timer;

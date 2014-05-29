@@ -7,6 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
 import model.flyweight.ImagemAlien1;
@@ -23,7 +24,7 @@ import model.observer.TiroListener;
  */
 public class Alien implements TiroListener, INaveInimiga {
 
-    private Collection<AlienListener> alienListener = new ArrayList<>();
+    private Collection<AlienListener> alienListener = new ConcurrentLinkedQueue<>();
     
 
     /**

@@ -8,6 +8,7 @@ package model.composite;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.Alien;
 import model.Tiro;
 import model.observer.AlienEvent;
@@ -31,7 +32,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/30);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/20);
 
     }
 
