@@ -54,7 +54,6 @@ public class PlayerTest {
         assertFalse(x - 10 == p.getX());
         assertEquals(x, p.getX());
         assertEquals(y, p.getY());
-
     }
 
     /**
