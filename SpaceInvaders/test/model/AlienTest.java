@@ -60,6 +60,8 @@ public class AlienTest {
             a.mover();
         }
         
+        System.out.println(a.getX());
+        
         assertEquals(p.getX(),a.getX());
         tPlayer = p.atira();
         assertEquals(p.getX(),tPlayer.getX());
