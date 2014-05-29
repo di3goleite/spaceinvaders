@@ -13,7 +13,7 @@ import org.junit.Test;
 
 /**
  * Tests of Alien Class
- * @author Lucas
+ * @author Lucas, Diego Leite.
  */
 public class AlienTest {
     
