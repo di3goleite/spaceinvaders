@@ -29,13 +29,6 @@ public class ControllerTest {
         c.criarJogo();
     }
 
-    /**
-     *
-     */
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void criarJogoTest() {
         c.criarJogo();

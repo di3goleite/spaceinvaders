@@ -26,41 +26,19 @@ public class AlienTest {
     Player p=Player.getInstance();
     Tiro P;
     
-    
     /**
      *
      */
     public AlienTest() {
     
     }
-    
-    /**
-     *
-     */
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    /**
-     *
-     */
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+      
     /**
      *
      */
     @Before
     public void setUp() {
         a=new Alien(0,0);
-    }
-    
-    /**
-     *
-     */
-    @After
-    public void tearDown() {
     }
 
     /**
