@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author lucas
  */
 public class ImagemAlien1 implements MyImagem{
-    ImageIcon iconImage=new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.jpg");
+    ImageIcon iconImage=new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.fw.png");
 
     /**
      *

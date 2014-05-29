@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class ImagemAlien2 implements MyImagem{
 
- ImageIcon iconImage=new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-2.jpg");
+ ImageIcon iconImage=new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-2.fw.png");
 
     /**
      *
