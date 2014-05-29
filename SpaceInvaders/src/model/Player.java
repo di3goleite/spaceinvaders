@@ -133,7 +133,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     @Override
     public void moveu(TiroEvent e) {
-        if (getX() <= (((Tiro) e.getSource()).getX()) && getX() >= (((Tiro) e.getSource()).getX() - 40)
+        if (getX() <= (((Tiro) e.getSource()).getX()) && getX() >= (((Tiro) e.getSource()).getX() - 30)
                 && getY() <= (((Tiro) e.getSource()).getY() + 10) && getY() >= (((Tiro) e.getSource()).getY() - 10)) {
 
             disparaPlayerLevouTiro();
@@ -204,6 +204,14 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     @Override
     public void removePlayerListener(PlayerListener a) {
     playerListeners.remove(a);
+    }
+
+    @Override
+    public void moveu(AlienEvent e) {
+      if ((getY() <= (((Alien) e.getSource()).getY()))) {
+            this.setVidas(0);
+            disparaPlayerLevouTiro();
+        } 
     }
 
 }

@@ -31,7 +31,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000 / 2);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/30);
 
     }
 
@@ -65,6 +65,9 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
             alien.addAlienListener(listener);
         }
     }
+
+    @Override
+    public void moveu(AlienEvent ae) {}
 
     private class Move extends TimerTask {
 

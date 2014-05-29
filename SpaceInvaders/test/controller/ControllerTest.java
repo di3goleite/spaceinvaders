@@ -6,6 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.interfaces.IPlayer;
 import model.Jogo;
 import org.junit.After;
@@ -139,7 +140,7 @@ public class ControllerTest {
      */
     @Test
     public void testGetBarreira() {
-        ArrayList result = c.getBarreira();
+        ConcurrentLinkedQueue result = c.getBarreira();
         assertNotNull(result);
         assertEquals(4, result.size());
     }
