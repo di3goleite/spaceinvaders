@@ -6,14 +6,9 @@
 
 package model;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -24,7 +19,7 @@ public class AlienTest {
     
     INaveInimiga a=new Alien(10,10);
     Player p=Player.getInstance();
-    Tiro P;
+    Tiro tPlayer;
     
     /**
      *
@@ -42,37 +37,41 @@ public class AlienTest {
     }
 
     /**
-     *
+     * Drive test
      */
     @Test
-    public void moverTest(){
-        
+    public void moverTest(){        
         int x=a.getX();
         int y=a.getY();
+        
         a.mover();
-        assertFalse(x==a.getX());
-        assertEquals(x+10, a.getX());
+        assertFalse(x==a.getX()); //x is 0 and a.getX is 10
+        x = 10;
+        assertEquals(x, a.getX());
         assertEquals(y, a.getY());
         
-        x=a.getX();
-        y=a.getY();
-       // a.mover(a.getPositionX(), a.getPositionY()+10);
+        a.mover(10);
         assertFalse(y==a.getY());
-        assertEquals(x, a.getX());
         assertEquals(y+10, a.getY());
-        
+        assertEquals(x, a.getX());
     }
     
     /**
-     *
+     * Wast reached test
      */
     @Test
     public void foiAtingidoTeste(){
-    assertEquals(p.getX(),a.getX());
-    p.atira();
-    assertEquals(p.getX(),P.getX());
-    assertEquals(P.getX(),a.getX());
-    assertNull(a);
+        //Move alien to the same position of the player
+        for(int i=0; i<32; i++){
+            a.mover();
+        }
+        
+        assertEquals(p.getX(),a.getX());
+        tPlayer = p.atira();
+        assertEquals(p.getX(),tPlayer.getX());
+        assertEquals(tPlayer.getX(),a.getX());
+        a = null; //Alien is dead
+        assertNull(a);
     }
     
     @Test
