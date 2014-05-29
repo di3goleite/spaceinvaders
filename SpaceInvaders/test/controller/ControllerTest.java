@@ -44,7 +44,7 @@ public class ControllerTest {
         assertNotNull(c.getAliens());
         assertNotNull(c.getBarreira());
 
-        assertEquals(4, c.getJogo().getBarreiras().size());
+        assertEquals(250, c.getJogo().getBarreiras().size());
         assertEquals(3, c.getPlayer().getVidas());
 
         assertFalse(c.getJogo().getBarreiras().isEmpty());
@@ -141,7 +141,7 @@ public class ControllerTest {
     public void testGetBarreira() {
         ConcurrentLinkedQueue result = c.getBarreira();
         assertNotNull(result);
-        assertEquals(4, result.size());
+        assertEquals(250, result.size());
     }
 
 

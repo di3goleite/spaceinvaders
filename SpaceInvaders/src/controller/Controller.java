@@ -13,6 +13,7 @@ import model.Tiro;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;
 import model.factory.Fase2factory;
+import model.factory.Fase3Factory;
 import model.factory.IFaseFactory;
 import model.interfaces.IPlayer;
 
@@ -24,6 +25,7 @@ public class Controller {
 
     private Jogo j;
     private IFaseFactory qualFase;
+    public int fase;
 
     /**
      *
@@ -67,9 +69,16 @@ public class Controller {
     public void mudarFase(int fase) {
         if (fase == 1) {
             j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
+            this.fase=1;
         }
-        if(fase ==2){
-        j.montaFase(new Fase2factory(j.getParedeX(), j.getParedeY()));
+        if (fase == 2) {
+            j.montaFase(new Fase2factory(j.getParedeX(), j.getParedeY()));
+            this.fase=2;
+        }
+
+        if (fase == 3) {
+            j.montaFase(new Fase3Factory(j.getParedeX(), j.getParedeY()));
+            this.fase=3;
         }
     }
 
@@ -89,9 +98,7 @@ public class Controller {
         if (i == 1) {
             qualFase = new Fase1Factory(j.getParedeX(), j.getParedeY());
             j.montaFase(qualFase);
-        } else if (i == 2) {
-            
-        }
+        } 
     }
 
     /**
@@ -117,30 +124,29 @@ public class Controller {
     public ConcurrentLinkedQueue<Barreira> getBarreira() {
         return j.getBarreiras();
     }
-    
-    public int getLargura(){
-    return this.j.getParedeX();
+
+    public int getLargura() {
+        return this.j.getParedeX();
     }
-    
-    public int getAltura(){
-    return this.j.getParedeY();
+
+    public int getAltura() {
+        return this.j.getParedeY();
     }
-    
-    public int getPlayerX(){
-    return this.j.getPlayer().getX();
+
+    public int getPlayerX() {
+        return this.j.getPlayer().getX();
     }
-    
-    public int getPlayerY(){
-    return this.j.getPlayer().getY();
+
+    public int getPlayerY() {
+        return this.j.getPlayer().getY();
     }
 
     public Image getImagemPlayer() {
-     return j.getPlayer().getImagem().getImage();
+        return j.getPlayer().getImagem().getImage();
     }
 
     public int getScore() {
-    return j.getScore();
+        return j.getScore();
     }
-    
 
 }

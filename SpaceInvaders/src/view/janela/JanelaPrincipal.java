@@ -18,13 +18,15 @@ import view.fases.FasePequena;
  *
  * @author Vinícius Assis
  */
-public class JanelaPrincipal extends javax.swing.JFrame {
+public class JanelaPrincipal extends javax.swing.JFrame{
   
     /**
      * Indica qual parte da historinha sera exibida no momento
      */
     private int contaHistorinha;
     private FaseGrande fase;
+
+    
       /**
      * Creates new form JanelaPrincipal
      */
@@ -305,7 +307,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(320, 180);
-                this.dispose();
         }
         else if(i == 0){
             Controller c = new Controller(800, 600);

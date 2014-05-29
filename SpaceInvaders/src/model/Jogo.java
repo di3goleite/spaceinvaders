@@ -61,6 +61,8 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
      */
     public void montaFase(IFaseFactory iff) {
         p = iff.criaPlayer();
+        score=0;
+        p.setVidas(3);
         p.addPlayerListener(this);
         inimigos = iff.criaInimigos();
         inimigos.addAlienListener(this);
@@ -97,6 +99,8 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
     }
 
     private void disparaGameOver() {
+        
+       timer.cancel();
        for(JogoListener j: jogoListeners){
        j.gameOver(new JogoEvent(this));
        }

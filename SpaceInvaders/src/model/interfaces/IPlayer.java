@@ -35,6 +35,8 @@ public interface IPlayer{
      * @return
      */
     public int getVidas();
+    
+    public void setVidas(int i);
 
     /**
      *

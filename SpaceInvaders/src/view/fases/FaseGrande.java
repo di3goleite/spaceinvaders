@@ -24,6 +24,8 @@ import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
 import model.interfaces.IBarreiras;
 import model.observer.JogoEvent;
+import view.janela.JanelaPrincipal;
+import view.janela.TelaJogo;
 
 /**
  *
@@ -38,7 +40,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     // private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 30;
+    private int framesPorSegundo = 30, fase=1;
 
     /**
      *
@@ -164,15 +166,23 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
 
     @Override
     public void fimDeFase(JogoEvent je) {
-    temporizador.cancel();
-    controller.mudarFase(2);
-    JOptionPane.showMessageDialog(null, "VOCÊ GANHOU");
+    if(fase<3) fase++;
+    controller.mudarFase(fase);
     }
 
     @Override
     public void gameOver(JogoEvent je) {
     temporizador.cancel();
-    JOptionPane.showMessageDialog(null, "FIM DE JOGO");
+    int i = JOptionPane.showConfirmDialog(this, "FIM DE JOGO, Deseja reiniciar?");
+    if(i==0){
+    controller.criarJogo();
+    temporizador=new Timer();
+    temporizador.schedule(new Atualizadora(), 0, 1000 / this.framesPorSegundo);
+    }
+    else{
+        System.exit(0);
+    }
+
     }
 
     class Atualizadora extends TimerTask {

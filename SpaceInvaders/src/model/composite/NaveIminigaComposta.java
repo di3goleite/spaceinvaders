@@ -32,7 +32,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     public void mover() {
 
         timer = new Timer();
-        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/20);
+        timer.schedule(new NaveIminigaComposta.Move(), 0, 1000/15);
 
     }
 

@@ -17,7 +17,6 @@ import view.fases.FasePequena;
  * @author lucasvinicius
  */
 public class TelaJogo extends javax.swing.JFrame{
-
     /**
      * Creates new form TelaGrande
      * @param fase
