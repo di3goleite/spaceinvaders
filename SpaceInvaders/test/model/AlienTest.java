@@ -6,14 +6,9 @@
 
 package model;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import model.composite.INaveInimiga;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -42,25 +37,23 @@ public class AlienTest {
     }
 
     /**
-     *
+     * Drive test of Alien
      */
     @Test
-    public void moverTest(){
-        
+    public void moverTest(){        
         int x=a.getX();
         int y=a.getY();
+        
         a.mover();
-        assertFalse(x==a.getX());
-        assertEquals(x+10, a.getX());
+        assertFalse(x==a.getX()); //x is 0 and a.getX is 10
+        x = 10;
+        assertEquals(x, a.getX());
         assertEquals(y, a.getY());
         
-        x=a.getX();
-        y=a.getY();
-       // a.mover(a.getPositionX(), a.getPositionY()+10);
+        a.mover(10);
         assertFalse(y==a.getY());
-        assertEquals(x, a.getX());
         assertEquals(y+10, a.getY());
-        
+        assertEquals(x, a.getX());
     }
     
     /**

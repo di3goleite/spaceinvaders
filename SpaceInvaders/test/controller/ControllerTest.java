@@ -8,7 +8,6 @@ package controller;
 import java.util.ArrayList;
 import model.interfaces.IPlayer;
 import model.Jogo;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
