@@ -6,7 +6,6 @@
 
 package model;
 
-import java.util.ArrayList;
 import model.observer.*;
 
 /**
@@ -14,16 +13,42 @@ import model.observer.*;
  * @author lucas
  */
 public class Barreira implements TiroListener{
-    
-    ArrayList barreira = new ArrayList();
+    int x, y;
 
+    public Barreira(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
     /**
      *
      * @param e
      */
     @Override
     public void moveu(TiroEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        if (getX() <= (((Tiro) e.getSource()).getX()) && getX() >= (((Tiro) e.getSource()).getX() - 40)
+                && getY() <= (((Tiro) e.getSource()).getY() + 10) && getY() >= (((Tiro) e.getSource()).getY() - 10)) {
+            
+            ((Tiro) e.getSource()).disparaBati();
+        }
+        
     }
 
     

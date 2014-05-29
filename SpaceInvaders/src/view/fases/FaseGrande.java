@@ -15,11 +15,15 @@ import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Alien;
+import model.Barreira;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
+import model.interfaces.IBarreiras;
+import model.observer.JogoEvent;
 
 /**
  *
@@ -62,6 +66,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
 
     private void cargaInicial() {
         controller.criarJogo();
+        controller.getJogo().addJogoListener(this);
         this.setFocusable(true);
     }
     //Metodos que sao necessarios para a implementacao do game loop
@@ -111,6 +116,11 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
             bbg2d.drawImage(((Alien)inimigo).getImageIcon().getImage(), inimigo.getX(),inimigo.getY(), this);
           
         }
+        for (Barreira elemento : controller.getBarreira()) {
+            bbg2d.setColor(Color.BLUE);
+           // bbg2d.fillRect(elemento.getX(), elemento.getY(), 50, 10);
+        }
+        
         bbg2d.drawString("Score = "+controller.getScore(), 10, 10);
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
@@ -145,6 +155,18 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
 
     public int getHighScore() {
     return controller.getScore();
+    }
+
+    @Override
+    public void fimDeFase(JogoEvent je) {
+    temporizador.cancel();
+    JOptionPane.showMessageDialog(null, "VOCÊ GANHOU");
+    }
+
+    @Override
+    public void gameOver(JogoEvent je) {
+    temporizador.cancel();
+    JOptionPane.showMessageDialog(null, "FIM DE JOGO");
     }
 
     class Atualizadora extends TimerTask {

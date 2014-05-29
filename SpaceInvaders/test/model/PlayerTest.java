@@ -56,17 +56,7 @@ public class PlayerTest {
 
     }
 
-    /**
-     *
-     */
-    @Test
-    public void atiraTest() {
-        Alien a = new Alien(0, 20);
-        p.addTiroListerner(a);
-        p.atira();
-        assertNull(a);
-
-    }
+   
 
     /**
      * Test of mover method, of class Player.

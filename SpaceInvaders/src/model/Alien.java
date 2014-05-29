@@ -13,8 +13,6 @@ import model.flyweight.ImagemAlien1;
 import model.flyweight.MyImagem;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
-import model.observer.PlayerEvent;
-import model.observer.PlayerListener;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 

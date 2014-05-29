@@ -8,7 +8,9 @@ package model.interfaces;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import model.Jogo;
 import model.Tiro;
+import model.observer.PlayerListener;
 
 /**
  *
@@ -51,5 +53,11 @@ public interface IPlayer{
      * @return
      */
     public ImageIcon getImagem();
+    
+    
+    public void addPlayerListener(PlayerListener a);
+    
+    public void removePlayerListener(PlayerListener a);
+
     
 }

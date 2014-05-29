@@ -11,5 +11,6 @@ package model.interfaces;
  * @author lucas
  */
 public interface IBarreiras {
-    
+    public int getX();
+    public int getY();
 }

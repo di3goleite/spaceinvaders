@@ -15,11 +15,13 @@ import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Alien;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
+import model.observer.JogoEvent;
 
 /**
  *
@@ -52,6 +54,7 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
 
     private void cargaInicial() {
         controller.criarJogo();
+        controller.getJogo().addJogoListener(this);
         this.setFocusable(true);
     }
     //Metodos que sao necessarios para a implementacao do game loop
@@ -126,6 +129,17 @@ public class FasePequena extends JPanel implements IGameLoop, KeyListener {
 
     public int getHighScore() {
     return controller.getScore();
+    }
+
+    @Override
+    public void fimDeFase(JogoEvent je) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void gameOver(JogoEvent je) {
+     temporizador.cancel();
+    JOptionPane.showMessageDialog(null, "FIM DE JOGO");
     }
 
     class Atualizadora extends TimerTask {

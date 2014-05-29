@@ -45,5 +45,6 @@ public interface INaveInimiga {
     public void mudarOrientacao();
 
     public void addAlienListener(AlienListener listener);
+
     
 }

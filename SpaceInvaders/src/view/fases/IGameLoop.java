@@ -7,12 +7,13 @@
 package view.fases;
 
 import java.awt.event.KeyEvent;
+import model.observer.JogoListener;
 
 /**
  *
  * @author lucasvinicius
  */
-public interface IGameLoop {
+public interface IGameLoop extends JogoListener{
 
     /**
      *

@@ -8,6 +8,10 @@ import model.Player;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
 import model.flyweight.ImagemAlien1;
+import model.flyweight.ImagemAlien2;
+import model.flyweight.ImagemAlien3;
+import model.flyweight.ImagemAlien4;
+import model.flyweight.ImagemAlien5;
 import model.flyweight.MyImagem;
 import model.interfaces.IPlayer;
 
@@ -35,17 +39,20 @@ public class Fase1Factory implements IFaseFactory {
            inimigos.setParedeY(altura);
         int x, y = 10;
         Alien a;
-        MyImagem ia1 = new ImagemAlien1();
-        ia1.setImage(new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-1.jpg"));
+        ArrayList<MyImagem> ia1 = new ArrayList<>();
+        ia1.add(new ImagemAlien1());
+        ia1.add(new ImagemAlien2());
+        ia1.add(new ImagemAlien3());
+        ia1.add(new ImagemAlien4());
+        ia1.add(new ImagemAlien5());
         for (int i = 0; i < 5; i++) { // disposição dos inimigos (ajeitar ainda)
             x = 10;
             for (int j = 0; j < 11; j++) {
                 a = new Alien(x, y);
                 inimigos.addNaveInimiga(a);
-                a.setImage(ia1.getImage());
+                a.setImage(ia1.get(i).getImage());
                 
                 x += 40;
-                System.out.println("inimigo"+x+" "+y);
             }
             y += 25;
         }
@@ -60,7 +67,6 @@ public class Fase1Factory implements IFaseFactory {
     @Override
     public IPlayer criaPlayer() {
         Player p = Player.getInstance();
-        System.out.println(altura +" "+ largura);
         Player.getInstance().setX(largura/2);
        Player.getInstance().setY(altura - altura/5);
         p.setImage(
@@ -75,10 +81,10 @@ public class Fase1Factory implements IFaseFactory {
     @Override
     public ArrayList criaBarreiras() {
         ArrayList<Barreira> barreiras = new ArrayList<>();
-        barreiras.add(new Barreira());
-        barreiras.add(new Barreira());
-        barreiras.add(new Barreira());
-        barreiras.add(new Barreira());
+        barreiras.add(new Barreira(largura-50,altura - altura/4));
+        barreiras.add(new Barreira(largura/2,altura - altura/4));
+        barreiras.add(new Barreira(largura/(3),altura - altura/4));
+        barreiras.add(new Barreira(largura/4-50,altura - altura/4));
         return barreiras;
     }
 

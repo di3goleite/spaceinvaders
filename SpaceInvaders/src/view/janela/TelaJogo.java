@@ -8,6 +8,7 @@ package view.janela;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import model.observer.JogoListener;
 import view.fases.FaseGrande;
 import view.fases.FasePequena;
 
@@ -15,7 +16,7 @@ import view.fases.FasePequena;
  *
  * @author lucasvinicius
  */
-public class TelaJogo extends javax.swing.JFrame {
+public class TelaJogo extends javax.swing.JFrame{
 
     /**
      * Creates new form TelaGrande

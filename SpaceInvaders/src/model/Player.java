@@ -13,6 +13,8 @@ import model.flyweight.ImagemPlayer;
 import model.interfaces.IPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
+import model.observer.PlayerEvent;
+import model.observer.PlayerListener;
 import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
@@ -49,7 +51,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     protected ImagemPlayer myIcon = new ImagemPlayer();
     private static Player INSTANCE;
-    private Collection<TiroListener> tiroListeners = new ArrayList<>();
+    private Collection<PlayerListener> playerListeners = new ArrayList<>();
 
     /**
      *
@@ -131,11 +133,12 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     @Override
     public void moveu(TiroEvent e) {
-        if (getX() <= ( ((Tiro) e.getSource()).getX() +10) && getX() >= ( ((Tiro) e.getSource()).getX() -10) && 
-            getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= ( ((Tiro) e.getSource()).getY() -10)) 
-            
+        if (getX() <= (((Tiro) e.getSource()).getX()) && getX() >= (((Tiro) e.getSource()).getX() - 40)
+                && getY() <= (((Tiro) e.getSource()).getY() + 10) && getY() >= (((Tiro) e.getSource()).getY() - 10)) {
+
             disparaPlayerLevouTiro();
             ((Tiro) e.getSource()).disparaBati();
+        }
     }
 
     /**
@@ -155,8 +158,8 @@ public class Player implements TiroListener, IPlayer, AlienListener {
         this.y = y;
     }
 
-    void addTiroListerner(Alien a) {
-        tiroListeners.add(a);
+    void addPlayerListerner(PlayerListener a) {
+        playerListeners.add(a);
     }
 
     /**
@@ -187,18 +190,20 @@ public class Player implements TiroListener, IPlayer, AlienListener {
     }
 
     private void disparaPlayerLevouTiro() {
-        this.vidas--;
-        if(this.vidas == 0) {
-            disparaPlayerMorreu();
-        } else {
-            
+        for (PlayerListener t : playerListeners) {
+            t.foiAtingido(new PlayerEvent(this));
         }
     }
-    
-    private void disparaPlayerMorreu() {
-        System.out.println("morii");
+
+
+    @Override
+    public void addPlayerListener(PlayerListener a) {
+    playerListeners.add(a);
     }
 
-   
+    @Override
+    public void removePlayerListener(PlayerListener a) {
+    playerListeners.remove(a);
+    }
 
 }

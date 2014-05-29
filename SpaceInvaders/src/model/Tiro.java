@@ -20,7 +20,7 @@ import model.observer.TiroListener;
  */
 public class Tiro implements TiroListener {
 
-    private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<TiroListener>();
+    private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<>();
     private ArrayList <BatiListener> batiListener= new ArrayList<>();
     int x, y;
     int orientacao;
@@ -116,7 +116,6 @@ public class Tiro implements TiroListener {
             
             disparaBati();
             ((Tiro)e.getSource()).disparaBati();
-            System.out.println("batitit");
         }
     }
 

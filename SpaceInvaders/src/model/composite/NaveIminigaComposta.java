@@ -55,7 +55,7 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
     public void foiAtingido(AlienEvent ae) {
         this.removeNaveInimiga((Alien) ae.getSource());
         if (aliens.isEmpty()) {
-            System.out.println("acabou");
+            
         }
     }
 
@@ -70,9 +70,6 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
 
         @Override
         public void run() {
-            System.out.println(caixaX);
-            System.out.println(paredeX);
-            System.out.println(caixaX0);
             if ((caixaX >= paredeX - 50 && orientacao == 1)
                     || (caixaX0 <= 10 && orientacao == 0)) {
                 for (INaveInimiga alien : aliens) {
@@ -82,7 +79,6 @@ public class NaveIminigaComposta implements INaveInimiga, AlienListener {
                 orientacao = (orientacao == 1) ? 0 : 1;
                 caixaY += 10;
                 caixaY0 += 10;
-                System.out.println("ifif");
             }
             for (INaveInimiga alien : aliens) {
                 alien.mover();

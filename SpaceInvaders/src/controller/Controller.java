@@ -8,6 +8,7 @@ package controller;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import model.Barreira;
 import model.Jogo;
 import model.Tiro;
 import model.composite.INaveInimiga;
@@ -111,7 +112,7 @@ public class Controller {
      *
      * @return
      */
-    public ArrayList<IBarreiras> getBarreira() {
+    public ArrayList<Barreira> getBarreira() {
         return j.getBarreiras();
     }
     

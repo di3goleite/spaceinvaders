@@ -6,7 +6,6 @@
 
 package model.flyweight;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,7 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class ImagemAlien2 implements MyImagem{
 
- ImageIcon iconImage;
+ ImageIcon iconImage=new ImageIcon("src/interface1/multimidia/imagens/personagens/inimigo1-2.jpg");
 
     /**
      *
