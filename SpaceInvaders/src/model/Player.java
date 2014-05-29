@@ -19,7 +19,7 @@ import model.observer.TiroEvent;
 import model.observer.TiroListener;
 
 /**
- *
+ * 
  * @author Lucas
  */
 public class Player implements TiroListener, IPlayer, AlienListener {
