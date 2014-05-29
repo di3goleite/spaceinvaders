@@ -144,7 +144,6 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
        j.fimDeFase(new JogoEvent(this));
        timer.cancel();
        }
-    
     }
 
     @Override
@@ -168,7 +167,6 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
             adicionarListener(t);
             tiros.add(t);
         }
-
     }
 
     private void adicionarListener(Tiro t) {
@@ -251,5 +249,4 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
     public ConcurrentLinkedQueue<Tiro> getTiros() {
         return tiros;
     }
-
 }

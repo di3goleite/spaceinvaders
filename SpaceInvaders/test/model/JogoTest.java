@@ -6,10 +6,6 @@
 
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,7 +27,6 @@ public class JogoTest {
         assertEquals(0, instance.paredeX0);
         assertEquals(0, instance.paredeY0);
         assertEquals(800, instance.paredeX);
-        assertEquals(600, instance.paredeY);
-        
+        assertEquals(600, instance.paredeY); 
     } 
 }
