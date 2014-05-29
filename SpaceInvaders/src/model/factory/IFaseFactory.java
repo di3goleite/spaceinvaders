@@ -7,6 +7,7 @@
 package model.factory;
 import model.interfaces.IPlayer;
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import model.*;
 import model.composite.INaveInimiga;
 
@@ -33,5 +34,5 @@ public interface IFaseFactory {  //cria os componentes que formam o jogo. player
      *
      * @return
      */
-    public ArrayList criaBarreiras();
+    public ConcurrentLinkedQueue criaBarreiras();
 }

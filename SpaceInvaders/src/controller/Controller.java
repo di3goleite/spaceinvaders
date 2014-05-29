@@ -112,7 +112,7 @@ public class Controller {
      *
      * @return
      */
-    public ArrayList<Barreira> getBarreira() {
+    public ConcurrentLinkedQueue<Barreira> getBarreira() {
         return j.getBarreiras();
     }
     

@@ -1,6 +1,7 @@
 package model.factory;
 
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
 import model.Alien;
 import model.Barreira;
@@ -23,7 +24,9 @@ public class Fase1Factory implements IFaseFactory {
 
     NaveIminigaComposta inimigos = new NaveIminigaComposta(); // o conjunto de inimigos não pode ser
     private int largura, altura;
+
     //criado toda vez que for inserido um novo inimigo
+
     public Fase1Factory(int largura, int altura) {
         this.altura = altura;
         this.largura = largura;
@@ -35,8 +38,8 @@ public class Fase1Factory implements IFaseFactory {
      */
     @Override
     public INaveInimiga criaInimigos() {
-           inimigos.setParedeX(largura);
-           inimigos.setParedeY(altura);
+        inimigos.setParedeX(largura);
+        inimigos.setParedeY(altura);
         int x, y = 10;
         Alien a;
         ArrayList<MyImagem> ia1 = new ArrayList<>();
@@ -51,7 +54,7 @@ public class Fase1Factory implements IFaseFactory {
                 a = new Alien(x, y);
                 inimigos.addNaveInimiga(a);
                 a.setImage(ia1.get(i).getImage());
-                
+
                 x += 40;
             }
             y += 25;
@@ -67,8 +70,8 @@ public class Fase1Factory implements IFaseFactory {
     @Override
     public IPlayer criaPlayer() {
         Player p = Player.getInstance();
-        Player.getInstance().setX(largura/2);
-       Player.getInstance().setY(altura - altura/5);
+        Player.getInstance().setX(largura / 2);
+        Player.getInstance().setY(altura - altura / 5);
         p.setImage(
                 new ImageIcon("src/interface1/multimidia/imagens/personagens/naveAmiga.png"));
         return p;
@@ -79,12 +82,15 @@ public class Fase1Factory implements IFaseFactory {
      * @return
      */
     @Override
-    public ArrayList criaBarreiras() {
-        ArrayList<Barreira> barreiras = new ArrayList<>();
-        barreiras.add(new Barreira(largura-50,altura - altura/4));
-        barreiras.add(new Barreira(largura/2,altura - altura/4));
-        barreiras.add(new Barreira(largura/(3),altura - altura/4));
-        barreiras.add(new Barreira(largura/4-50,altura - altura/4));
+    public ConcurrentLinkedQueue criaBarreiras() {
+        ConcurrentLinkedQueue<Barreira> barreiras = new ConcurrentLinkedQueue<>();
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 10; i++) {
+                for (int x = 0; x < 5; x++) {
+                    barreiras.add(new Barreira(60+(j*150)+(5*i), (altura - altura / 4)-10 + (x * 5)));
+                }
+            }
+        }
         return barreiras;
     }
 

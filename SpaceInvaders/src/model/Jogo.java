@@ -15,6 +15,8 @@ import model.factory.IFaseFactory;
 import model.interfaces.IPlayer;
 import model.observer.AlienEvent;
 import model.observer.AlienListener;
+import model.observer.BarreiraEvent;
+import model.observer.BarreiraListener;
 import model.observer.BatiEvent;
 import model.observer.BatiListener;
 import model.observer.JogoEvent;
@@ -28,12 +30,12 @@ import model.observer.TiroListener;
  *
  * @author lucas
  */
-public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiListener {
+public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiListener, BarreiraListener {
 
     IPlayer p;
     INaveInimiga inimigos;
-    ArrayList<Barreira> barreiras;
-    ArrayList<JogoListener> jogoListeners=new ArrayList<>();
+    ConcurrentLinkedQueue<Barreira> barreiras;
+    ConcurrentLinkedQueue<JogoListener> jogoListeners=new ConcurrentLinkedQueue<>();
     ConcurrentLinkedQueue<Tiro> tiros = new ConcurrentLinkedQueue<>();
     Timer timer;
     int score = 0, highScore = 0;
@@ -62,7 +64,12 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
         p.addPlayerListener(this);
         inimigos = iff.criaInimigos();
         inimigos.addAlienListener(this);
+        inimigos.addAlienListener((Player)p);
         barreiras = iff.criaBarreiras();
+        for(Barreira b: barreiras){
+        b.addBarreiraListener(this);
+        inimigos.addAlienListener(b);
+        }
         inimigos.mover();
         timer = new Timer();
         timer.schedule(new AlienAtira(), 0, 1000 / 2);
@@ -80,7 +87,7 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
     @Override
     public void foiAtingido(PlayerEvent pe) {
         Player.getInstance().setVidas(Player.getInstance().getVidas() - 1);
-        if (Player.getInstance().getVidas() == 0) {
+        if (Player.getInstance().getVidas() <= 0) {
             disparaGameOver();
         }
     }
@@ -117,6 +124,9 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
        if(((NaveIminigaComposta)this.inimigos).getAliens().isEmpty()){
        disparaNovaFase();
        }
+       for(Barreira b: barreiras){
+        pipoco.addTiroListerner(b);
+        }
     }
 
     public void addJogoListener(JogoListener a) {
@@ -132,9 +142,23 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
     
        for(JogoListener j: jogoListeners){
        j.fimDeFase(new JogoEvent(this));
+       timer.cancel();
        }
     
     }
+
+    @Override
+    public void foiDestruida(BarreiraEvent be) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void foiAtingida(BarreiraEvent be) {
+    barreiras.remove((Barreira)be.getSource());
+    }
+
+    @Override
+    public void moveu(AlienEvent ae) { }
 
     private class AlienAtira extends TimerTask {
 
@@ -151,6 +175,9 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
         t.addTiroListerner(this);
         t.addBatiListerner(this);
         t.addTiroListerner(Player.getInstance());
+        for(Barreira b: barreiras){
+        t.addTiroListerner(b);
+        }
         for (Tiro tiro : tiros) {
             tiro.addTiroListerner(t);
             t.addTiroListerner(tiro);
@@ -177,7 +204,7 @@ public class Jogo implements AlienListener, PlayerListener, TiroListener, BatiLi
      *
      * @return
      */
-    public ArrayList<Barreira> getBarreiras() {
+    public ConcurrentLinkedQueue<Barreira> getBarreiras() {
         return barreiras;
     }
 

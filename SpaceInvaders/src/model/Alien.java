@@ -80,6 +80,8 @@ public class Alien implements TiroListener, INaveInimiga {
         } else {
             this.x+=10;
         }
+        
+          disparaAlienMoveu();
     }
 
     @Override
@@ -117,6 +119,7 @@ public class Alien implements TiroListener, INaveInimiga {
               ((Tiro) e.getSource()).disparaBati();
               disparaAlienMorreu();    
         }
+          
     }
 
     /**
@@ -143,5 +146,11 @@ public class Alien implements TiroListener, INaveInimiga {
     @Override
     public void addAlienListener(AlienListener e){
         alienListener.add(e);
+    }
+
+    private void disparaAlienMoveu() {
+      for (AlienListener t : alienListener) {
+            t.moveu(new AlienEvent(this));
+        }
     }
 }
