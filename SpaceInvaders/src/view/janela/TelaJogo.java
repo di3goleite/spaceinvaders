@@ -8,9 +8,7 @@ package view.janela;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import model.observer.JogoListener;
 import view.fases.FaseGrande;
-import view.fases.FasePequena;
 
 /**
  *
@@ -24,12 +22,8 @@ public class TelaJogo extends javax.swing.JFrame{
     public TelaJogo(final JPanel fase) {
         initComponents();
         fase.setFocusable(true);
-        if(fase instanceof FaseGrande){
             fase.addKeyListener((FaseGrande)fase);
-        }
-        else if(fase instanceof FasePequena){
-            fase.addKeyListener((FasePequena)fase);
-        }
+        
         this.painelContemFases.add(fase, BorderLayout.CENTER);
         this.setResizable(false);
         this.setLocationRelativeTo(null);

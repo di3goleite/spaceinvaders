@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -21,28 +20,29 @@ import model.observer.TiroListener;
 public class Tiro implements TiroListener {
 
     private ConcurrentLinkedQueue<TiroListener> tiroListeners = new ConcurrentLinkedQueue<>();
-    private ConcurrentLinkedQueue <BatiListener> batiListener= new ConcurrentLinkedQueue<>();
+    private ConcurrentLinkedQueue<BatiListener> batiListener = new ConcurrentLinkedQueue<>();
     int x, y;
     int orientacao;
     Timer timer;
     TiroEvent evento;
 
     Tiro(int positionX, int positionY, int orientacao) {
-        
+
         this.orientacao = orientacao;
         this.x = positionX;
         this.y = positionY;
-        
+
         evento = new TiroEvent(this);
         timer = new Timer();
-        timer.schedule(new Move(), 0, 1000/20);    
+        timer.schedule(new Move(), 0, 1000 / 20);
     }
-    
+
     /**
      * Getter for tiroListeners
-     * @return 
+     *
+     * @return
      */
-    public Iterable<TiroListener> getTiroListeners(){
+    public Iterable<TiroListener> getTiroListeners() {
         return this.getTiroListeners();
     }
 
@@ -61,7 +61,7 @@ public class Tiro implements TiroListener {
     public int getX() {
         return x;
     }
-    
+
     /**
      *
      * @return
@@ -70,17 +70,16 @@ public class Tiro implements TiroListener {
         return y;
     }
 
-
     public void disparaBati() {
-    for (BatiListener t : batiListener) {
+        for (BatiListener t : batiListener) {
             t.bati(new BatiEvent(this));
         }
-    
-            timer.cancel();
+
+        timer.cancel();
     }
 
     public void addBatiListerner(Jogo tl) {
-    batiListener.add(tl);
+        batiListener.add(tl);
     }
 
     private class Move extends TimerTask {
@@ -97,7 +96,7 @@ public class Tiro implements TiroListener {
     }
 
     private void disparaMoveu() {
-        
+
         for (TiroListener t : tiroListeners) {
             t.moveu(evento);
         }
@@ -118,11 +117,11 @@ public class Tiro implements TiroListener {
      */
     @Override
     public void moveu(TiroEvent e) {
-        if (getX() <= ( ((Tiro) e.getSource()).getX() +5) && getX() >= ( ((Tiro) e.getSource()).getX()-5) && 
-            getY() <= ( ((Tiro) e.getSource()).getY() +10) && getY() >= (((Tiro) e.getSource()).getY())-10) {
-            
+        if (getX() <= (((Tiro) e.getSource()).getX() + 5) && getX() >= (((Tiro) e.getSource()).getX() - 5)
+                && getY() <= (((Tiro) e.getSource()).getY() + 10) && getY() >= (((Tiro) e.getSource()).getY()) - 10) {
+
             disparaBati();
-            ((Tiro)e.getSource()).disparaBati();
+            ((Tiro) e.getSource()).disparaBati();
         }
     }
 

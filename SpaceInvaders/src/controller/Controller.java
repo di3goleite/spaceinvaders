@@ -12,11 +12,8 @@ import model.Jogo;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.factory.Fase1Factory;
-import model.factory.Fase1FactoryPequena;
 import model.factory.Fase2factory;
-import model.factory.Fase2factoryPequena;
 import model.factory.Fase3Factory;
-import model.factory.Fase3FactoryPequena;
 import model.factory.IFaseFactory;
 import model.interfaces.IPlayer;
 
@@ -66,9 +63,6 @@ public class Controller {
      *
      */
     public void criarJogo() {
-       /* if (pequena == 1) {
-            j.montaFase(new Fase1FactoryPequena(j.getParedeX(), j.getParedeY()));
-        }*/
         j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
     }
 
@@ -77,37 +71,20 @@ public class Controller {
      * @param fase
      */
     public void mudarFase(int fase) {
-        /*if (pequena == 1) {
-
-            if (fase == 1) {
-                j.montaFase(new Fase1FactoryPequena(j.getParedeX(), j.getParedeY()));
-                this.fase = 1;
-            }
-            if (fase == 2) {
-                j.montaFase(new Fase2factoryPequena(j.getParedeX(), j.getParedeY()));
-                this.fase = 2;
-            }
-
-            if (fase == 3) {
-                j.montaFase(new Fase3FactoryPequena(j.getParedeX(), j.getParedeY()));
-                this.fase = 3;
-            }
-        } else { */
-            if (fase == 1) {
-                j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
-                this.fase = 1;
-            }
-            if (fase == 2) {
-                j.montaFase(new Fase2factory(j.getParedeX(), j.getParedeY()));
-                this.fase = 2;
-            }
-
-            if (fase == 3) {
-                j.montaFase(new Fase3Factory(j.getParedeX(), j.getParedeY()));
-                this.fase = 3;
-            }
+        if (fase == 1) {
+            j.montaFase(new Fase1Factory(j.getParedeX(), j.getParedeY()));
+            this.fase = 1;
         }
-    //}
+        if (fase == 2) {
+            j.montaFase(new Fase2factory(j.getParedeX(), j.getParedeY()));
+            this.fase = 2;
+        }
+
+        if (fase == 3) {
+            j.montaFase(new Fase3Factory(j.getParedeX(), j.getParedeY()));
+            this.fase = 3;
+        }
+    }
 
     /**
      *

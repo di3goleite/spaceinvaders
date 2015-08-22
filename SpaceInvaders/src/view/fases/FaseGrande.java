@@ -22,10 +22,7 @@ import model.Barreira;
 import model.Tiro;
 import model.composite.INaveInimiga;
 import model.composite.NaveIminigaComposta;
-import model.interfaces.IBarreiras;
 import model.observer.JogoEvent;
-import view.janela.JanelaPrincipal;
-import view.janela.TelaJogo;
 
 /**
  *
@@ -35,12 +32,10 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
 
     private BufferedImage backBuffer;
     private ImageIcon fundo;
-    // private ImageIcon naveAmiga = new ImageIcon("src/interface1/multimidia/imagens/personagens/naveAmiga.png");
-    // private int posicaoNAmigaX, posicaoNAmigaY = 520;
-    // private int posicaoNInimigaX = 10, posicaoNInimigaY = 10;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 30, fase=1;
+    private int framesPorSegundo = 30; 
+    private int fase = 1;
 
     /**
      *
@@ -113,22 +108,22 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
             bbg2d.setColor(Color.red);
             bbg2d.fillRect(elemento.getX() + 5, elemento.getY(), 5, 10);
         }
-        for (int i=0; i<((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
+        for (int i = 0; i < ((NaveIminigaComposta) controller.getAliens()).getAliens().size(); i++) {
             INaveInimiga inimigo = ((NaveIminigaComposta) controller.getAliens()).getAliens().get(i);
-            bbg2d.drawImage(((Alien)inimigo).getImageIcon().getImage(), inimigo.getX(),inimigo.getY(), this);
-          
+            bbg2d.drawImage(((Alien) inimigo).getImageIcon().getImage(), inimigo.getX(), inimigo.getY(), this);
+
         }
-        
-        bbg2d.drawString("Score = "+controller.getScore(), 10, 10);
-        bbg2d.drawString("Vidas ", controller.getLargura()-60,10);
-        for(int i=0; i<controller.getPlayer().getVidas(); i++){
-        bbg2d.fillRect(controller.getLargura()-50+(10*i), 15, 5, 5);
+
+        bbg2d.drawString("Score = " + controller.getScore(), 10, 10);
+        bbg2d.drawString("Vidas ", controller.getLargura() - 60, 10);
+        for (int i = 0; i < controller.getPlayer().getVidas(); i++) {
+            bbg2d.fillRect(controller.getLargura() - 50 + (10 * i), 15, 5, 5);
         }
-        
+
         for (Barreira elemento : controller.getBarreira()) {
-           bbg2d.fillRect(elemento.getX(), elemento.getY(), 5, 5);
+            bbg2d.fillRect(elemento.getX(), elemento.getY(), 5, 5);
         }
-        
+
         g2.drawImage(backBuffer, 0, 0, this);//Desenha tudo o que foi alterado no painel
     }
 
@@ -161,27 +156,28 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     }
 
     public int getHighScore() {
-    return controller.getScore();
+        return controller.getScore();
     }
 
     @Override
     public void fimDeFase(JogoEvent je) {
-    if(fase<3) fase++;
-    controller.mudarFase(fase);
+        if (fase < 3) {
+            fase++;
+        }
+        controller.mudarFase(fase);
     }
 
     @Override
     public void gameOver(JogoEvent je) {
-    temporizador.cancel();
-    int i = JOptionPane.showConfirmDialog(this, "FIM DE JOGO, Deseja reiniciar?");
-    if(i==0){
-    controller.criarJogo();
-    temporizador=new Timer();
-    temporizador.schedule(new Atualizadora(), 0, 1000 / this.framesPorSegundo);
-    }
-    else{
-        System.exit(0);
-    }
+        temporizador.cancel();
+        int i = JOptionPane.showConfirmDialog(this, "FIM DE JOGO, Deseja reiniciar?");
+        if (i == 0) {
+            controller.criarJogo();
+            temporizador = new Timer();
+            temporizador.schedule(new Atualizadora(), 0, 1000 / this.framesPorSegundo);
+        } else {
+            System.exit(0);
+        }
 
     }
 

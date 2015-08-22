@@ -19,6 +19,7 @@ import model.observer.TiroListener;
 
 /**
  * Class of the Player
+ *
  * @author Lucas
  */
 public class Player implements TiroListener, IPlayer, AlienListener {
@@ -54,12 +55,13 @@ public class Player implements TiroListener, IPlayer, AlienListener {
 
     /**
      * Getter for playerListeners attribute
-     * @return 
+     *
+     * @return
      */
-    public Iterable<PlayerListener> getPlayerListeners(){
+    public Iterable<PlayerListener> getPlayerListeners() {
         return playerListeners;
     }
-    
+
     /**
      *
      * @param vidas
@@ -68,8 +70,8 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      */
     private Player(int vidas, int x, int y) {
         this.vidas = vidas;
-        this.setX(x);
-        this.setY(y);
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -96,6 +98,7 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      *
      * @param vidas
      */
+    @Override
     public void setVidas(int vidas) {
         this.vidas = vidas;
     }
@@ -153,7 +156,8 @@ public class Player implements TiroListener, IPlayer, AlienListener {
      * @param ae
      */
     @Override
-    public void foiAtingido(AlienEvent ae) { }
+    public void foiAtingido(AlienEvent ae) {
+    }
 
     public void setX(int x) {
         this.x = x;
@@ -202,20 +206,20 @@ public class Player implements TiroListener, IPlayer, AlienListener {
 
     @Override
     public void addPlayerListener(PlayerListener a) {
-    playerListeners.add(a);
+        playerListeners.add(a);
     }
 
     @Override
     public void removePlayerListener(PlayerListener a) {
-    playerListeners.remove(a);
+        playerListeners.remove(a);
     }
 
     @Override
     public void moveu(AlienEvent e) {
-      if ((getY() <= (((Alien) e.getSource()).getY()))) {
+        if ((getY() <= (((Alien) e.getSource()).getY()))) {
             this.setVidas(0);
             disparaPlayerLevouTiro();
-        } 
+        }
     }
 
 }

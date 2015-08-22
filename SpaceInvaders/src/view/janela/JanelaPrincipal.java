@@ -3,87 +3,86 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view.janela;
 
 import controller.Controller;
 import java.awt.CardLayout;
-import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.fases.FaseGrande;
-import view.fases.FasePequena;
 
 /**
  *
  * @author Vinícius Assis
  */
-public class JanelaPrincipal extends javax.swing.JFrame{
-  
+public class JanelaPrincipal extends javax.swing.JFrame {
+
     /**
      * Indica qual parte da historinha sera exibida no momento
      */
     private int contaHistorinha;
     private FaseGrande fase;
 
-    
-      /**
+    /**
      * Creates new form JanelaPrincipal
      */
     public JanelaPrincipal() {
         initComponents();
     }
+
     /**
-     * Metodo responsavel por mostrar o painel desejado no momento. 
-     * No parametro nome, deve ser especificado qual painel sera exibido
-     * No parametro qualPainel, deve ser especificado qual dos paineis principais deseja-se trabalhar
+     * Metodo responsavel por mostrar o painel desejado no momento. No parametro
+     * nome, deve ser especificado qual painel sera exibido No parametro
+     * qualPainel, deve ser especificado qual dos paineis principais deseja-se
+     * trabalhar
+     *
      * @param nome
-     * @param qualPainel 
+     * @param qualPainel
      */
-    private void mostraTelas(String nome, String qualPainel){
+    private void mostraTelas(String nome, String qualPainel) {
         CardLayout card;
-        if(qualPainel.equals("inferior")){
-            card = (CardLayout)this.painelInferior.getLayout();
+        if (qualPainel.equals("inferior")) {
+            card = (CardLayout) this.painelInferior.getLayout();
             card.show(this.painelInferior, nome);
-        }
-        else if(qualPainel.equals("superior")){
-            card = (CardLayout)this.painelSuperior.getLayout();
+        } else if (qualPainel.equals("superior")) {
+            card = (CardLayout) this.painelSuperior.getLayout();
             card.show(this.painelSuperior, nome);
-        }
-        else if(qualPainel.equals("historinha")){
-            card = (CardLayout)this.painelHistorinha.getLayout();
+        } else if (qualPainel.equals("historinha")) {
+            card = (CardLayout) this.painelHistorinha.getLayout();
             card.show(this.painelHistorinha, nome);
         }
-        
+
     }
+
     /**
      * Responsavel por mudar os paineis na hora de mostrar a historia
      */
-    private void mudaHistorinha(){
-        switch(this.contaHistorinha){
-                case 0:
-                    this.mostraTelas("cena1", "historinha");
-                    this.labelIndicaCena.setText("Planeta Thousand Sunny");
-                    break;
-                case 1:
-                    this.mostraTelas("cena2", "historinha");
-                    this.labelIndicaCena.setText("Temperatura: 200 °C");
-                    break;
-                case 2:
-                    this.mostraTelas("cena3", "historinha");
-                    this.labelIndicaCena.setText("#PartiuTerra");
-                    break;
-                case 3:
-                    this.mostraTelas("cena4", "historinha");
-                    this.labelIndicaCena.setText("SOCOOORRO!!!");
-                    break;
-                case 4:
-                    this.mostraTelas("cena5", "historinha");
-                    this.labelIndicaCena.setText("Ataquem os Aliens");
-                    break;
-            }
-        
+    private void mudaHistorinha() {
+        switch (this.contaHistorinha) {
+            case 0:
+                this.mostraTelas("cena1", "historinha");
+                this.labelIndicaCena.setText("Planeta Thousand Sunny");
+                break;
+            case 1:
+                this.mostraTelas("cena2", "historinha");
+                this.labelIndicaCena.setText("Temperatura: 200 °C");
+                break;
+            case 2:
+                this.mostraTelas("cena3", "historinha");
+                this.labelIndicaCena.setText("#PartiuTerra");
+                break;
+            case 3:
+                this.mostraTelas("cena4", "historinha");
+                this.labelIndicaCena.setText("SOCOOORRO!!!");
+                break;
+            case 4:
+                this.mostraTelas("cena5", "historinha");
+                this.labelIndicaCena.setText("Ataquem os Aliens");
+                break;
+        }
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -285,41 +284,28 @@ public class JanelaPrincipal extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAboutActionPerformed
-        if(this.botaoAbout.isSelected())
+        if (this.botaoAbout.isSelected()) {
             this.labelMenuP.setText("Developed for us -> DiegoBoy, Menininho, Uchiha e Stealth");
-        else
+        } else {
             this.labelMenuP.setText("");
+        }
     }//GEN-LAST:event_botaoAboutActionPerformed
 
     private void botaoHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoHelpActionPerformed
-     JOptionPane.showMessageDialog(null, "SETAS DIRECIONAIS(RIGTH e LEFT) ou A e D movem a nave\n e "
-             + "SPACE ou ENTER atira");
+        JOptionPane.showMessageDialog(null, "SETAS DIRECIONAIS(RIGTH e LEFT) ou A e D movem a nave\n e "
+                + "SPACE ou ENTER atira");
     }//GEN-LAST:event_botaoHelpActionPerformed
 
     private void botaoSkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSkipActionPerformed
-        int i = JOptionPane.showConfirmDialog(this, "Iniciar em Tela Cheia (800 * 600)?");
-        if(i == 1){
-            Controller c = new Controller(320, 180);
-            FasePequena faseP = new FasePequena(c);
-            TelaJogo ini = new TelaJogo(faseP);
-                ini.setVisible(true);
-                ini.setTitle("space Invaders - 320 * 180");
-                ini.setLocationRelativeTo(null);
-                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ini.setSize(320, 180);
-                this.dispose();
-        }
-        else if(i == 0){
-            Controller c = new Controller(800, 600);
-            FaseGrande faseG = new FaseGrande(c);
-            TelaJogo ini = new TelaJogo(faseG);
-                ini.setVisible(true);
-                ini.setTitle("space Invaders - 800 * 600");
-                ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ini.setSize(800, 600);
-                this.dispose();
-        }
-       
+        Controller c = new Controller(800, 600);
+        FaseGrande faseG = new FaseGrande(c);
+        TelaJogo ini = new TelaJogo(faseG);
+        ini.setVisible(true);
+        ini.setTitle("Space Invaders");
+        ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ini.setSize(800, 600);
+        this.dispose();
+
     }//GEN-LAST:event_botaoSkipActionPerformed
 
     private void botaoPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPlayActionPerformed
@@ -331,9 +317,9 @@ public class JanelaPrincipal extends javax.swing.JFrame{
     }//GEN-LAST:event_botaoPlayActionPerformed
 
     private void botaoEsquerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEsquerdaActionPerformed
-        this.contaHistorinha-=1;
+        this.contaHistorinha -= 1;
         this.botaoDireita.setEnabled(true);
-        if(this.contaHistorinha == 0){
+        if (this.contaHistorinha == 0) {
             this.botaoEsquerda.setEnabled(false);
         }
         this.mudaHistorinha();
@@ -341,23 +327,23 @@ public class JanelaPrincipal extends javax.swing.JFrame{
     }//GEN-LAST:event_botaoEsquerdaActionPerformed
 
     private void botaoDireitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDireitaActionPerformed
-        this.contaHistorinha+=1;
+        this.contaHistorinha += 1;
         this.botaoEsquerda.setEnabled(true);
-         if(this.contaHistorinha == 4){
+        if (this.contaHistorinha == 4) {
             this.botaoDireita.setEnabled(false);
             this.botaoSkip.setText("PLAY");
         }
-         
-         this.mudaHistorinha();
+
+        this.mudaHistorinha();
     }//GEN-LAST:event_botaoDireitaActionPerformed
 
-   
+
     private void labelLogoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelLogoKeyPressed
 
     }//GEN-LAST:event_labelLogoKeyPressed
 
     private void botaoScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoScoreActionPerformed
-         JOptionPane.showMessageDialog(null, fase.getHighScore());
+        JOptionPane.showMessageDialog(null, fase.getHighScore());
     }//GEN-LAST:event_botaoScoreActionPerformed
 
     /**
@@ -391,14 +377,14 @@ public class JanelaPrincipal extends javax.swing.JFrame{
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-            
+
                 JanelaPrincipal ini = new JanelaPrincipal();
                 ini.setVisible(true);
                 ini.setTitle("space Invaders");
                 ini.setLocationRelativeTo(null);
                 ini.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ini.setSize(800, 690);
-                
+
             }
         });
     }
