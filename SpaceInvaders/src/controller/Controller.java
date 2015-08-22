@@ -150,6 +150,9 @@ public class Controller {
     }
 
     public int getScore() {
+        if(j == null){
+            return 0;
+        }
         return j.getScore();
     }
 

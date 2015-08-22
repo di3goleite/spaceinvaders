@@ -34,7 +34,7 @@ public class FaseGrande extends JPanel implements IGameLoop, KeyListener {
     private ImageIcon fundo;
     private Controller controller;
     private Timer temporizador;
-    private int framesPorSegundo = 30; 
+    private int framesPorSegundo = 30;
     private int fase = 1;
 
     /**

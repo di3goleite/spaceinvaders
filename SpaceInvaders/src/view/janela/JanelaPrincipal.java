@@ -343,7 +343,9 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_labelLogoKeyPressed
 
     private void botaoScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoScoreActionPerformed
-        JOptionPane.showMessageDialog(null, fase.getHighScore());
+        if(fase == null){
+            JOptionPane.showMessageDialog(null, 0);
+        }else JOptionPane.showMessageDialog(null, fase.getHighScore());
     }//GEN-LAST:event_botaoScoreActionPerformed
 
     /**
